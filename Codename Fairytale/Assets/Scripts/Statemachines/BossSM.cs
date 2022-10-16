@@ -5,9 +5,15 @@ using UnityEngine;
 public class BossSM : StateMachine
 {
     //states variables
+
     [HideInInspector]
     //idle state the enemy has no movement other than facing player
     public Idle idleState;
+
+    [HideInInspector]
+    //charge state the enemy moves towards player (more detail on Charge stript)
+    public Charge chargeState;
+
 
 
 
@@ -25,6 +31,7 @@ public class BossSM : StateMachine
     private void Awake() 
     {
         idleState = new Idle(this);
+        chargeState = new Charge(this);
     }
 
     protected override BaseState GetInitialState()
