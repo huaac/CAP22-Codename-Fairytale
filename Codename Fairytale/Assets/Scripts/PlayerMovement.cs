@@ -9,17 +9,27 @@ public class PlayerMovement : MonoBehaviour
     private PlayerState m_playerState;
 
     // movement variables
+    [Header("Basic movement settings")]
     [SerializeField] private float m_moveSpeed = 5f;
     [SerializeField] private float m_jumpSpeed = 7f;
     [SerializeField] private LayerMask jumpableGround;
     float movement_x = 0f;
 
     // attack variables
+    [Header("Attack settings")]
     [SerializeField] private int attack;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRange = 0.5f;
     [SerializeField] private LayerMask enemyLayers;
     private bool isSteppingOnEnemy = false;
+
+    // dash variables
+    [Header("Dash settings")]
+    [SerializeField] private float dashPower = 20f;
+    [SerializeField] private float dashTime = 0.2f;
+    [SerializeField] private float dashCoolDown = 1f;
+    private bool canDash = true;
+    private bool isDashing = false;
 
 
     private void Awake()
@@ -36,10 +46,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update() 
     {
-        //horizontal movement
+        // disable movement input while dashing
+        if (isDashing) return;
+
+        // horizontal movement
         movement_x = Input.GetAxisRaw("Horizontal");
 
-        //flip character
+        // flip character
         if (movement_x < 0)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
@@ -51,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
         m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
 
-        //jump
+        // jump
         if (Input.GetAxisRaw("Jump") > 0) 
         {
             if (IsGrounded())
@@ -60,7 +73,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        //slash attack
+        // dash
+        // TODO: decide on dash controls
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
+
+        // slash attack
         if (Input.GetButtonDown("Slash"))
         {
             Attack();
@@ -71,8 +91,6 @@ public class PlayerMovement : MonoBehaviour
     {
         StepOnEnemyCheck.onStepped -= StepOnEnemy;
     }
-
-
     private void StepOnEnemy()
     {
         isSteppingOnEnemy = true;
@@ -82,6 +100,26 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(m_collider.bounds.center, m_collider.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
+    }
+
+    private IEnumerator Dash()
+    {
+        // do dash
+        canDash = false;
+        isDashing = true;
+        float originalGravity = m_rb.gravityScale;
+        m_rb.gravityScale = 0f;
+
+        m_rb.velocity = new Vector2(transform.localScale.x * dashPower, 0f);
+        yield return new WaitForSeconds(dashTime);
+
+        // stop dash
+        m_rb.gravityScale = originalGravity;
+        isDashing = false;
+
+        // cooldown after dash
+        yield return new WaitForSeconds(dashCoolDown);
+        canDash = true;
     }
 
     private void Attack()
