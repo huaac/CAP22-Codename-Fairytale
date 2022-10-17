@@ -41,6 +41,15 @@ public class Idle : BaseState
             {
                 scale.x = Mathf.Abs(scale.x) * (_bsm.flip ? -1 : 1);
             }
+            _bsm.facingRight = !_bsm.facingRight;
+            if (_bsm.facingRight)
+            {
+                _bsm.chargeSpeed = Mathf.Abs(_bsm.chargeSpeed);
+            }
+            else
+            {
+                _bsm.chargeSpeed = -1 * Mathf.Abs(_bsm.chargeSpeed);
+            }
         }
         
 

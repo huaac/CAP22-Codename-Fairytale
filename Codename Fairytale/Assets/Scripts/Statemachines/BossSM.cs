@@ -23,9 +23,17 @@ public class BossSM : StateMachine
     public GameObject target;
     //to correct the side the enemy flips too
     public bool flip;
+    //radius of boss to help check player position
+    public float _radiusLength;
+    //as soon as charge state starts the position of player at that point is taken and used to charge
+    [HideInInspector]
+    public Vector3 targetLocation;
+    public bool facingRight;
+    
+
 
     //for the charge and run state
-    //public float chargeSpeed;
+    public float chargeSpeed;
     //public float runSpeed;
     
     private void Awake() 
