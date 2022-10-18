@@ -14,6 +14,9 @@ public class BossSM : StateMachine
     //charge state the enemy moves towards player (more detail on Charge stript)
     public Charge chargeState;
 
+    [HideInInspector]
+    public Kick kickState;
+
 
 
 
@@ -40,6 +43,7 @@ public class BossSM : StateMachine
     {
         idleState = new Idle(this);
         chargeState = new Charge(this);
+        kickState = new Kick(this);
     }
 
     protected override BaseState GetInitialState()
