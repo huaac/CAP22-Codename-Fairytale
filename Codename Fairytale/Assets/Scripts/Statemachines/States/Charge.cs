@@ -20,7 +20,6 @@ public class Charge : BaseState
         base.Enter();
         _isFacingPlayer = true;
         _bsm.targetLocation = _bsm.target.transform.position;
-        
     }
 
     public override void UpdateLogic()

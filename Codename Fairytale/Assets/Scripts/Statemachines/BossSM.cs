@@ -17,6 +17,10 @@ public class BossSM : StateMachine
     [HideInInspector]
     public Kick kickState;
 
+    [HideInInspector]
+    //shoot state the enemy shoots a projectile at the player
+    public Shoot shootState;
+
 
 
 

@@ -206,7 +206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2938083971043162956, guid: b2f44cc3149d9894d9724a5fb7a6b977, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2938083971043162962, guid: b2f44cc3149d9894d9724a5fb7a6b977, type: 3}
       propertyPath: m_RootOrder
@@ -295,10 +295,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 405053901}
   target: {fileID: 1139288473}
-  flip: 1
+  flip: 0
   _radiusLength: 2.5
   targetLocation: {x: 0, y: 0, z: 0}
-  facingRight: 0
+  facingRight: 1
   chargeSpeed: 250
 --- !u!1 &519420028
 GameObject:
@@ -616,6 +616,9 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
+  dashPower: 20
+  dashTime: 0.2
+  dashCoolDown: 1
 --- !u!61 &1139288478
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -713,7 +716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1217988912
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -943,7 +946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2938083971043162956, guid: b2f44cc3149d9894d9724a5fb7a6b977, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2938083971043162962, guid: b2f44cc3149d9894d9724a5fb7a6b977, type: 3}
       propertyPath: m_RootOrder
