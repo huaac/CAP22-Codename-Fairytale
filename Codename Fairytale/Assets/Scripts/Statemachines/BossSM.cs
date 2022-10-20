@@ -21,7 +21,10 @@ public class BossSM : StateMachine
     //shoot state the enemy shoots a projectile at the player
     public Shoot shootState;
 
-
+    [Header("Attack Pattern")]
+    public int numCharges;
+    public int numKicks;
+    
 
 
     //rigidbody used for any movement of enemy
@@ -31,10 +34,14 @@ public class BossSM : StateMachine
     //to correct the side the enemy flips too
     public bool flip;
     //radius of boss to help check player position
-    public float _radiusLength;
+    public float radiusLength;
+    //used to see if player was within the of kicking
+    public float _kickradius;
     //as soon as charge state starts the position of player at that point is taken and used to charge
     [HideInInspector]
     public Vector3 targetLocation;
+    [HideInInspector]
+    public bool isFacingPlayer;
     public bool facingRight;
     
 
@@ -48,6 +55,7 @@ public class BossSM : StateMachine
         idleState = new Idle(this);
         chargeState = new Charge(this);
         kickState = new Kick(this);
+
     }
 
     protected override BaseState GetInitialState()

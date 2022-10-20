@@ -293,12 +293,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2cc7ba93b560c4187e98e66ae78666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numCharges: 0
+  numKicks: 0
   rb: {fileID: 405053901}
   target: {fileID: 1139288473}
   flip: 0
-  _radiusLength: 2.5
+  radiusLength: 0
+  _kickradius: 0
   targetLocation: {x: 0, y: 0, z: 0}
-  facingRight: 1
+  isFacingPlayer: 0
+  facingRight: 0
   chargeSpeed: 250
 --- !u!1 &519420028
 GameObject:

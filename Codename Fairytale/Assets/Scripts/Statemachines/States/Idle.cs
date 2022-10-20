@@ -14,11 +14,21 @@ public class Idle : BaseState
     public override void Enter()
     {
         base.Enter();
+        _bsm.rb.velocity = Vector2.zero;
+         Vector3 eulerRotation = _bsm.transform.rotation.eulerAngles;
+        _bsm.transform.rotation = Quaternion.Euler(eulerRotation.x, eulerRotation.y, 0);
+        _bsm.isFacingPlayer = false;
     }
 
     public override void UpdateLogic()
     {
+        if (_bsm.target == null) return;
+
         base.UpdateLogic();
+        if (_bsm.isFacingPlayer)
+        {
+            stateMachine.ChangeState(_bsm.chargeState);
+        }
         //change state here
         //make random choice between attacks 
         //each attack has its own cooldown
@@ -36,12 +46,16 @@ public class Idle : BaseState
             if (_bsm.target.transform.position.x > _bsm.transform.position.x)
             {
                 scale.x = Mathf.Abs(scale.x) * -1 * (_bsm.flip ? -1 : 1);
+                Debug.Log("right");
+                _bsm.facingRight = true;
             }
             else 
             {
                 scale.x = Mathf.Abs(scale.x) * (_bsm.flip ? -1 : 1);
+                Debug.Log("left");
+                _bsm.facingRight = false;
             }
-            _bsm.facingRight = !_bsm.facingRight;
+            
             if (_bsm.facingRight)
             {
                 _bsm.chargeSpeed = Mathf.Abs(_bsm.chargeSpeed);
@@ -51,6 +65,7 @@ public class Idle : BaseState
                 _bsm.chargeSpeed = -1 * Mathf.Abs(_bsm.chargeSpeed);
             }
         }
+        _bsm.isFacingPlayer = true;
         
 
         _bsm.transform.localScale = scale;

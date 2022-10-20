@@ -5,7 +5,6 @@ using UnityEngine;
 public class Charge : BaseState
 {
     private BossSM _bsm;
-    private bool _isFacingPlayer;
     private float _distToPlayer;
     
     
@@ -18,8 +17,7 @@ public class Charge : BaseState
     public override void Enter()
     {
         base.Enter();
-        _isFacingPlayer = true;
-        _bsm.targetLocation = _bsm.target.transform.position;
+        _bsm.isFacingPlayer = true;
     }
 
     public override void UpdateLogic()
@@ -37,7 +35,7 @@ public class Charge : BaseState
             {
                 if(Vector2.Dot(_bsm.transform.TransformDirection(Vector3.right), toOther) > 0)
                 {
-                    _isFacingPlayer = false;
+                    _bsm.isFacingPlayer = false;
                     Debug.Log("not facing player right");
                 }
             }
@@ -45,12 +43,12 @@ public class Charge : BaseState
             {
                 if(Vector2.Dot(_bsm.transform.TransformDirection(Vector3.left), toOther) < 0)
                 {
-                    _isFacingPlayer = false;
+                    _bsm.isFacingPlayer = false;
                     Debug.Log("not facing player left");
                 }
             }
             
-            if ((_distToPlayer > _bsm._radiusLength && !_isFacingPlayer) || _bsm.transform.position == _bsm.targetLocation)
+            if (_distToPlayer > _bsm.radiusLength && !_bsm.isFacingPlayer)
             {
                 Debug.Log("change state");
                 stateMachine.ChangeState(_bsm.idleState);
@@ -71,5 +69,6 @@ public class Charge : BaseState
         _bsm.rb.velocity = new Vector2(_bsm.chargeSpeed * Time.fixedDeltaTime, _bsm.rb.velocity.y);
 
     }
+    
 
 }
