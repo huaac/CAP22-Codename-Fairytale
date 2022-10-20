@@ -6,6 +6,10 @@ public class BasicEnemyAI : MonoBehaviour
 {
     //patrol and charge
 
+    // a bool to keep track of if an enemy is stunned (bc it was stepped on)
+    // is turned on/off during a Coroutine in EnemyHealth script
+    public bool isStunned;
+
     public float patrolSpeed;
 
     //can be used in other scripts when wanting to attack and stop patroling for example
@@ -42,6 +46,9 @@ public class BasicEnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // return out of Update() while I'm stunned so I don't move around
+        if (isStunned) return;
+
         if (isPatroling)
         {
             Patrol();
@@ -51,6 +58,9 @@ public class BasicEnemyAI : MonoBehaviour
     //dealing with physics basically checking if object reaches the end of platform
     private void FixedUpdate()
     {
+        // return out of Update() while I'm stunned so I don't move around
+        if (isStunned) return;
+
         if (isPatroling)
         {
             //is true if object reaches the end of platform

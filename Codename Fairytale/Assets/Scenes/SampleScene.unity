@@ -756,6 +756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  stunTime: 0
 --- !u!212 &1217988914
 SpriteRenderer:
   m_ObjectHideFlags: 0

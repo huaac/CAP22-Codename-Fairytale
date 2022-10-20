@@ -13,7 +13,7 @@ public class StepOnEnemyCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Enemy enemy))
+        if (collision.gameObject.TryGetComponent(out EnemyHealth enemy))
         {
             onStepped?.Invoke();
         }

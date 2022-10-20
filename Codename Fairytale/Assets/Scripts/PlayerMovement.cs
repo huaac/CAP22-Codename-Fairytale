@@ -132,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
         // damage them
         foreach (Collider2D hit in enemiesHit)
         {
-            if (hit.gameObject.TryGetComponent(out Enemy enemy))
+            if (hit.gameObject.TryGetComponent(out EnemyHealth enemy))
             {
                 enemy.Damage(attack);
             }
@@ -154,13 +154,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // if I collided with an enemy
-        if (collision.gameObject.TryGetComponent(out Enemy enemy))
+        if (collision.gameObject.TryGetComponent(out EnemyHealth enemy))
         {
             // if I'm stepping on it
             if (isSteppingOnEnemy && m_rb.velocity.y < 0)
             {
-                // kill enemy
-                enemy.Die();
+                // stun enemy
+                enemy.Stun();
                 isSteppingOnEnemy = false;
             }
             else
