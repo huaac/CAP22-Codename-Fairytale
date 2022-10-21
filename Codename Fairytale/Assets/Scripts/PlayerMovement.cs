@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IDamageable
 {
     private Rigidbody2D m_rb;
     private BoxCollider2D m_collider;
+    private SpriteRenderer m_sprite;
     private PlayerState m_playerState;
 
     // movement variables
-    [Header("Basic movement settings")]
+    [Header("Basic player settings")]
+    [SerializeField] private int health = 100;
+    [SerializeField] private int flashLength = 10;
     [SerializeField] private float m_moveSpeed = 5f;
     [SerializeField] private float m_jumpSpeed = 7f;
     [SerializeField] private LayerMask jumpableGround;
@@ -21,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRange = 0.5f;
     [SerializeField] private LayerMask enemyLayers;
-    private bool isSteppingOnEnemy = false;
 
     // dash variables
     [Header("Dash settings")]
@@ -31,11 +33,19 @@ public class PlayerMovement : MonoBehaviour
     private bool canDash = true;
     private bool isDashing = false;
 
+    // player state bool's
+    private bool isSteppingOnEnemy = false;
+    public bool IsStepping { get { return isSteppingOnEnemy; } }
+
+    private bool wasJustDamaged = false;
+    public bool WasJustDamaged { get { return wasJustDamaged; } }
+
 
     private void Awake()
     {
         m_rb = GetComponent<Rigidbody2D>();
         m_collider = GetComponent<BoxCollider2D>();
+        m_sprite = GetComponent<SpriteRenderer>();
         m_playerState = GetComponent<PlayerState>();
     }
 
@@ -53,14 +63,7 @@ public class PlayerMovement : MonoBehaviour
         movement_x = Input.GetAxisRaw("Horizontal");
 
         // flip character
-        if (movement_x < 0)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
-        else
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
+        Flip();
 
         m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
 
@@ -84,6 +87,18 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Slash"))
         {
             Attack();
+        }
+    }
+
+    private void Flip()
+    {
+        if (movement_x < 0)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
 
@@ -134,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (hit.gameObject.TryGetComponent(out EnemyHealth enemy))
             {
-                enemy.Damage(attack);
+                enemy.TakeDamage(attack);
             }
         }
     }
@@ -144,6 +159,29 @@ public class PlayerMovement : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0) Die();
+
+        StartCoroutine(JustDamaged());
+    }
+    private IEnumerator JustDamaged()
+    {
+        wasJustDamaged = true;
+
+        // flashing
+        for (int i = 0; i < flashLength; i++)
+        {
+            m_sprite.color = new Color(1f, 1f, 1f, 0f); // transparent
+            yield return new WaitForSeconds(0.08f);
+            m_sprite.color = new Color(1f, 1f, 1f, 1f); // opaque
+            yield return new WaitForSeconds(0.08f);
+        }
+
+        wasJustDamaged = false;
     }
 
     private void Die()
@@ -163,11 +201,12 @@ public class PlayerMovement : MonoBehaviour
                 enemy.Stun();
                 isSteppingOnEnemy = false;
             }
+            /*
             else
             {
                 // else, I die
                 Die();
-            }
+            }*/
         }
     }
 }

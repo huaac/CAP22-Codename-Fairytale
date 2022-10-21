@@ -8,7 +8,7 @@ public class BasicEnemyAI : MonoBehaviour
 
     // a bool to keep track of if an enemy is stunned (bc it was stepped on)
     // is turned on/off during a Coroutine in EnemyHealth script
-    public bool isStunned;
+    [HideInInspector] public bool isStunned;
 
     public float patrolSpeed;
 
@@ -35,6 +35,8 @@ public class BasicEnemyAI : MonoBehaviour
     //helps to turn when hitting a wall by checking if there was a collision
     [SerializeField]
     private Collider2D bodyCollider;
+
+    [SerializeField] private int attack;
     
 
     // Start is called before the first frame update
@@ -87,5 +89,16 @@ public class BasicEnemyAI : MonoBehaviour
         transform.localScale = new Vector2(transform.localScale.x *-1, transform.localScale.y);
         patrolSpeed *= -1;
         isPatroling = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out PlayerMovement player))
+        {
+            if (!player.IsStepping && !player.WasJustDamaged && !isStunned)
+            {
+                player.TakeDamage(attack);
+            }
+        }
     }
 }
