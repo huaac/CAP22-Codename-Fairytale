@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shoot : BaseState
 {
     private BossSM _bsm;
-    private float _distToPlayer;
+    [SerializeField]private GameObject rock;
 
     public Shoot(BossSM stateMachine) : base("Shoot", stateMachine)
     {
@@ -23,8 +23,10 @@ public class Shoot : BaseState
         base.UpdateLogic();
         if (_bsm.target != null)
         {
-            _distToPlayer = Vector2.Distance(_bsm.transform.position, _bsm.targetLocation);
-            Vector2 toOther = _bsm.transform.position - _bsm.targetLocation;
+            Transform targetlocation = _bsm.target.transform;
+            targetlocation.position = new Vector3(targetlocation.position.x, 6, targetlocation.position.z);
+            rock = GameObject.Find("FallingRock");
+            GameObject spawnedRock = UnityEngine.Object.Instantiate(rock, targetlocation.position, Quaternion.identity);
             stateMachine.ChangeState(_bsm.idleState);
         }
         else
