@@ -7,11 +7,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [SerializeField] private int health = 100;
     [SerializeField] private float stunTime = 5f;
 
-    private BasicEnemyAI enemyMovement;
+    private IEnemy enemyMovement;
 
     private void Awake()
     {
-        enemyMovement = GetComponent<BasicEnemyAI>();
+        enemyMovement = GetComponent<IEnemy>();
     }
 
     public void TakeDamage(int damage)
@@ -27,11 +27,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private IEnumerator StunCoroutine()
     {
-        enemyMovement.isStunned = true;
+        enemyMovement.IsStunned = true;
 
         yield return new WaitForSeconds(stunTime);
 
-        enemyMovement.isStunned = false;
+        enemyMovement.IsStunned = false;
     }
 
     public void Die()

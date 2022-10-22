@@ -20,6 +20,8 @@ public class Shoot : BaseState
 
     public override void UpdateLogic()
     {
+        if (_bsm.IsStunned) return;
+
         base.UpdateLogic();
         if (_bsm.target != null)
         {
@@ -40,6 +42,7 @@ public class Shoot : BaseState
 
     public override void UpdatePhysics()
     {
+        if (_bsm.IsStunned) return;
         base.UpdatePhysics();
     }
 }

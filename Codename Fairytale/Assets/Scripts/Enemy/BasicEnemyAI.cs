@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicEnemyAI : MonoBehaviour
+public class BasicEnemyAI : MonoBehaviour, IEnemy
 {
     //patrol and charge
 
     // a bool to keep track of if an enemy is stunned (bc it was stepped on)
     // is turned on/off during a Coroutine in EnemyHealth script
-    [HideInInspector] public bool isStunned;
+    //[HideInInspector] public bool isStunned;
+    public bool IsStunned { get; set; }
 
     public float patrolSpeed;
 
@@ -49,7 +50,7 @@ public class BasicEnemyAI : MonoBehaviour
     void Update()
     {
         // return out of Update() while I'm stunned so I don't move around
-        if (isStunned) return;
+        if (IsStunned) return;
 
         if (isPatroling)
         {
@@ -61,7 +62,7 @@ public class BasicEnemyAI : MonoBehaviour
     private void FixedUpdate()
     {
         // return out of Update() while I'm stunned so I don't move around
-        if (isStunned) return;
+        if (IsStunned) return;
 
         if (isPatroling)
         {
@@ -95,7 +96,7 @@ public class BasicEnemyAI : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out PlayerMovement player))
         {
-            if (!player.IsStepping && !player.WasJustDamaged && !isStunned)
+            if (!player.IsStepping && !player.WasJustDamaged && !IsStunned)
             {
                 player.TakeDamage(attack);
             }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossSM : StateMachine
+public class BossSM : StateMachine, IEnemy
 {
     //states variables
 
@@ -24,9 +24,9 @@ public class BossSM : StateMachine
     [Header("Attack Pattern")]
     public int numCharges;
     public float waitTime;
-    
 
-    
+    public bool IsStunned { get; set; }
+
     //as soon as charge state starts the position of player at that point is taken and used to charge
     [HideInInspector]
     public Vector3 targetLocation;

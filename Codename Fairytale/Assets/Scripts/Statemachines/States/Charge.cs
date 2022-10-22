@@ -24,6 +24,8 @@ public class Charge : BaseState
 
     public override void UpdateLogic()
     {
+        if (_bsm.IsStunned) return;
+
         base.UpdateLogic();
         //change state here back to Idle when reached targeted position 
         //or facing away from player and player is far away
@@ -74,6 +76,8 @@ public class Charge : BaseState
 
     public override void UpdatePhysics()
     {
+        if (_bsm.IsStunned) return;
+
         base.UpdatePhysics();
         
         _bsm.rb.velocity = new Vector2(_bsm.chargeSpeed * Time.fixedDeltaTime, _bsm.rb.velocity.y);
