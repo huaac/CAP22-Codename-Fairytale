@@ -25,8 +25,11 @@ public class Shoot : BaseState
         {
             Transform targetlocation = _bsm.target.transform;
             targetlocation.position = new Vector3(targetlocation.position.x, 6, targetlocation.position.z);
-            rock = GameObject.Find("FallingRock");
-            GameObject spawnedRock = UnityEngine.Object.Instantiate(rock, targetlocation.position, Quaternion.identity);
+            if (_bsm.rock != null)
+            {
+                GameObject spawnedRock = UnityEngine.Object.Instantiate(_bsm.rock, targetlocation.position, Quaternion.identity);
+
+            }
             stateMachine.ChangeState(_bsm.idleState);
         }
         else

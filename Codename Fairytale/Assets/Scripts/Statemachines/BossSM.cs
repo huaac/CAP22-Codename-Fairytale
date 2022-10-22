@@ -23,38 +23,55 @@ public class BossSM : StateMachine
 
     [Header("Attack Pattern")]
     public int numCharges;
-    public int numKicks;
+    public float waitTime;
     
 
-
-    //rigidbody used for any movement of enemy
-    public Rigidbody2D rb;
-    //target is player but can be anything really
-    public GameObject target;
-    //to correct the side the enemy flips too
-    public bool flip;
-    //radius of boss to help check player position
-    public float radiusLength;
-    //used to see if player was within the of kicking
-    public float _kickradius;
+    
     //as soon as charge state starts the position of player at that point is taken and used to charge
     [HideInInspector]
     public Vector3 targetLocation;
     [HideInInspector]
     public bool isFacingPlayer;
+    
+    [Header("General Use")]
+    //rigidbody used for any movement of enemy
+    public Rigidbody2D rb;
+    //target is player but can be anything really
+    public GameObject target;
     public bool facingRight;
+    //to correct the side the enemy flips too
+    public bool flip;
+
+    [Header("Charge State")]
+    //radius of boss to help check player position
+    public float radiusLength;
+    //for the charge
+    public float chargeSpeed;
+    [HideInInspector]
+    public int ogChargeNum;
+
+    [Header("Kick State")]
+    public Transform kickPoint;
+    //used to see if player was within the of kicking
+    public float kickRange;
+    public LayerMask targetLayers;
+    public int kickDamage;
+
+    [Header("Kick State")]
+    public GameObject rock;
+
+
     
 
-
-    //for the charge and run state
-    public float chargeSpeed;
-    //public float runSpeed;
     
     private void Awake() 
     {
         idleState = new Idle(this);
         chargeState = new Charge(this);
         kickState = new Kick(this);
+        shootState = new Shoot(this);
+
+        ogChargeNum = numCharges;
 
     }
 

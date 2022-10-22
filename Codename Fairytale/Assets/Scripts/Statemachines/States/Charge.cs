@@ -6,6 +6,7 @@ public class Charge : BaseState
 {
     private BossSM _bsm;
     private float _distToPlayer;
+    private int ogChargeNum;
     
     
 
@@ -17,6 +18,7 @@ public class Charge : BaseState
     public override void Enter()
     {
         base.Enter();
+        //TODO: play charge animation
         _bsm.isFacingPlayer = true;
     }
 
@@ -33,10 +35,9 @@ public class Charge : BaseState
             Vector2 toOther = _bsm.transform.position - _bsm.target.transform.position;
             if (_bsm.facingRight)
             {
-                if(Vector2.Dot(_bsm.transform.TransformDirection(Vector3.right), toOther) > 0)
+                if(Vector2.Dot(_bsm.transform.TransformDirection(Vector3.left), toOther) > 0)
                 {
                     _bsm.isFacingPlayer = false;
-                    Debug.Log("not facing player right");
                 }
             }
             else
@@ -44,18 +45,27 @@ public class Charge : BaseState
                 if(Vector2.Dot(_bsm.transform.TransformDirection(Vector3.left), toOther) < 0)
                 {
                     _bsm.isFacingPlayer = false;
-                    Debug.Log("not facing player left");
                 }
             }
             
-            if (_distToPlayer > _bsm.radiusLength && !_bsm.isFacingPlayer)
+            
+            if (_distToPlayer < _bsm.radiusLength && _bsm.isFacingPlayer && _bsm.numCharges <= 0)
             {
-                Debug.Log("change state");
+                Debug.Log("kick state");
+                _bsm.numCharges = _bsm.ogChargeNum;
+                stateMachine.ChangeState(_bsm.kickState);
+            }
+            else if (_distToPlayer > _bsm.radiusLength && !_bsm.isFacingPlayer)
+            {
+                Debug.Log("idle state");
+                _bsm.numCharges -= 1;
                 stateMachine.ChangeState(_bsm.idleState);
             }
+            
         }
         else
         {
+            _bsm.numCharges -= 1;
             stateMachine.ChangeState(_bsm.idleState);
 
         }
@@ -67,6 +77,8 @@ public class Charge : BaseState
         base.UpdatePhysics();
         
         _bsm.rb.velocity = new Vector2(_bsm.chargeSpeed * Time.fixedDeltaTime, _bsm.rb.velocity.y);
+        Vector3 eulerRotation = _bsm.transform.rotation.eulerAngles;
+        _bsm.transform.rotation = Quaternion.Euler(eulerRotation.x, eulerRotation.y, 0);
 
     }
     

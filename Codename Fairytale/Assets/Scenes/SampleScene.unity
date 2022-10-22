@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 51854729}
   - component: {fileID: 51854731}
   - component: {fileID: 51854730}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StepOnEnemyCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,17 +293,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2cc7ba93b560c4187e98e66ae78666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numCharges: 0
-  numKicks: 0
-  rb: {fileID: 405053901}
-  target: {fileID: 1139288473}
-  flip: 0
-  radiusLength: 0
-  _kickradius: 0
+  numCharges: 3
+  waitTime: 0.5
   targetLocation: {x: 0, y: 0, z: 0}
   isFacingPlayer: 0
+  rb: {fileID: 405053901}
+  target: {fileID: 1139288473}
   facingRight: 0
-  chargeSpeed: 250
+  flip: 0
+  radiusLength: 2.5
+  chargeSpeed: 100
+  ogChargeNum: 0
+  kickPoint: {fileID: 1657765285}
+  kickRange: 1
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  kickDamage: 1
+  rock: {fileID: 65799467539782839, guid: d270b8a8a61d882488b4b02faa2d5569, type: 3}
+--- !u!4 &405053903 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2938083971043162962, guid: b2f44cc3149d9894d9724a5fb7a6b977, type: 3}
+  m_PrefabInstance: {fileID: 405053899}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +522,7 @@ GameObject:
   - component: {fileID: 1139288478}
   - component: {fileID: 1139288477}
   - component: {fileID: 1139288476}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sample Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -837,7 +849,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1343008636}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SlashCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -940,6 +952,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1657765284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1657765285}
+  m_Layer: 0
+  m_Name: KickCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1657765285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657765284}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.86, y: -0.04, z: 14.222735}
+  m_LocalScale: {x: 1.1695685, y: 1.1695685, z: 1.1695685}
+  m_Children: []
+  m_Father: {fileID: 405053903}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2938083971155051106
 PrefabInstance:
   m_ObjectHideFlags: 0

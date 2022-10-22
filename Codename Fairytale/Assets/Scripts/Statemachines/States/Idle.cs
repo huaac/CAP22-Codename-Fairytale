@@ -14,8 +14,9 @@ public class Idle : BaseState
     public override void Enter()
     {
         base.Enter();
+        //TODO: play idle animation
         _bsm.rb.velocity = Vector2.zero;
-         Vector3 eulerRotation = _bsm.transform.rotation.eulerAngles;
+        Vector3 eulerRotation = _bsm.transform.rotation.eulerAngles;
         _bsm.transform.rotation = Quaternion.Euler(eulerRotation.x, eulerRotation.y, 0);
         _bsm.isFacingPlayer = false;
     }
@@ -27,7 +28,7 @@ public class Idle : BaseState
         base.UpdateLogic();
         if (_bsm.isFacingPlayer)
         {
-            stateMachine.ChangeState(_bsm.chargeState);
+            _bsm.StartCoroutine(ChangingState());
         }
         //change state here
         //make random choice between attacks 
@@ -46,13 +47,13 @@ public class Idle : BaseState
             if (_bsm.target.transform.position.x > _bsm.transform.position.x)
             {
                 scale.x = Mathf.Abs(scale.x) * -1 * (_bsm.flip ? -1 : 1);
-                Debug.Log("right");
+                //facing "right"
                 _bsm.facingRight = true;
             }
             else 
             {
                 scale.x = Mathf.Abs(scale.x) * (_bsm.flip ? -1 : 1);
-                Debug.Log("left");
+                //facing "left"
                 _bsm.facingRight = false;
             }
             
@@ -70,5 +71,11 @@ public class Idle : BaseState
 
         _bsm.transform.localScale = scale;
 
+    }
+
+    public IEnumerator ChangingState()
+    {
+        yield return new WaitForSeconds(_bsm.waitTime);
+        stateMachine.ChangeState(_bsm.chargeState);
     }
 }
