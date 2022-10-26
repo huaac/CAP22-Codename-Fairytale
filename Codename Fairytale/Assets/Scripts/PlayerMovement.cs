@@ -9,6 +9,11 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     private SpriteRenderer m_sprite;
     private PlayerState m_playerState;
 
+    // bool's for testing purposes
+    [Tooltip("Turn on/off controls for testing purposes")]
+    [Header("Test controls")]
+    [SerializeField] private bool dashEnabled = true;
+
     // movement variables
     [Header("Basic player settings")]
     [SerializeField] private int health = 100;
@@ -78,7 +83,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
         // dash
         // TODO: decide on dash controls
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && dashEnabled && canDash)
         {
             StartCoroutine(Dash());
         }

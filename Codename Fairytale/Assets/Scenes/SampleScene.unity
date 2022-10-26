@@ -621,6 +621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 549aa1635b9020f4c9f831f41b76437f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashEnabled: 0
   health: 100
   flashLength: 10
   m_moveSpeed: 5
