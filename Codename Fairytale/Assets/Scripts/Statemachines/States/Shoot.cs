@@ -25,11 +25,11 @@ public class Shoot : BaseState
         base.UpdateLogic();
         if (_bsm.target != null)
         {
-            Transform targetlocation = _bsm.target.transform;
-            targetlocation.position = new Vector3(targetlocation.position.x, 6, targetlocation.position.z);
+            Vector3 targetlocation = _bsm.target.transform.position;
+            targetlocation = new Vector3(targetlocation.x, 6, targetlocation.z);
             if (_bsm.rock != null)
             {
-                GameObject spawnedRock = UnityEngine.Object.Instantiate(_bsm.rock, targetlocation.position, Quaternion.identity);
+                GameObject spawnedRock = UnityEngine.Object.Instantiate(_bsm.rock, targetlocation, Quaternion.identity);
 
             }
             stateMachine.ChangeState(_bsm.idleState);
