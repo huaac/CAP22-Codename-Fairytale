@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
-        else
+        else if (movement_x > 0)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
