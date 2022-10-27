@@ -52,8 +52,8 @@ public class Kick : BaseState
         //see how to work with your code
         if (_cankick)
         {
-            Attack();
             _cankick = false;
+            Attack();
         }
 
         
@@ -70,13 +70,16 @@ public class Kick : BaseState
             {
                 if (hit.gameObject.TryGetComponent(out PlayerMovement target))
                 {
-                    target.TakeDamage(_bsm.kickDamage);
+                    if (!target.WasJustDamaged)
+                    {
+                        target.TakeDamage(_bsm.kickDamage);
+                    }
                 }
             }
         }
     }
 
-     public IEnumerator ChangingState()
+    public IEnumerator ChangingState()
     {
         yield return new WaitForSeconds(_bsm.waitTime);
         if (_genRand == 1 && _bsm.target != null)

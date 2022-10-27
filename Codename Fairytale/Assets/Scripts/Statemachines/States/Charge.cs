@@ -83,8 +83,26 @@ public class Charge : BaseState
         _bsm.rb.velocity = new Vector2(_bsm.chargeSpeed * Time.fixedDeltaTime, _bsm.rb.velocity.y);
         Vector3 eulerRotation = _bsm.transform.rotation.eulerAngles;
         _bsm.transform.rotation = Quaternion.Euler(eulerRotation.x, eulerRotation.y, 0);
+        Attack();
 
     }
-    
+
+
+    private void Attack()
+    {
+        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_bsm.kickPoint.position, (_bsm.kickRange-0.9f), _bsm.targetLayers);
+
+        foreach (Collider2D hit in enemiesHit)
+        {
+            if (hit.gameObject.TryGetComponent(out PlayerMovement target))
+            {
+                if (!target.WasJustDamaged)
+                {
+                    target.TakeDamage(_bsm.chargeDamage);
+                }
+            }
+        }
+
+    }
 
 }

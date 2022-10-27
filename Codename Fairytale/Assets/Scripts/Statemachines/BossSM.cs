@@ -47,6 +47,7 @@ public class BossSM : StateMachine, IEnemy
     public float radiusLength;
     //for the charge
     public float chargeSpeed;
+    public int chargeDamage;
     [HideInInspector]
     public int ogChargeNum;
 
