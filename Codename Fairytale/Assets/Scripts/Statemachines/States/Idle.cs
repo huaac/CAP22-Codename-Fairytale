@@ -15,9 +15,13 @@ public class Idle : BaseState
     {
         base.Enter();
         //TODO: play idle animation
+
+        //starting the state with the enemy not moving
         _bsm.rb.velocity = Vector2.zero;
+        //fixing rotation
         Vector3 eulerRotation = _bsm.transform.rotation.eulerAngles;
         _bsm.transform.rotation = Quaternion.Euler(eulerRotation.x, eulerRotation.y, 0);
+        //automatically say the enemy not facing player to correct it
         _bsm.isFacingPlayer = false;
     }
 
@@ -26,13 +30,12 @@ public class Idle : BaseState
         if (_bsm.target == null) return;
 
         base.UpdateLogic();
+        //once enemy is facing player change state
         if (_bsm.isFacingPlayer)
         {
             _bsm.StartCoroutine(ChangingState());
         }
         //change state here
-        //make random choice between attacks 
-        //each attack has its own cooldown
         //if facing player charge/kick/projectile and check a cooldown if you can do that state
         //example -> if (something) {stateMachine.ChangeState(_bsm.idleState)}
     }
@@ -44,6 +47,7 @@ public class Idle : BaseState
         Vector2 scale = _bsm.transform.localScale;
         if (_bsm.target != null)
         {
+            //if boss facing left but player on right side this fixes that and vice versa
             if (_bsm.target.transform.position.x > _bsm.transform.position.x)
             {
                 scale.x = Mathf.Abs(scale.x) * -1 * (_bsm.flip ? -1 : 1);
@@ -56,7 +60,7 @@ public class Idle : BaseState
                 //facing "left"
                 _bsm.facingRight = false;
             }
-            
+            //fixes the chargeSpeed so that is will be charging the right way
             if (_bsm.facingRight)
             {
                 _bsm.chargeSpeed = Mathf.Abs(_bsm.chargeSpeed);

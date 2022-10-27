@@ -58,7 +58,7 @@ public class BossSM : StateMachine, IEnemy
     public LayerMask targetLayers;
     public int kickDamage;
 
-    [Header("Kick State")]
+    [Header("Shoot State")]
     public GameObject rock;
 
 
