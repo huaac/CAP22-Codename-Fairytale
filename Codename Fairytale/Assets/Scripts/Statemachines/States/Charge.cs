@@ -12,6 +12,7 @@ public class Charge : BaseState
 
     public Charge(BossSM stateMachine) : base("Charge", stateMachine)
     {
+        //access BossSM script public functions, variables
         _bsm = (BossSM)stateMachine;
     }
 
@@ -29,14 +30,16 @@ public class Charge : BaseState
         base.UpdateLogic();
         //change state here back to Idle when reached targeted position 
         //or facing away from player and player is far away
+
+        //if player is not destroyed
         if (_bsm.target != null)
         {
-            // if(Mathf.Approximately(differenceDot, 0.0f))
-            //print("= 0");
+            //get the distance  from enemy to player
             _distToPlayer = Vector2.Distance(_bsm.transform.position, _bsm.target.transform.position);
             Vector2 toOther = _bsm.transform.position - _bsm.target.transform.position;
             if (_bsm.facingRight)
             {
+                //check if player is no longer facing right
                 if(Vector2.Dot(_bsm.transform.TransformDirection(Vector3.left), toOther) > 0)
                 {
                     _bsm.isFacingPlayer = false;
@@ -44,19 +47,21 @@ public class Charge : BaseState
             }
             else
             {
+                //check if player is no longer facing left
                 if(Vector2.Dot(_bsm.transform.TransformDirection(Vector3.left), toOther) < 0)
                 {
                     _bsm.isFacingPlayer = false;
                 }
             }
             
-            
+            // if player is close enough to kick and enemy is facing player then do the kick state and reset number of charges
             if (_distToPlayer < _bsm.radiusLength && _bsm.isFacingPlayer && _bsm.numCharges <= 0)
             {
                 Debug.Log("kick state");
                 _bsm.numCharges = _bsm.ogChargeNum;
                 stateMachine.ChangeState(_bsm.kickState);
             }
+            //else if the player is too far from the enemy and enemy is not facing player then change to idle state and take away from number of charges
             else if (_distToPlayer > _bsm.radiusLength && !_bsm.isFacingPlayer)
             {
                 Debug.Log("idle state");
@@ -65,6 +70,7 @@ public class Charge : BaseState
             }
             
         }
+        //if player is destroyed (defeated) then go to idle state and take away from charge
         else
         {
             _bsm.numCharges -= 1;
@@ -80,14 +86,17 @@ public class Charge : BaseState
 
         base.UpdatePhysics();
         
+        // charges at player from set charge speed
         _bsm.rb.velocity = new Vector2(_bsm.chargeSpeed * Time.fixedDeltaTime, _bsm.rb.velocity.y);
+
+        //fix rotation of enemy in case player bumps into boss
         Vector3 eulerRotation = _bsm.transform.rotation.eulerAngles;
         _bsm.transform.rotation = Quaternion.Euler(eulerRotation.x, eulerRotation.y, 0);
         Attack();
 
     }
 
-
+    //attacks player only when they were not just attacked
     private void Attack()
     {
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_bsm.kickPoint.position, (_bsm.kickRange-0.9f), _bsm.targetLayers);
