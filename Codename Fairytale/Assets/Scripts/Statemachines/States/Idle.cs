@@ -23,6 +23,8 @@ public class Idle : BaseState
         _bsm.transform.rotation = Quaternion.Euler(eulerRotation.x, eulerRotation.y, 0);
         //automatically say the enemy not facing player to correct it
         _bsm.isFacingPlayer = false;
+
+        _bsm.DoAnimations(0);
     }
 
     public override void UpdateLogic()

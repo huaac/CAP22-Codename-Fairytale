@@ -41,6 +41,8 @@ public class BossSM : StateMachine, IEnemy
     public bool facingRight;
     //to correct the side the enemy flips too
     public bool flip;
+    [HideInInspector]
+    public Animator m_anim;
 
     [Header("Charge State")]
     //radius of boss to help check player position
@@ -74,10 +76,18 @@ public class BossSM : StateMachine, IEnemy
 
         ogChargeNum = numCharges;
 
+        // m_anim.SetInteger("currentState", 0); //enemy idle
+        m_anim = GetComponent<Animator>();
+
     }
 
     protected override BaseState GetInitialState()
     {
         return idleState;
+    }
+
+    public void DoAnimations(int num)
+    {
+        m_anim.SetInteger("currentState", num);
     }
 }

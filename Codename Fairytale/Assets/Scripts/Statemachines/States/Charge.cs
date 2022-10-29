@@ -21,6 +21,8 @@ public class Charge : BaseState
         base.Enter();
         //TODO: play charge animation
         _bsm.isFacingPlayer = true;
+
+        _bsm.DoAnimations(1);
     }
 
     public override void UpdateLogic()

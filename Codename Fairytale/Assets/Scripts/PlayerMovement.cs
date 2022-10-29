@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     private SpriteRenderer m_sprite;
     private PlayerState m_playerState;
 
+    private Animator m_anim;
+
     // bool's for testing purposes
     [Tooltip("Turn on/off controls for testing purposes")]
     [Header("Test controls")]
@@ -52,6 +54,9 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         m_collider = GetComponent<BoxCollider2D>();
         m_sprite = GetComponent<SpriteRenderer>();
         m_playerState = GetComponent<PlayerState>();
+        m_anim = GetComponent<Animator>();
+
+        m_anim.SetInteger("currentState", 0);
     }
 
     private void OnEnable()
@@ -71,6 +76,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         Flip();
 
         m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
+        DoAnimations();
 
         // jump
         if (Input.GetAxisRaw("Jump") > 0) 
@@ -99,11 +105,11 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     {
         if (movement_x < 0)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            transform.localScale = new Vector3(-0.1f, 0.1f, 0.1f);
         }
         else if (movement_x > 0)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         }
     }
 
@@ -212,6 +218,17 @@ public class PlayerMovement : MonoBehaviour, IDamageable
                 // else, I die
                 Die();
             }*/
+        }
+    }
+
+    void DoAnimations()
+    {
+        if (m_rb.velocity != Vector2.zero)
+        {
+            m_anim.SetInteger("currentState", 1); // change to running anim
+        }
+        else{
+            m_anim.SetInteger("currentState", 0); // change to idle anim
         }
     }
 }
