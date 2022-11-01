@@ -84,6 +84,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
             if (IsGrounded())
             {
                 m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
+                // m_anim.SetInteger("currentState", 2);
             }
         }
 
