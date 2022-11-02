@@ -931,7 +931,7 @@ Transform:
   - {fileID: 2132244168}
   - {fileID: 1070038173}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1070038172
 GameObject:
@@ -1558,7 +1558,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 544683189707112170, guid: 3150e79f863188e48a44b8827611750d, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 544683189707112170, guid: 3150e79f863188e48a44b8827611750d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1972,10 +1972,10 @@ MonoBehaviour:
   isFacingPlayer: 0
   rb: {fileID: 2807473604517508396}
   target: {fileID: 365191123}
-  facingRight: 0
+  facingRight: 1
   flip: 1
   m_anim: {fileID: 0}
-  radiusLength: 2.5
+  radiusLength: 3
   chargeSpeed: 100
   chargeDamage: 1
   ogChargeNum: 0

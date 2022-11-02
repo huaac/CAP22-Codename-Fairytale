@@ -45,6 +45,7 @@ public class Idle : BaseState
     public override void UpdatePhysics()
     {
         base.UpdatePhysics();
+        if (_bsm.IsStunned) return;
         //face player
         Vector2 scale = _bsm.transform.localScale;
         if (_bsm.target != null)

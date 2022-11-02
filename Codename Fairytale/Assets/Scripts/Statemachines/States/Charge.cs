@@ -22,13 +22,18 @@ public class Charge : BaseState
         //TODO: play charge animation
         _bsm.isFacingPlayer = true;
 
+        //check if not stunned if it is don't do charge state
         _bsm.DoAnimations(1);
+
+        
     }
 
     public override void UpdateLogic()
     {
-        if (_bsm.IsStunned) return;
-
+        if (_bsm.IsStunned)
+        {
+            stateMachine.ChangeState(_bsm.idleState);
+        }
         base.UpdateLogic();
         //change state here back to Idle when reached targeted position 
         //or facing away from player and player is far away
@@ -42,7 +47,7 @@ public class Charge : BaseState
             if (_bsm.facingRight)
             {
                 //check if player is no longer facing right
-                if(Vector2.Dot(_bsm.transform.TransformDirection(Vector3.left), toOther) > 0)
+                if(Vector2.Dot(_bsm.transform.TransformDirection(Vector3.left), toOther) < 0)
                 {
                     _bsm.isFacingPlayer = false;
                 }
@@ -50,12 +55,11 @@ public class Charge : BaseState
             else
             {
                 //check if player is no longer facing left
-                if(Vector2.Dot(_bsm.transform.TransformDirection(Vector3.left), toOther) < 0)
+                if(Vector2.Dot(_bsm.transform.TransformDirection(Vector3.left), toOther) > 0)
                 {
                     _bsm.isFacingPlayer = false;
                 }
             }
-            
             // if player is close enough to kick and enemy is facing player then do the kick state and reset number of charges
             if (_distToPlayer < _bsm.radiusLength && _bsm.isFacingPlayer && _bsm.numCharges <= 0)
             {
@@ -66,7 +70,7 @@ public class Charge : BaseState
             //else if the player is too far from the enemy and enemy is not facing player then change to idle state and take away from number of charges
             else if (_distToPlayer > _bsm.radiusLength && !_bsm.isFacingPlayer)
             {
-                Debug.Log("idle state");
+                Debug.Log("idle state to far from player");
                 _bsm.numCharges -= 1;
                 stateMachine.ChangeState(_bsm.idleState);
             }
