@@ -206,6 +206,7 @@ public class PlayerMovement : MonoBehaviour, IDamageable
         // if I collided with an enemy
         if (collision.gameObject.TryGetComponent(out EnemyHealth enemy))
         {
+            StepOnEnemy();  // added from alice for testing can delete later
             // if I'm stepping on it
             if (isSteppingOnEnemy && m_rb.velocity.y < 0)
             {
