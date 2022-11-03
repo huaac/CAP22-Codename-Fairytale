@@ -16,12 +16,17 @@ public class Shoot : BaseState
     {
         base.Enter();
         _bsm.targetLocation = _bsm.target.transform.position;
+        _bsm.DoAnimations(2);
+        Debug.Log("shoot");
     }
 
     public override void UpdateLogic()
     {
-        if (_bsm.IsStunned) return;
-
+        if (_bsm.IsStunned)
+        {
+            Debug.Log("stunned stomp");
+            stateMachine.ChangeState(_bsm.idleState);
+        }
         base.UpdateLogic();
         if (_bsm.target != null)
         {
@@ -32,11 +37,13 @@ public class Shoot : BaseState
                 GameObject spawnedRock = UnityEngine.Object.Instantiate(_bsm.rock, targetlocation, Quaternion.identity);
 
             }
-            stateMachine.ChangeState(_bsm.idleState);
+             _bsm.StartCoroutine(ChangingState());
+            //stateMachine.ChangeState(_bsm.idleState);
         }
         else
         {
-            stateMachine.ChangeState(_bsm.idleState);
+            _bsm.StartCoroutine(ChangingState());
+            //stateMachine.ChangeState(_bsm.idleState);
         }
     }
 
@@ -44,5 +51,12 @@ public class Shoot : BaseState
     {
         if (_bsm.IsStunned) return;
         base.UpdatePhysics();
+    }
+
+    public IEnumerator ChangingState()
+    {
+        yield return new WaitForSeconds(_bsm.waitTime);
+        _bsm.numCharges = _bsm.ogChargeNum;
+        stateMachine.ChangeState(_bsm.idleState);
     }
 }

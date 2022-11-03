@@ -15,5 +15,8 @@ public class FallingRock : MonoBehaviour
                 player.TakeDamage(attack);
             }
         }
+        Destroy(gameObject, 2.0f);
     }
+
+    
 }

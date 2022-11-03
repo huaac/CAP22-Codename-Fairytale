@@ -27,6 +27,8 @@ public class Kick : BaseState
         _genRand= Random.Range(1,3);
         Debug.Log(_genRand);
         //TODO: play kick animation
+        _bsm.DoAnimations(3);
+        Debug.Log("kick");
     }
 
     public override void UpdateLogic()
@@ -34,11 +36,16 @@ public class Kick : BaseState
         if (_bsm.IsStunned) return;
 
         base.UpdateLogic();
+
+        if (_bsm.isFacingPlayer)
+        {
+            FlipForKick();
+        }
         //kick a projectile so change to shootState
         //if not shoot state go to idle state
         if (!_cankick)
         {
-            _bsm.StartCoroutine(ChangingState());
+            _bsm.StartCoroutine(StartChangingState());
         }
     }
 
@@ -79,17 +86,42 @@ public class Kick : BaseState
         }
     }
 
+    public IEnumerator StartChangingState(){
+        yield return _bsm.StartCoroutine(ChangingState());
+    }
+
     public IEnumerator ChangingState()
     {
-        yield return new WaitForSeconds(_bsm.waitTime);
-        if (_genRand == 1 && _bsm.target != null)
-        {
-            stateMachine.ChangeState(_bsm.shootState);
-        }
-        else
-        {
-            stateMachine.ChangeState(_bsm.idleState);
+        yield return new WaitForSeconds(_bsm.waitTime + 1f);
+        _bsm.numCharges = _bsm.ogChargeNum;
+        stateMachine.ChangeState(_bsm.idleState);
+        // if (_genRand == 1 && _bsm.target != null)
+        // {
+        //     stateMachine.ChangeState(_bsm.shootState);
+        // }
+        // else
+        // {
+        //     stateMachine.ChangeState(_bsm.idleState);
 
-        }
+        // }
+    }
+    
+    //flips character so that they can do back kick
+    private void FlipForKick()
+    {
+        if (_bsm.target != null)
+            {
+                Vector2 scale = _bsm.transform.localScale;
+                //if boss facing left but player on right side this fixes that and vice versa
+                if (_bsm.target.transform.position.x < _bsm.transform.position.x)
+                {
+                    scale.x = Mathf.Abs(scale.x) * -1 * (_bsm.flip ? -1 : 1);
+                }
+                else 
+                {
+                    scale.x = Mathf.Abs(scale.x) * (_bsm.flip ? -1 : 1);
+                }
+                _bsm.transform.localScale = scale;
+            }
     }
 }

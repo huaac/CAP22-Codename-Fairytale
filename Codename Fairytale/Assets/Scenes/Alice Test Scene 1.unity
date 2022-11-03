@@ -1616,6 +1616,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 544683190348924947, guid: 3150e79f863188e48a44b8827611750d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 544683190525812956, guid: 3150e79f863188e48a44b8827611750d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4
@@ -1623,6 +1627,10 @@ PrefabInstance:
     - target: {fileID: 544683190525812956, guid: 3150e79f863188e48a44b8827611750d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 544683190585162152, guid: 3150e79f863188e48a44b8827611750d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 544683190585162159, guid: 3150e79f863188e48a44b8827611750d, type: 3}
       propertyPath: m_LocalScale.x
@@ -1966,7 +1974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2cc7ba93b560c4187e98e66ae78666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numCharges: 3
+  numCharges: 1
   waitTime: 0.5
   targetLocation: {x: 0, y: 0, z: 0}
   isFacingPlayer: 0

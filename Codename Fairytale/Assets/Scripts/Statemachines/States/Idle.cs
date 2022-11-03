@@ -25,6 +25,8 @@ public class Idle : BaseState
         _bsm.isFacingPlayer = false;
 
         _bsm.DoAnimations(0);
+        Debug.Log("idle");
+
     }
 
     public override void UpdateLogic()

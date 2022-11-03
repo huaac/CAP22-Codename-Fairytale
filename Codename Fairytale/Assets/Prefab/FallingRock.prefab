@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 65799467539782836}
   - component: {fileID: 65799467539782837}
   - component: {fileID: -3437439905569587934}
-  - component: {fileID: -1559850009206253653}
   - component: {fileID: 8897180305411152528}
+  - component: {fileID: 4863352855966806118}
   m_Layer: 0
   m_Name: FallingRock
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 65799467539782839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.02, y: 2.95, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -98,22 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: 10
---- !u!58 &-1559850009206253653
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 65799467539782839}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!50 &8897180305411152528
 Rigidbody2D:
   serializedVersion: 4
@@ -135,3 +119,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!68 &4863352855966806118
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65799467539782839}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 9.880637, y: -7.1299887}
+  - {x: 6.3420744, y: -7.2059727}
+  - {x: -4.207503, y: -7.9163666}
+  - {x: -12.774154, y: -5.2171273}
+  - {x: -13.4127865, y: -2.6615973}
+  - {x: -10.768221, y: 2.1389966}
+  - {x: -4.1225934, y: 4.998105}
+  - {x: 2.235764, y: 8.082653}
+  - {x: 7.1900854, y: 6.941579}
+  - {x: 11.697084, y: 1.0820608}
+  - {x: 12.842816, y: -1.6505737}
+  - {x: 11.678276, y: -6.587207}
+  - {x: 9.548583, y: -7.129991}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

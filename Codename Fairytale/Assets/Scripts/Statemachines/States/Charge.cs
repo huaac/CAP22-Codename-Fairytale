@@ -24,14 +24,13 @@ public class Charge : BaseState
 
         //check if not stunned if it is don't do charge state
         _bsm.DoAnimations(1);
-
-        
     }
 
     public override void UpdateLogic()
     {
         if (_bsm.IsStunned)
         {
+            Debug.Log("stunned charge");
             stateMachine.ChangeState(_bsm.idleState);
         }
         base.UpdateLogic();
@@ -63,15 +62,17 @@ public class Charge : BaseState
             // if player is close enough to kick and enemy is facing player then do the kick state and reset number of charges
             if (_distToPlayer < _bsm.radiusLength && _bsm.isFacingPlayer && _bsm.numCharges <= 0)
             {
-                Debug.Log("kick state");
-                _bsm.numCharges = _bsm.ogChargeNum;
                 stateMachine.ChangeState(_bsm.kickState);
+            }
+            else if (_distToPlayer > _bsm.radiusLength && _bsm.numCharges <= 0)
+            {
+                stateMachine.ChangeState(_bsm.shootState);
             }
             //else if the player is too far from the enemy and enemy is not facing player then change to idle state and take away from number of charges
             else if (_distToPlayer > _bsm.radiusLength && !_bsm.isFacingPlayer)
             {
-                Debug.Log("idle state to far from player");
                 _bsm.numCharges -= 1;
+                //stateMachine.ChangeState(_bsm.kickState);
                 stateMachine.ChangeState(_bsm.idleState);
             }
             
