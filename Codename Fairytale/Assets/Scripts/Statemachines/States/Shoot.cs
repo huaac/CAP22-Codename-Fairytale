@@ -37,12 +37,12 @@ public class Shoot : BaseState
                 GameObject spawnedRock = UnityEngine.Object.Instantiate(_bsm.rock, targetlocation, Quaternion.identity);
 
             }
-             _bsm.StartCoroutine(ChangingState());
+             _bsm.StartCoroutine(StartChangingState());
             //stateMachine.ChangeState(_bsm.idleState);
         }
         else
         {
-            _bsm.StartCoroutine(ChangingState());
+            _bsm.StartCoroutine(StartChangingState());
             //stateMachine.ChangeState(_bsm.idleState);
         }
     }
@@ -53,10 +53,15 @@ public class Shoot : BaseState
         base.UpdatePhysics();
     }
 
+    public IEnumerator StartChangingState()
+    {
+        yield return _bsm.StartCoroutine(ChangingState());
+    }
+
     public IEnumerator ChangingState()
     {
-        yield return new WaitForSeconds(_bsm.waitTime);
         _bsm.numCharges = _bsm.ogChargeNum;
         stateMachine.ChangeState(_bsm.idleState);
+        yield return new WaitForSeconds(_bsm.waitTime);
     }
 }

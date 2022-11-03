@@ -37,7 +37,7 @@ public class Idle : BaseState
         //once enemy is facing player change state
         if (_bsm.isFacingPlayer)
         {
-            _bsm.StartCoroutine(ChangingState());
+            _bsm.StartCoroutine(StartChangingState());
         }
         //change state here
         //if facing player charge/kick/projectile and check a cooldown if you can do that state
@@ -82,9 +82,14 @@ public class Idle : BaseState
 
     }
 
+    public IEnumerator StartChangingState()
+    {
+        yield return _bsm.StartCoroutine(ChangingState());
+    }
+
     public IEnumerator ChangingState()
     {
-        yield return new WaitForSeconds(_bsm.waitTime);
         stateMachine.ChangeState(_bsm.chargeState);
+        yield return new WaitForSeconds(_bsm.waitTime);
     }
 }

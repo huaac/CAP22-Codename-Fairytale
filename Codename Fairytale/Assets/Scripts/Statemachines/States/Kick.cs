@@ -92,9 +92,9 @@ public class Kick : BaseState
 
     public IEnumerator ChangingState()
     {
-        yield return new WaitForSeconds(_bsm.waitTime + 1f);
         _bsm.numCharges = _bsm.ogChargeNum;
         stateMachine.ChangeState(_bsm.idleState);
+        yield return new WaitForSeconds(_bsm.waitTime + 1f);
         // if (_genRand == 1 && _bsm.target != null)
         // {
         //     stateMachine.ChangeState(_bsm.shootState);
