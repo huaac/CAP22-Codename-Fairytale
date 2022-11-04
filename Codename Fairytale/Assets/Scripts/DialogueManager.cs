@@ -14,6 +14,8 @@ public class DialogueManager : MonoBehaviour
 
     public GameObject dialogueBox;
 
+    [SerializeField] private float typewriterSpeed = 0.15f;
+
     // Creates an empty dialogue queue
     void Start()
     {
@@ -64,7 +66,7 @@ public class DialogueManager : MonoBehaviour
         foreach(char letter in currentExcerpt.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSecondsRealtime(.15f);
+            yield return new WaitForSecondsRealtime(typewriterSpeed);
         }
     }
     

@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [SerializeField] private Slider healthBar;
 
     [SerializeField] private int maxHealth = 100;
+    private int currentHealth;
 
     private IEnemy enemyMovement;
 
@@ -17,18 +18,23 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         enemyMovement = GetComponent<IEnemy>();
 
-        healthBar.minValue = 0;
-        healthBar.maxValue = maxHealth;
-        healthBar.value = health;
+        currentHealth = maxHealth;
+
+        // safety check in case we want enemy w/o health bar
+        if (healthBar)
+        {
+            healthBar.minValue = 0;
+            healthBar.maxValue = maxHealth;
+            healthBar.value = maxHealth;
+        }
     }
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        if (health <= 0) Die();
+        currentHealth -= damage;
+        if (currentHealth <= 0) Die();
 
-        Debug.Log("taken damage");
-        healthBar.value = health;
+        if (healthBar) healthBar.value = currentHealth;
     }
 
     public void Stun()
