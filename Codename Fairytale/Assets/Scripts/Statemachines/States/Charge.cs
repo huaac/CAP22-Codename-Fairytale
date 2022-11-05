@@ -24,6 +24,7 @@ public class Charge : BaseState
 
         //check if not stunned if it is don't do charge state
         _bsm.DoAnimations(1);
+        Debug.Log("charge");
     }
 
     public override void UpdateLogic()
