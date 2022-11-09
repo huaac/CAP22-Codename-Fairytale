@@ -1,36 +1,59 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IDamageable
 {
-    public int maxHealth = 100;
-    public int curHealth;
+    [SerializeField] private int maxHealth = 100;
+    private int curentHealth;
+    [SerializeField] private int flashLength = 10;
+    [SerializeField] private float flashInterval = 0.08f;
 
-    public HealthBar healthBar;
+    [SerializeField] private HealthBar healthBar;
 
-    // Start is called before the first frame update
+    private bool wasJustDamaged = false;
+    public bool WasJustDamaged { get { return wasJustDamaged; } }
+
+    // delegates
+    public Action<float, float> OnPlayerStartFlashing;
 
     //set the max health for the slider, sets current health to max health
     void Start()
     {
-        curHealth = maxHealth;
+        curentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damage)
     {
-        if (Input.GetKeyDown(KeyCode.V))
+        curentHealth -= damage;
+        if (curentHealth <= 0) Die();
+        healthBar.SetHealth(curentHealth);
+
+        StartCoroutine(JustDamaged());
+    }
+    private IEnumerator JustDamaged()
+    {
+        wasJustDamaged = true;
+
+        // flashing
+        /*
+        for (int i = 0; i < flashLength; i++)
         {
-            TakeDamage(10);
-        }
+            m_sprite.color = new Color(1f, 1f, 1f, 0f); // transparent
+            yield return new WaitForSeconds(0.08f);
+            m_sprite.color = new Color(1f, 1f, 1f, 1f); // opaque
+            yield return new WaitForSeconds(0.08f);
+        }*/
+        OnPlayerStartFlashing(flashLength, flashInterval);
+        yield return new WaitForSeconds(flashLength * flashInterval * 2);
+
+        wasJustDamaged = false;
     }
 
-    //decreases health when damage is taken
-    void TakeDamage(int damage)
+    private void Die()
     {
-        curHealth -= damage;
-        healthBar.SetHealth(curHealth);
+        Destroy(this.gameObject);
     }
 }

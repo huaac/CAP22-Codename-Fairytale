@@ -8,7 +8,7 @@ public class FallingRock : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out PlayerMovement player))
+        if (collision.gameObject.TryGetComponent(out PlayerHealth player))
         {
             if (!player.WasJustDamaged)
             {

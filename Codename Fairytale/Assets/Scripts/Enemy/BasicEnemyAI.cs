@@ -94,9 +94,14 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out PlayerMovement player))
+        if (collision.gameObject.TryGetComponent(out PlayerHealth player))
         {
+            /*
             if (!player.IsStepping && !player.WasJustDamaged && !IsStunned)
+            {
+                player.TakeDamage(attack);
+            }*/
+            if (!player.WasJustDamaged && !IsStunned)
             {
                 player.TakeDamage(attack);
             }

@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour, IDamageable
+public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D m_rb;
     private BoxCollider2D m_collider;
@@ -18,8 +19,10 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
     // movement variables
     [Header("Basic player settings")]
+    /*
     [SerializeField] private int health = 100;
     [SerializeField] private int flashLength = 10;
+    [SerializeField] private float flashInterval = 0.08f;*/
     [SerializeField] private float m_moveSpeed = 5f;
     [SerializeField] private float m_jumpSpeed = 7f;
     [SerializeField] private LayerMask jumpableGround;
@@ -44,9 +47,8 @@ public class PlayerMovement : MonoBehaviour, IDamageable
     private bool isSteppingOnEnemy = false;
     public bool IsStepping { get { return isSteppingOnEnemy; } }
 
-    private bool wasJustDamaged = false;
-    public bool WasJustDamaged { get { return wasJustDamaged; } }
-
+    // delegates
+    public Action<float, float> OnPlayerStartFlashing;
 
     private void Awake()
     {
@@ -171,34 +173,6 @@ public class PlayerMovement : MonoBehaviour, IDamageable
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        if (health <= 0) Die();
-
-        StartCoroutine(JustDamaged());
-    }
-    private IEnumerator JustDamaged()
-    {
-        wasJustDamaged = true;
-
-        // flashing
-        for (int i = 0; i < flashLength; i++)
-        {
-            m_sprite.color = new Color(1f, 1f, 1f, 0f); // transparent
-            yield return new WaitForSeconds(0.08f);
-            m_sprite.color = new Color(1f, 1f, 1f, 1f); // opaque
-            yield return new WaitForSeconds(0.08f);
-        }
-
-        wasJustDamaged = false;
-    }
-
-    private void Die()
-    {
-        Destroy(this.gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

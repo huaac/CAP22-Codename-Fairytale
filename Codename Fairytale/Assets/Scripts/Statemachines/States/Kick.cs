@@ -75,7 +75,7 @@ public class Kick : BaseState
             // damage them
             foreach (Collider2D hit in enemiesHit)
             {
-                if (hit.gameObject.TryGetComponent(out PlayerMovement target))
+                if (hit.gameObject.TryGetComponent(out PlayerHealth target))
                 {
                     if (!target.WasJustDamaged)
                     {
