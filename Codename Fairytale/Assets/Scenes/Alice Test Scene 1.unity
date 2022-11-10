@@ -3424,7 +3424,7 @@ MonoBehaviour:
   m_anim: {fileID: 0}
   radiusLength: 5
   chargePoint: {fileID: 1872052230}
-  chargeRange: 2
+  chargeRange: 1
   chargeSpeed: 100
   chargeDamage: 10
   ogChargeNum: 0

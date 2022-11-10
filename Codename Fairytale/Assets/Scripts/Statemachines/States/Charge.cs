@@ -148,7 +148,9 @@ public class Charge : BaseState
     //attacks player only when they were not just attacked
     private void Attack()
     {
-        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(_bsm.kickPoint.position, (_bsm.kickRange-0.9f), _bsm.targetLayers);
+
+        Vector3 attackPoint = new Vector3(_bsm.chargePoint.position.x + 0.5f, _bsm.chargePoint.position.y + 0.5f, _bsm.chargePoint.position.z);
+        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint, _bsm.chargeRange, _bsm.targetLayers);
 
         foreach (Collider2D hit in enemiesHit)
         {
