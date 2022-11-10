@@ -13,4 +13,13 @@ public class DialogueTrigger : MonoBehaviour
     {
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
+
+    private void OnTriggerEnter2D(Collider2D collided)
+    {
+        if(collided.gameObject.layer == 7)
+        {
+            TriggerDialogue();
+            Destroy(this);
+        }
+    }
 }
