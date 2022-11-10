@@ -5,6 +5,7 @@ using UnityEngine;
 public class Idle : BaseState
 {
     private BossSM _bsm;
+    private bool _readyStart;
 
     public Idle(BossSM stateMachine) : base("Idle", stateMachine)
     {
@@ -14,8 +15,7 @@ public class Idle : BaseState
     public override void Enter()
     {
         base.Enter();
-        //TODO: play idle animation
-
+        
         //starting the state with the enemy not moving
         _bsm.rb.velocity = Vector2.zero;
         //fixing rotation
@@ -23,9 +23,11 @@ public class Idle : BaseState
         _bsm.transform.rotation = Quaternion.Euler(eulerRotation.x, eulerRotation.y, 0);
         //automatically say the enemy not facing player to correct it
         _bsm.isFacingPlayer = false;
+        _readyStart = true;
 
-        _bsm.DoAnimations(0);
         Debug.Log("idle");
+        //playing idle animation
+        _bsm.DoAnimations(0);
 
     }
 
@@ -35,8 +37,9 @@ public class Idle : BaseState
 
         base.UpdateLogic();
         //once enemy is facing player change state
-        if (_bsm.isFacingPlayer)
+        if (_bsm.isFacingPlayer && _readyStart)
         {
+            _readyStart = false;
             _bsm.StartCoroutine(StartChangingState());
         }
         //change state here
@@ -89,7 +92,7 @@ public class Idle : BaseState
 
     public IEnumerator ChangingState()
     {
-        stateMachine.ChangeState(_bsm.chargeState);
         yield return new WaitForSeconds(_bsm.waitTime);
+        stateMachine.ChangeState(_bsm.chargeState);
     }
 }

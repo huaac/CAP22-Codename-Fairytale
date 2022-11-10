@@ -11,9 +11,12 @@ public class Kick : BaseState
 {
     private BossSM _bsm;
     private bool _cankick;
-    private int _genRand;
-    
 
+    //so the animation of kick is smooth
+    private float _changeTime;
+
+    //used to keep from calling corutine function multiple times
+    private bool _readyStart;
 
     public Kick(BossSM stateMachine) : base("Kick", stateMachine)
     {
@@ -23,9 +26,9 @@ public class Kick : BaseState
     public override void Enter()
     {
         base.Enter();
+        _changeTime = 2.72f - _bsm.waitTime;
         _cankick = true;
-        _genRand= Random.Range(1,3);
-        Debug.Log(_genRand);
+        _readyStart = true;
         //TODO: play kick animation
         _bsm.DoAnimations(3);
         Debug.Log("kick");
@@ -33,7 +36,11 @@ public class Kick : BaseState
 
     public override void UpdateLogic()
     {
-        if (_bsm.IsStunned) return;
+        if (_bsm.IsStunned)
+        {
+            Debug.Log("stunned stomp");
+            stateMachine.ChangeState(_bsm.idleState);
+        }
 
         base.UpdateLogic();
 
@@ -43,7 +50,7 @@ public class Kick : BaseState
         }
         //kick a projectile so change to shootState
         //if not shoot state go to idle state
-        if (!_cankick)
+        if (!_cankick && _readyStart)
         {
             _bsm.StartCoroutine(StartChangingState());
         }
@@ -86,24 +93,21 @@ public class Kick : BaseState
         }
     }
 
-    public IEnumerator StartChangingState(){
-        yield return _bsm.StartCoroutine(ChangingState());
+    public IEnumerator StartChangingState()
+    {
+        if (_readyStart)
+        {
+            _readyStart = false;
+            yield return _bsm.StartCoroutine(ChangingState());
+        }
+        //yield return _bsm.StartCoroutine(ChangingState());
     }
 
     public IEnumerator ChangingState()
     {
         _bsm.numCharges = _bsm.ogChargeNum;
+        yield return new WaitForSeconds(_bsm.waitTime + _changeTime);
         stateMachine.ChangeState(_bsm.idleState);
-        yield return new WaitForSeconds(_bsm.waitTime + 1f);
-        // if (_genRand == 1 && _bsm.target != null)
-        // {
-        //     stateMachine.ChangeState(_bsm.shootState);
-        // }
-        // else
-        // {
-        //     stateMachine.ChangeState(_bsm.idleState);
-
-        // }
     }
     
     //flips character so that they can do back kick
@@ -122,6 +126,7 @@ public class Kick : BaseState
                     scale.x = Mathf.Abs(scale.x) * (_bsm.flip ? -1 : 1);
                 }
                 _bsm.transform.localScale = scale;
+                _bsm.isFacingPlayer = false;
             }
     }
 }

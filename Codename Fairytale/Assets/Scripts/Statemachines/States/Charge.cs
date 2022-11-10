@@ -7,6 +7,7 @@ public class Charge : BaseState
     private BossSM _bsm;
     private float _distToPlayer;
     private int ogChargeNum;
+    private bool _readyStart;
     
     
 
@@ -21,6 +22,7 @@ public class Charge : BaseState
         base.Enter();
         //TODO: play charge animation
         _bsm.isFacingPlayer = true;
+        _readyStart = true;
 
         //check if not stunned if it is don't do charge state
         _bsm.DoAnimations(1);
@@ -29,9 +31,11 @@ public class Charge : BaseState
 
     public override void UpdateLogic()
     {
+        //note should stunned be moved to the bottom since it comes to fast (shoot)
         if (_bsm.IsStunned)
         {
             Debug.Log("stunned charge");
+            _bsm.numCharges -= 1;
             stateMachine.ChangeState(_bsm.idleState);
         }
         base.UpdateLogic();
@@ -60,25 +64,33 @@ public class Charge : BaseState
                     _bsm.isFacingPlayer = false;
                 }
             }
-            // if player is close enough to kick and enemy is facing player then do the kick state and reset number of charges
-            if (_distToPlayer < _bsm.radiusLength && _bsm.isFacingPlayer && _bsm.numCharges <= 0)
+
+            if (_readyStart)
             {
-                //stateMachine.ChangeState(_bsm.kickState);
-                _bsm.StartCoroutine(StartChangingState(1));
+                // if player is close enough to kick and enemy is facing player then do the kick state and reset number of charges
+                if (_distToPlayer <= _bsm.radiusLength && _bsm.isFacingPlayer && _bsm.numCharges <= 0)
+                {
+                    _readyStart = false;
+                    //stateMachine.ChangeState(_bsm.kickState);
+                    _bsm.StartCoroutine(StartChangingState(1));
+                }
+                else if (_distToPlayer > _bsm.radiusLength && _bsm.numCharges <= 0)
+                {
+                    _readyStart = false;
+                    //stateMachine.ChangeState(_bsm.shootState);
+                    _bsm.StartCoroutine(StartChangingState(2));
+                }
+                //else if the player is too far from the enemy and enemy is not facing player then change to idle state and take away from number of charges
+                else if (_distToPlayer > _bsm.radiusLength && !_bsm.isFacingPlayer)
+                {
+                    _readyStart = false;
+                    _bsm.numCharges -= 1;
+                    //stateMachine.ChangeState(_bsm.kickState);
+                    //stateMachine.ChangeState(_bsm.idleState);
+                    _bsm.StartCoroutine(StartChangingState(0));
+                }
             }
-            else if (_distToPlayer > _bsm.radiusLength && _bsm.numCharges <= 0)
-            {
-                //stateMachine.ChangeState(_bsm.shootState);
-                _bsm.StartCoroutine(StartChangingState(2));
-            }
-            //else if the player is too far from the enemy and enemy is not facing player then change to idle state and take away from number of charges
-            else if (_distToPlayer > _bsm.radiusLength && !_bsm.isFacingPlayer)
-            {
-                _bsm.numCharges -= 1;
-                //stateMachine.ChangeState(_bsm.kickState);
-                //stateMachine.ChangeState(_bsm.idleState);
-                _bsm.StartCoroutine(StartChangingState(0));
-            }
+            
             
         }
         //if player is destroyed (defeated) then go to idle state and take away from charge
@@ -119,18 +131,18 @@ public class Charge : BaseState
     }
     public IEnumerator ChangeToIdleState()
     {
-        stateMachine.ChangeState(_bsm.idleState);
         yield return new WaitForSeconds(_bsm.waitTime);
+        stateMachine.ChangeState(_bsm.idleState);
     }
     public IEnumerator ChangeToKickState()
     {
-        stateMachine.ChangeState(_bsm.kickState);
         yield return new WaitForSeconds(_bsm.waitTime);
+        stateMachine.ChangeState(_bsm.kickState);
     }
     public IEnumerator ChangeToShootState()
     {
-        stateMachine.ChangeState(_bsm.shootState);
         yield return new WaitForSeconds(_bsm.waitTime);
+        stateMachine.ChangeState(_bsm.shootState);
     }
 
     //attacks player only when they were not just attacked

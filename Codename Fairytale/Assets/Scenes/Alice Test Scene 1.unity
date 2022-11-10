@@ -476,7 +476,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  curHealth: 0
+  flashLength: 10
+  flashInterval: 0.08
   healthBar: {fileID: 1091917138}
 --- !u!4 &365191126 stripped
 Transform:
@@ -496,9 +497,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashEnabled: 0
-  health: 100
-  flashLength: 10
-  flashInterval: 0.08
   m_moveSpeed: 5
   m_jumpSpeed: 15
   jumpableGround:
@@ -1367,9 +1365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashEnabled: 0
-  health: 100
-  flashLength: 10
-  flashInterval: 0.08
   m_moveSpeed: 5
   m_jumpSpeed: 10
   jumpableGround:
@@ -3198,7 +3193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numCharges: 1
-  waitTime: 0.5
+  waitTime: 0.7
   targetLocation: {x: 0, y: 0, z: 0}
   isFacingPlayer: 0
   rb: {fileID: 2807473604517508396}
@@ -3206,7 +3201,7 @@ MonoBehaviour:
   facingRight: 1
   flip: 1
   m_anim: {fileID: 0}
-  radiusLength: 3
+  radiusLength: 5
   chargeSpeed: 100
   chargeDamage: 1
   ogChargeNum: 0
