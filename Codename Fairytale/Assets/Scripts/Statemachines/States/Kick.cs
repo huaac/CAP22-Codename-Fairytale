@@ -67,9 +67,8 @@ public class Kick : BaseState
         if (_cankick)
         {
             _cankick = false;
-            Attack();
         }
-
+        Attack();
         
     }
 

@@ -527,6 +527,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137099845}
   m_CullTransparentMesh: 1
+--- !u!4 &315250465 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1948171982713279333, guid: 206fe908596a1b44291fd7873a902e7b, type: 3}
+  m_PrefabInstance: {fileID: 2807473604517508391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &365191123 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3835158483997321928, guid: b77d5049f1bae11418772391326321f2, type: 3}
@@ -972,6 +977,8 @@ MonoBehaviour:
   flip: 0
   m_anim: {fileID: 0}
   radiusLength: 2.5
+  chargePoint: {fileID: 0}
+  chargeRange: 0
   chargeSpeed: 100
   chargeDamage: 1
   ogChargeNum: 0
@@ -3148,6 +3155,11 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!4 &1872052230 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1122957643913487528, guid: 206fe908596a1b44291fd7873a902e7b, type: 3}
+  m_PrefabInstance: {fileID: 2807473604517508391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1879975781
 GameObject:
   m_ObjectHideFlags: 0
@@ -3328,6 +3340,14 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.8220141
       objectReference: {fileID: 0}
+    - target: {fileID: 3241411748118606606, guid: 206fe908596a1b44291fd7873a902e7b, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 3704512352550083054, guid: 206fe908596a1b44291fd7873a902e7b, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4863101390662549585, guid: 206fe908596a1b44291fd7873a902e7b, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.50844556
@@ -3352,6 +3372,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8097852052197110762, guid: 206fe908596a1b44291fd7873a902e7b, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 8862127871491220076, guid: 206fe908596a1b44291fd7873a902e7b, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -3399,15 +3423,17 @@ MonoBehaviour:
   flip: 1
   m_anim: {fileID: 0}
   radiusLength: 5
+  chargePoint: {fileID: 1872052230}
+  chargeRange: 2
   chargeSpeed: 100
-  chargeDamage: 1
+  chargeDamage: 10
   ogChargeNum: 0
-  kickPoint: {fileID: 2807473604517508404}
-  kickRange: 1
+  kickPoint: {fileID: 315250465}
+  kickRange: 1.5
   targetLayers:
     serializedVersion: 2
     m_Bits: 128
-  kickDamage: 1
+  kickDamage: 20
   rock: {fileID: 65799467539782839, guid: d270b8a8a61d882488b4b02faa2d5569, type: 3}
 --- !u!50 &2807473604517508396
 Rigidbody2D:
@@ -3443,7 +3469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  stunTime: 5
+  stunTime: 1.5
   healthBar: {fileID: 1771359192}
   maxHealth: 100
 --- !u!68 &2807473604517508398
@@ -3652,11 +3678,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!4 &2807473604517508404 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 975468918620584539, guid: 206fe908596a1b44291fd7873a902e7b, type: 3}
-  m_PrefabInstance: {fileID: 2807473604517508391}
-  m_PrefabAsset: {fileID: 0}
 --- !u!68 &2807473604517508405
 EdgeCollider2D:
   m_ObjectHideFlags: 0
