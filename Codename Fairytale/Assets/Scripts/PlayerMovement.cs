@@ -46,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
     // player state bool's
     private bool isSteppingOnEnemy = false;
     public bool IsStepping { get { return isSteppingOnEnemy; } }
+    private bool isOnMovingPlatform = false;
+    private Rigidbody2D platformRB;
 
     // delegates
     public Action<float, float> OnPlayerStartFlashing;
@@ -78,6 +80,11 @@ public class PlayerMovement : MonoBehaviour
         Flip();
 
         m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
+        /*if (isOnMovingPlatform)
+        {
+            Debug.Log(platformRB.velocity);
+            m_rb.velocity += platformRB.velocity;
+        }*/
         DoAnimations();
 
         // jump

@@ -40,7 +40,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void Stun()
     {
         StartCoroutine(StunCoroutine());
-        TakeDamage(20); // added from alice for testing delete later
+        //TakeDamage(20); // added from alice for testing delete later
         Debug.Log("stunned");
     }
 
