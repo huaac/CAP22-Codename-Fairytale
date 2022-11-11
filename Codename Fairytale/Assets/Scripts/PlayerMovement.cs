@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D platformRB;
 
     // delegates
-    public Action<float, float> OnPlayerStartFlashing;
+    public Action OnPlayerPressedDown;
 
     private void Awake()
     {
@@ -95,6 +95,12 @@ public class PlayerMovement : MonoBehaviour
                 m_rb.velocity = new Vector2(m_rb.velocity.x, m_jumpSpeed);
                 // m_anim.SetInteger("currentState", 2);
             }
+        }
+
+        // player pressed down
+        if (Input.GetAxisRaw("Vertical") < 0)
+        {
+            OnPlayerPressedDown();
         }
 
         // dash

@@ -10,12 +10,18 @@ public class MovingPlatform : MonoBehaviour
     private Vector3 endPoint;
     private Vector3 startPoint;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D m_rb;
+    private Collider2D m_collider;
+
+    private void Awake()
+    {
+        m_rb = GetComponent<Rigidbody2D>();
+        m_collider = GetComponent<Collider2D>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         startPoint = transform.position;
         endPoint = startPoint + (Vector3)endPos;
     }
@@ -39,6 +45,7 @@ public class MovingPlatform : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out PlayerMovement player))
         {
             player.transform.SetParent(gameObject.transform, true);
+            player.OnPlayerPressedDown += DisableCollider;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -46,12 +53,26 @@ public class MovingPlatform : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out PlayerMovement player))
         {
             player.transform.parent = null;
+            player.OnPlayerPressedDown -= DisableCollider;
         }
+    }
+
+    public void DisableCollider()
+    {
+        StartCoroutine(DisableColliderCoroutine());
+    }
+    private IEnumerator DisableColliderCoroutine()
+    {
+        m_collider.enabled = false;
+        yield return new WaitForSeconds(0.3f);
+        m_collider.enabled = true;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + (Vector3)endPos);
+        Gizmos.DrawSphere(transform.position, 0.05f);
+        Gizmos.DrawSphere(transform.position + (Vector3)endPos, 0.05f);
     }
 }
