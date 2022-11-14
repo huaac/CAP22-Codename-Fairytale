@@ -26,7 +26,7 @@ public class Kick : BaseState
     public override void Enter()
     {
         base.Enter();
-        _changeTime = 2.72f - _bsm.waitTime;
+        _changeTime = 1.9f - _bsm.waitTime;
         _cankick = true;
         _readyStart = true;
         //TODO: play kick animation
@@ -47,6 +47,7 @@ public class Kick : BaseState
         if (_bsm.isFacingPlayer)
         {
             FlipForKick();
+            
         }
         //kick a projectile so change to shootState
         //if not shoot state go to idle state
@@ -99,7 +100,6 @@ public class Kick : BaseState
             _readyStart = false;
             yield return _bsm.StartCoroutine(ChangingState());
         }
-        //yield return _bsm.StartCoroutine(ChangingState());
     }
 
     public IEnumerator ChangingState()
