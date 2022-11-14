@@ -42,15 +42,13 @@ public class Idle : BaseState
             _readyStart = false;
             _bsm.StartCoroutine(StartChangingState());
         }
-        //change state here
-        //if facing player charge/kick/projectile and check a cooldown if you can do that state
-        //example -> if (something) {stateMachine.ChangeState(_bsm.idleState)}
     }
 
     public override void UpdatePhysics()
     {
         base.UpdatePhysics();
         if (_bsm.IsStunned) return;
+
         //face player
         Vector2 scale = _bsm.transform.localScale;
         if (_bsm.target != null)

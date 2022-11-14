@@ -1079,10 +1079,7 @@ MonoBehaviour:
   flip: 0
   m_anim: {fileID: 0}
   radiusLength: 2.5
-  chargePoint: {fileID: 0}
-  chargeRange: 0
   chargeSpeed: 100
-  chargeDamage: 1
   ogChargeNum: 0
   kickPoint: {fileID: 562731373}
   kickRange: 1
@@ -3213,10 +3210,7 @@ MonoBehaviour:
   flip: 1
   m_anim: {fileID: 0}
   radiusLength: 5
-  chargePoint: {fileID: 1872052230}
-  chargeRange: 1
   chargeSpeed: 100
-  chargeDamage: 10
   ogChargeNum: 0
   kickPoint: {fileID: 315250465}
   kickRange: 1.5
@@ -3468,6 +3462,27 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &2807473604517508404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2807473604517508392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60d3849199829b48acecc21ccaf89b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePoint: {fileID: 1872052230}
+  damageRange: 1
+  target: {fileID: 365191123}
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  attackDamage: 20
+  upDown: 0.5
+  rightLeft: 0.5
 --- !u!68 &2807473604517508405
 EdgeCollider2D:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ public class Charge : BaseState
     private int ogChargeNum;
     private bool _readyStart;
     
-    
 
     public Charge(BossSM stateMachine) : base("Charge", stateMachine)
     {
@@ -20,11 +19,10 @@ public class Charge : BaseState
     public override void Enter()
     {
         base.Enter();
-        //TODO: play charge animation
         _bsm.isFacingPlayer = true;
         _readyStart = true;
 
-        //check if not stunned if it is don't do charge state
+        //play charge animation
         _bsm.DoAnimations(1);
         Debug.Log("charge");
     }
@@ -71,13 +69,11 @@ public class Charge : BaseState
                 if (_distToPlayer <= _bsm.radiusLength && _bsm.isFacingPlayer && _bsm.numCharges <= 0)
                 {
                     _readyStart = false;
-                    //stateMachine.ChangeState(_bsm.kickState);
                     _bsm.StartCoroutine(StartChangingState(1));
                 }
                 else if (_distToPlayer > _bsm.radiusLength && _bsm.numCharges <= 0)
                 {
                     _readyStart = false;
-                    //stateMachine.ChangeState(_bsm.shootState);
                     _bsm.StartCoroutine(StartChangingState(2));
                 }
                 //else if the player is too far from the enemy and enemy is not facing player then change to idle state and take away from number of charges
@@ -85,8 +81,6 @@ public class Charge : BaseState
                 {
                     _readyStart = false;
                     _bsm.numCharges -= 1;
-                    //stateMachine.ChangeState(_bsm.kickState);
-                    //stateMachine.ChangeState(_bsm.idleState);
                     _bsm.StartCoroutine(StartChangingState(0));
                 }
             }
@@ -97,7 +91,6 @@ public class Charge : BaseState
         else
         {
             _bsm.numCharges -= 1;
-            //stateMachine.ChangeState(_bsm.idleState);
             _bsm.StartCoroutine(StartChangingState(0));
 
         }
@@ -116,7 +109,6 @@ public class Charge : BaseState
         //fix rotation of enemy in case player bumps into boss
         Vector3 eulerRotation = _bsm.transform.rotation.eulerAngles;
         _bsm.transform.rotation = Quaternion.Euler(eulerRotation.x, eulerRotation.y, 0);
-        Attack();
 
     }
 
@@ -143,26 +135,6 @@ public class Charge : BaseState
     {
         yield return new WaitForSeconds(_bsm.waitTime);
         stateMachine.ChangeState(_bsm.shootState);
-    }
-
-    //attacks player only when they were not just attacked
-    private void Attack()
-    {
-
-        Vector3 attackPoint = new Vector3(_bsm.chargePoint.position.x + 0.5f, _bsm.chargePoint.position.y + 0.5f, _bsm.chargePoint.position.z);
-        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint, _bsm.chargeRange, _bsm.targetLayers);
-
-        foreach (Collider2D hit in enemiesHit)
-        {
-            if (hit.gameObject.TryGetComponent(out PlayerHealth target))
-            {
-                if (!target.WasJustDamaged)
-                {
-                    target.TakeDamage(_bsm.chargeDamage);
-                }
-            }
-        }
-
     }
 
 }

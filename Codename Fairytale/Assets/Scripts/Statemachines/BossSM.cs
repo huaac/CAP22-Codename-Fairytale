@@ -47,11 +47,8 @@ public class BossSM : StateMachine, IEnemy
     [Header("Charge State")]
     //radius of boss to help check player position
     public float radiusLength;
-    public Transform chargePoint;
-    public float chargeRange;
     //for the charge
     public float chargeSpeed;
-    public int chargeDamage;
     [HideInInspector]
     public int ogChargeNum;
 
