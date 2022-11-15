@@ -8,10 +8,16 @@ public class SceneMgmt : MonoBehaviour
     [SerializeField] private float levelRestartDelay;
     [SerializeField] private int restartCount;
 
-    //Loads the first level
-    public void PlayGame()
+    //Loads Chapter Select
+    public void ChapterSelect() 
     {
         SceneManager.LoadScene(1);
+    }
+    
+    //Loads the first level
+    public void StartGame()
+    {
+        SceneManager.LoadScene(2);
     }
 
     // Resets current level

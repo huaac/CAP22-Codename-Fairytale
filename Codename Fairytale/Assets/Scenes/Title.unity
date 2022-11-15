@@ -447,7 +447,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2129196642}
         m_TargetAssemblyTypeName: SceneMgmt, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: ChapterSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
