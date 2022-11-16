@@ -44,8 +44,9 @@ public class Charge : BaseState
         if (_bsm.target != null)
         {
             //get the distance  from enemy to player
-            _distToPlayer = Vector2.Distance(_bsm.transform.position, _bsm.target.transform.position);
             Vector2 toOther = _bsm.transform.position - _bsm.target.transform.position;
+            //_distToPlayer = Vector2.Distance(_bsm.transform.position, _bsm.target.transform.position);
+            _distToPlayer = toOther.sqrMagnitude;
             if (_bsm.facingRight)
             {
                 //check if player is no longer facing right
@@ -66,22 +67,31 @@ public class Charge : BaseState
             if (_readyStart)
             {
                 // if player is close enough to kick and enemy is facing player then do the kick state and reset number of charges
-                if (_distToPlayer <= _bsm.radiusLength && _bsm.isFacingPlayer && _bsm.numCharges <= 0)
+                if (_bsm.numCharges <= 0 && _bsm.isFacingPlayer)
                 {
-                    _readyStart = false;
-                    _bsm.StartCoroutine(StartChangingState(1));
-                }
-                else if (_distToPlayer > _bsm.radiusLength && _bsm.numCharges <= 0)
-                {
-                    _readyStart = false;
-                    _bsm.StartCoroutine(StartChangingState(2));
+                    //if target is within range
+                    if (_distToPlayer <= _bsm.radiusLength * _bsm.radiusLength)
+                    {
+                        _readyStart = false;
+                        _bsm.StartCoroutine(StartChangingState(1));
+                    }
+                    //if target is not within range
+                    else if (!(_distToPlayer < _bsm.radiusLength * _bsm.radiusLength))
+                    {
+                        _readyStart = false;
+                        _bsm.StartCoroutine(StartChangingState(2));
+                    }
                 }
                 //else if the player is too far from the enemy and enemy is not facing player then change to idle state and take away from number of charges
-                else if (_distToPlayer > _bsm.radiusLength && !_bsm.isFacingPlayer)
+                else if (!_bsm.isFacingPlayer)
                 {
-                    _readyStart = false;
-                    _bsm.numCharges -= 1;
-                    _bsm.StartCoroutine(StartChangingState(0));
+                    //if target is not within range
+                    if (!(_distToPlayer < _bsm.radiusLength * _bsm.radiusLength))
+                    {
+                        _readyStart = false;
+                        _bsm.numCharges -= 1;
+                        _bsm.StartCoroutine(StartChangingState(0));
+                    }
                 }
             }
             
