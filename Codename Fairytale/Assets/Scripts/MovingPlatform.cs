@@ -32,6 +32,7 @@ public class MovingPlatform : MonoBehaviour
         float step = speed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, endPoint, step);
 
+        // when the platform reaches the "end", set the initial position as the new "end" to move to
         if (transform.position == endPoint)
         {
             Vector3 newStartPoint = endPoint;
@@ -40,6 +41,8 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
+    // make the player object a child of the moving platform,
+    // subscribe DisableCollider to PlayerMovement's down button press
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out PlayerMovement player))
@@ -57,6 +60,8 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
+    // listens to event from PlayerMovement on down button press
+    // disables the platform's collider for a split second so the player can fall through it
     public void DisableCollider()
     {
         StartCoroutine(DisableColliderCoroutine());

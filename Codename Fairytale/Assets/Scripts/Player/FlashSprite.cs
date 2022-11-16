@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A script to flash the player's sprite(s) when they are damaged.
+/// </summary>
+
 public class FlashSprite : MonoBehaviour
 {
     private PlayerHealth player;
@@ -18,6 +22,7 @@ public class FlashSprite : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
+    // subscribe to PlayerHealth's on player damage
     private void OnEnable()
     {
         player.OnPlayerStartFlashing += StartFlash;
@@ -27,6 +32,7 @@ public class FlashSprite : MonoBehaviour
         player.OnPlayerStartFlashing -= StartFlash;
     }
 
+    // listens to event from PlayerHealth on player damage
     public void StartFlash(float flashLen, float flashInter)
     {
         flashLength = flashLen;
@@ -35,6 +41,8 @@ public class FlashSprite : MonoBehaviour
     }
     private IEnumerator FlashCoroutine()
     {
+        // switches between transparent & opaque for given flash length,
+        // flashInterval is the tiny amount of time between the switches
         for (int i = 0; i < flashLength; i++)
         {
             sprite.color = new Color(1f, 1f, 1f, 0f); // transparent

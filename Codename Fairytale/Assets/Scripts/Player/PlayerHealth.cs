@@ -29,6 +29,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         curentHealth -= damage;
         if (curentHealth <= 0) Die();
+
         healthBar.SetHealth(curentHealth);
 
         StartCoroutine(JustDamaged());
@@ -37,15 +38,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         wasJustDamaged = true;
 
-        // flashing
-        /*
-        for (int i = 0; i < flashLength; i++)
-        {
-            m_sprite.color = new Color(1f, 1f, 1f, 0f); // transparent
-            yield return new WaitForSeconds(0.08f);
-            m_sprite.color = new Color(1f, 1f, 1f, 1f); // opaque
-            yield return new WaitForSeconds(0.08f);
-        }*/
+        // dispatch player flashing event
+        // all of player's limb sprites will be listening to this
         OnPlayerStartFlashing(flashLength, flashInterval);
         yield return new WaitForSeconds(flashLength * flashInterval * 2);
 

@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     // player state bool's
     private bool isSteppingOnEnemy = false;
     public bool IsStepping { get { return isSteppingOnEnemy; } }
+    private bool isAttacking = false;
     private bool isOnMovingPlatform = false;
     private Rigidbody2D platformRB;
 
@@ -80,15 +81,9 @@ public class PlayerMovement : MonoBehaviour
         Flip();
 
         m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
-        /*if (isOnMovingPlatform)
-        {
-            Debug.Log(platformRB.velocity);
-            m_rb.velocity += platformRB.velocity;
-        }*/
-        DoAnimations();
 
         // jump
-        if (Input.GetAxisRaw("Jump") > 0) 
+        if (Input.GetButtonDown("Jump")) 
         {
             if (IsGrounded())
             {
@@ -104,19 +99,23 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // dash
-        // TODO: decide on dash controls
         if (Input.GetKeyDown(KeyCode.LeftShift) && dashEnabled && canDash)
         {
             StartCoroutine(Dash());
         }
 
         // slash attack
-        if (Input.GetButtonDown("Slash"))
+        if (Input.GetButtonDown("Slash") && !isAttacking)
         {
-            Attack();
+            StartCoroutine(Attack());
+        }
+        else
+        {
+            DoAnimations();
         }
     }
 
+    // flip player sprite according to movement direction
     private void Flip()
     {
         if (movement_x < 0)
@@ -164,9 +163,12 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 
-    private void Attack()
+    private IEnumerator Attack()
     {
-        // TODO: play attack animation
+        isAttacking = true;
+        m_anim.SetInteger("currentState", 3);
+
+        yield return new WaitForSeconds(0.5f);
 
         // detect enemies in hitbox
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
@@ -179,13 +181,14 @@ public class PlayerMovement : MonoBehaviour
                 enemy.TakeDamage(attack);
             }
         }
-    }
-    private void OnDrawGizmos()
-    {
-        if (attackPoint == null) return;
 
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        yield return null;
+
+        m_anim.SetInteger("currentState", 0);
+
+        yield return new WaitForSeconds(0.4f);
+
+        isAttacking = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -193,7 +196,6 @@ public class PlayerMovement : MonoBehaviour
         // if I collided with an enemy
         if (collision.gameObject.TryGetComponent(out EnemyHealth enemy))
         {
-            // StepOnEnemy();  // added from alice for testing can delete later
             // if I'm stepping on it
             if (isSteppingOnEnemy && m_rb.velocity.y < 0)
             {
@@ -201,17 +203,14 @@ public class PlayerMovement : MonoBehaviour
                 enemy.Stun();
                 isSteppingOnEnemy = false;
             }
-            /*
-            else
-            {
-                // else, I die
-                Die();
-            }*/
+
         }
     }
 
     void DoAnimations()
     {
+        if (isAttacking) return;
+
         if (m_rb.velocity != Vector2.zero)
         {
             m_anim.SetInteger("currentState", 1); // change to running anim
@@ -219,5 +218,13 @@ public class PlayerMovement : MonoBehaviour
         else{
             m_anim.SetInteger("currentState", 0); // change to idle anim
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (attackPoint == null) return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
