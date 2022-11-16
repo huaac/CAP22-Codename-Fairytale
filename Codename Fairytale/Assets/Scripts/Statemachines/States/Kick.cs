@@ -46,7 +46,7 @@ public class Kick : BaseState
 
         if (_bsm.isFacingPlayer)
         {
-            //FlipForKick();
+            FlipForKick();
             
         }
         //kick a projectile so change to shootState
