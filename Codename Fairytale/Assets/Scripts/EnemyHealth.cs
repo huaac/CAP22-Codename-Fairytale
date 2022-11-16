@@ -14,6 +14,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private IEnemy enemyMovement;
 
+    [HideInInspector]
+    public Animator m_anim;
+
     private void Awake()
     {
         enemyMovement = GetComponent<IEnemy>();
@@ -27,10 +30,16 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             healthBar.maxValue = maxHealth;
             healthBar.value = maxHealth;
         }
+
+        m_anim = GetComponent<Animator>();
     }
 
     public void TakeDamage(int damage)
     {
+        m_anim.SetInteger("currentState", -1);
+        Stun();
+        
+
         currentHealth -= damage;
         if (currentHealth <= 0) Die();
 
