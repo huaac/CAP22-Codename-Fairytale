@@ -57,4 +57,10 @@ public class ConstantAttack : MonoBehaviour
             }
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(damagePoint.position, damageRange);
+    }
 }
