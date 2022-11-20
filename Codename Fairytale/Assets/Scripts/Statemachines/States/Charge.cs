@@ -86,7 +86,7 @@ public class Charge : BaseState
                 else if (!_bsm.isFacingPlayer)
                 {
                     //if target is not within range
-                    if (!(_distToPlayer < _bsm.radiusLength * _bsm.radiusLength))
+                    if (!(_distToPlayer < (_bsm.radiusLength - 0.5) *(_bsm.radiusLength - 0.5)))
                     {
                         _readyStart = false;
                         _bsm.numCharges -= 1;
