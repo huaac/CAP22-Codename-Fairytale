@@ -4365,11 +4365,11 @@ MonoBehaviour:
   facingRight: 1
   flip: 1
   m_anim: {fileID: 0}
-  radiusLength: 5
+  radiusLength: 3.5
   chargeSpeed: 170
   ogChargeNum: 0
   kickPoint: {fileID: 315250465}
-  kickRange: 1.5
+  kickRange: 2
   targetLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -4638,7 +4638,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   attackDamage: 20
-  upDown: 0.4
+  upDown: 0.35
   rightLeft: 0.5
 --- !u!68 &2807473604517508405
 EdgeCollider2D:
