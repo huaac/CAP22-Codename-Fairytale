@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         m_rb.velocity = new Vector2(movement_x * m_moveSpeed * m_playerState.SpeedMultiplier, m_rb.velocity.y);
 
         // jump
-        if (Input.GetButtonDown("Jump")) 
+        if (Input.GetButtonDown("Jump") || Input.GetAxisRaw("Vertical") > 0)
         {
             if (IsGrounded())
             {

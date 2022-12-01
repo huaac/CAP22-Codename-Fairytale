@@ -1029,9 +1029,9 @@ MonoBehaviour:
 
     D - Move Right
 
-    Space Bar - Jump
+    W/Space Bar - Jump
 
-    W - Attack'
+    Q - Attack'
 --- !u!222 &590870945
 CanvasRenderer:
   m_ObjectHideFlags: 0
