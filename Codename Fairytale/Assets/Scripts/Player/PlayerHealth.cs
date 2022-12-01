@@ -38,12 +38,14 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private IEnumerator JustDamaged()
     {
         wasJustDamaged = true;
+        Physics2D.IgnoreLayerCollision(6, 7, true);
 
         // dispatch player flashing event
         // all of player's limb sprites will be listening to this
         OnPlayerStartFlashing(flashLength, flashInterval);
         yield return new WaitForSeconds(flashLength * flashInterval * 2);
 
+        Physics2D.IgnoreLayerCollision(6, 7, false);
         wasJustDamaged = false;
     }
 
