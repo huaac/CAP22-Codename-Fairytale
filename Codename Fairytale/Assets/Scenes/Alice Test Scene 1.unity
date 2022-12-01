@@ -1031,7 +1031,7 @@ MonoBehaviour:
 
     Space Bar - Jump
 
-    Z - Attack'
+    W - Attack'
 --- !u!222 &590870945
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1820,6 +1820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashEnabled: 0
+  bounceOffEnemyEnabled: 1
   m_moveSpeed: 5
   m_jumpSpeed: 10
   jumpableGround:
