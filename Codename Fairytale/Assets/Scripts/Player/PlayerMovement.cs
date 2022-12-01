@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Turn on/off controls for testing purposes")]
     [Header("Test controls")]
     [SerializeField] private bool dashEnabled = true;
+    [SerializeField] private bool bounceOffEnemyEnabled = true;
 
     // movement variables
     [Header("Basic player settings")]
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashCoolDown = 1f;
     private bool canDash = true;
     private bool isDashing = false;
+    private bool isBouncingOff = false;
 
     // player state bool's
     private bool isSteppingOnEnemy = false;
@@ -71,8 +73,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update() 
     {
-        // disable movement input while dashing
+        // disable movement input while: dashing, just bounced off enemy
         if (isDashing) return;
+        if (isBouncingOff) return;
 
         // horizontal movement
         movement_x = Input.GetAxisRaw("Horizontal");
@@ -135,6 +138,22 @@ public class PlayerMovement : MonoBehaviour
     private void StepOnEnemy()
     {
         isSteppingOnEnemy = true;
+    }
+    private void BounceOffEnemy()
+    {
+        StartCoroutine(BounceOffCoroutine());
+    }
+    private IEnumerator BounceOffCoroutine()
+    {
+        isBouncingOff = true;
+        // add diagonal force in the same direction I was moving in when I stepped enemy
+        Debug.Log(m_rb.velocity.x);
+        m_rb.AddForce(new Vector2(m_rb.velocity.x * 1.2f, 10f), ForceMode2D.Impulse);
+
+        // disable movement for a split second just after bouncing off
+        yield return new WaitForSeconds(0.1f);
+
+        isBouncingOff = false;
     }
 
     // A function that returns true if the player is on the ground
@@ -201,6 +220,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 // stun enemy
                 enemy.Stun();
+                // bounce off of it
+                BounceOffEnemy();
+
                 isSteppingOnEnemy = false;
             }
 
