@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     // delegates
     public Action<float, float> OnPlayerStartFlashing;
+    public Action OnPlayerDied;
 
     //set the max health for the slider, sets current health to max health
     void Start()
@@ -48,6 +49,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        OnPlayerDied();
         Destroy(this.gameObject);
     }
 }
