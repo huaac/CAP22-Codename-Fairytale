@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    [SerializeField] private Vector2 endPos;
+    [SerializeField] private Vector2 point1;
+    [SerializeField] private Vector2 point2;
+
+    [Header("Move to point1 when game starts", order = 0)]
+    [Space(-13, order = 1)]
+    [Header("(if unchecked, moves to point2 instead)", order = 2)]
+    [SerializeField] private bool toPoint1;
+
     [SerializeField] private float speed;
 
     private Vector3 endPoint;
     private Vector3 startPoint;
+
+    private Vector3 location1;
+    private Vector3 location2;
 
     private Rigidbody2D m_rb;
     private Collider2D m_collider;
@@ -22,8 +32,11 @@ public class MovingPlatform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startPoint = transform.position;
-        endPoint = startPoint + (Vector3)endPos;
+        location1 = transform.position + (Vector3)point1;
+        location2 = transform.position + (Vector3)point2;
+
+        startPoint = toPoint1 ? location2 : location1;
+        endPoint = toPoint1 ? location1 : location2;
     }
 
     // Update is called once per frame
@@ -76,8 +89,8 @@ public class MovingPlatform : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + (Vector3)endPos);
-        Gizmos.DrawSphere(transform.position, 0.05f);
-        Gizmos.DrawSphere(transform.position + (Vector3)endPos, 0.05f);
+        Gizmos.DrawLine(transform.position + (Vector3)point1, transform.position + (Vector3)point2);
+        Gizmos.DrawSphere(transform.position + (Vector3)point1, 0.05f);
+        Gizmos.DrawSphere(transform.position + (Vector3)point2, 0.05f);
     }
 }
