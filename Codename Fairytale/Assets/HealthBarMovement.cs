@@ -24,4 +24,9 @@ public class HealthBarMovement : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+
+    private void OnDestroy()
+    {
+        player.OnPlayerDied -= DisableSelf;
+    }
 }
