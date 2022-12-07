@@ -14,16 +14,10 @@ public class CreateBarrier : MonoBehaviour
     {
         objTopRightBarrier = GameObject.Find("/Barrier/TopRightBarrier");
         objBottomLeftBarrier = GameObject.Find("/Barrier/BottomLeftBarrier");
-        SetUpBoundarier();
+        //SetUpBoundarier();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void SetUpBoundarier()
+    public void SetUpBoundarier()
     {
         if (objBottomLeftBarrier != null && objTopRightBarrier != null)
         {

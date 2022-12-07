@@ -43,6 +43,7 @@ public class BossSM : StateMachine, IEnemy
     public bool flip;
     [HideInInspector]
     public Animator m_anim;
+    public bool fightHasStarted = false;
 
     [Header("Charge State")]
     //radius of boss to help check player position
@@ -83,6 +84,11 @@ public class BossSM : StateMachine, IEnemy
     protected override BaseState GetInitialState()
     {
         return idleState;
+    }
+
+    public void StartBattle()
+    {
+        fightHasStarted = true;
     }
 
     public void DoAnimations(int num)

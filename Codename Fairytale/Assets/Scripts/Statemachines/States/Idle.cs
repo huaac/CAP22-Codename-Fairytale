@@ -33,6 +33,8 @@ public class Idle : BaseState
 
     public override void UpdateLogic()
     {
+        if (!_bsm.fightHasStarted) return;  // temporary line of code to keep goat from going into states before battle has started
+
         if (_bsm.target == null) return;
 
         base.UpdateLogic();
@@ -46,6 +48,8 @@ public class Idle : BaseState
 
     public override void UpdatePhysics()
     {
+        if (!_bsm.fightHasStarted) return;  // temporary line of code to keep goat from going into states before battle has started
+
         base.UpdatePhysics();
         if (_bsm.IsStunned) return;
 
