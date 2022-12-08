@@ -7598,7 +7598,7 @@ MonoBehaviour:
   m_anim: {fileID: 0}
   fightHasStarted: 0
   radiusLength: 3.5
-  chargeSpeed: 170
+  chargeSpeed: 275
   ogChargeNum: 0
   kickPoint: {fileID: 315250465}
   kickRange: 2
