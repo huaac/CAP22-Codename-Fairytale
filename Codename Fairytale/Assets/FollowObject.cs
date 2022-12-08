@@ -51,4 +51,9 @@ public class FollowObject : MonoBehaviour
         }
         
     }
+
+    public void StopFollowing()
+    {
+        _followObject = false;
+    }
 }

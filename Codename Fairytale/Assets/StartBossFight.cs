@@ -5,15 +5,21 @@ using UnityEngine.Events;
 
 public class StartBossFight : MonoBehaviour
 {
+    private bool hasStarted = false;
     public UnityEvent onBossFightStarted;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("on trigger enter");
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("player collided");
             onBossFightStarted?.Invoke();
+            hasStarted = true;
+            DestroySelf();
         }
+    }
+
+    private void DestroySelf()
+    {
+        Destroy(this.gameObject);
     }
 }
