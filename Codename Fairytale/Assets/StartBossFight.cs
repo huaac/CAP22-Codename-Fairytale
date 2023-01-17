@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class StartBossFight : MonoBehaviour
 {
     private bool hasStarted = false;
+    [SerializeField] private GameObject barriers;
     public UnityEvent onBossFightStarted;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -14,6 +15,7 @@ public class StartBossFight : MonoBehaviour
         {
             onBossFightStarted?.Invoke();
             hasStarted = true;
+            barriers.SetActive(true);
             DestroySelf();
         }
     }
