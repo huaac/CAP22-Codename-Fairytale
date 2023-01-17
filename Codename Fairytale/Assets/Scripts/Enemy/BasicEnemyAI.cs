@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BasicEnemyAI : MonoBehaviour, IEnemy
 {
-    //patrol and charge
+    //patrol
 
     // a bool to keep track of if an enemy is stunned (bc it was stepped on)
     // is turned on/off during a Coroutine in EnemyHealth script
@@ -17,11 +17,14 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
     [HideInInspector]
     public bool isPatroling;
 
+    [HideInInspector]
+    public bool isIdle;
+
     private bool mustTurn;
 
     //objects body to help move it with velocity
     [SerializeField]
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     //detection to see if object has reached the end of patrol area
     [SerializeField]
@@ -41,20 +44,21 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
     
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         isPatroling = true;
+        isIdle = false;
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         // return out of Update() while I'm stunned so I don't move around
         if (IsStunned) return;
 
-        if (isPatroling)
+        if (isPatroling && !isIdle)
         {
-            Patrol();
+            patrolSpeed = Patrol(patrolSpeed);
         }
     }
 
@@ -64,7 +68,7 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
         // return out of Update() while I'm stunned so I don't move around
         if (IsStunned) return;
 
-        if (isPatroling)
+        if (!isIdle)
         {
             //is true if object reaches the end of platform
             mustTurn = !Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
@@ -72,39 +76,44 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
     }
 
     //gets the object to patrol
-    void Patrol()
+    public virtual float Patrol(float speed)
+    {
+        //checking if enemy has reached the end the road
+        speed = CheckGroundLayer(speed);
+        //moves the object
+        rb.velocity = new Vector2(speed * Time.fixedDeltaTime, rb.velocity.y);
+        return speed;
+    }
+
+    //if it turns the sprite will also turn in the given direction
+    private float Flip(float speedF)
+    {
+        isIdle = true;
+        transform.localScale = new Vector2(transform.localScale.x *-1, transform.localScale.y);
+        speedF *= -1;
+        isIdle = false;
+        return speedF;
+    }
+
+    public virtual float CheckGroundLayer(float givenSpeed)
     {
         //calls Flip if the object has reached the end or hits a wall
         if (mustTurn || bodyCollider.IsTouchingLayers(groundLayer) || bodyCollider.IsTouchingLayers(enemyLayer))
         {
-            Flip();
+            givenSpeed = Flip(givenSpeed);
         }
-        //moves the object
-        rb.velocity = new Vector2(patrolSpeed * Time.fixedDeltaTime, rb.velocity.y);
-    }
-
-    //if it turns the sprite will also turn in the given direction
-    void Flip()
-    {
-        isPatroling = false;
-        transform.localScale = new Vector2(transform.localScale.x *-1, transform.localScale.y);
-        patrolSpeed *= -1;
-        isPatroling = true;
+        return givenSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out PlayerHealth player))
         {
-            /*
-            if (!player.IsStepping && !player.WasJustDamaged && !IsStunned)
-            {
-                player.TakeDamage(attack);
-            }*/
             if (!player.WasJustDamaged && !IsStunned)
             {
                 player.TakeDamage(attack);
             }
         }
     }
+
 }
