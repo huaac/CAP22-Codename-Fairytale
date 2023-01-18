@@ -1,0 +1,761 @@
+fileFormatVersion: 2
+guid: 44d7154a1c4401340ad10b7c465c797d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4842047978612648663
+    second: background_incline_0
+  - first:
+      213: -8399322563916590918
+    second: background_incline_1
+  - first:
+      213: -38958651172767093
+    second: background_incline_2
+  - first:
+      213: -584142590529242233
+    second: background_incline_3
+  - first:
+      213: -1949474735831330078
+    second: background_incline_4
+  - first:
+      213: 1214611372281490971
+    second: background_incline_5
+  - first:
+      213: 8113826225371071503
+    second: background_incline_6
+  - first:
+      213: 7177925632925350308
+    second: background_incline_7
+  - first:
+      213: -7794310753756667153
+    second: background_incline_8
+  - first:
+      213: 2179494529731320833
+    second: background_incline_9
+  - first:
+      213: 4678982930720505508
+    second: background_incline_10
+  - first:
+      213: 4539967307122977336
+    second: background_incline_11
+  - first:
+      213: -1725844288806820802
+    second: background_incline_12
+  - first:
+      213: -4083727001639454216
+    second: background_incline_13
+  - first:
+      213: 4720678012860310434
+    second: background_incline_14
+  - first:
+      213: 3351099742635461490
+    second: background_incline_15
+  - first:
+      213: -8886071186168278003
+    second: background_incline_16
+  - first:
+      213: 340783918954030353
+    second: background_incline_17
+  - first:
+      213: 8238713061637957731
+    second: background_incline_18
+  - first:
+      213: -7508262314228734565
+    second: background_incline_19
+  - first:
+      213: 9088076538656562937
+    second: background_incline_20
+  - first:
+      213: -7853579775130929637
+    second: background_incline_21
+  - first:
+      213: 5537196716713682264
+    second: background_incline_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: background_incline_0
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 900
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 101.26532, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: -139.9248}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 925156984079dccb0800000000000000
+      internalID: -4842047978612648663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_1
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 900
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: -139.91943}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: -51.41327}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab014df21ac9f6b80800000000000000
+      internalID: -8399322563916590918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_2
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 900
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: -51.416016}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 26.197266}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8a3beb2057957ff0800000000000000
+      internalID: -38958651172767093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_3
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 900
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 88.92615, y: 94.91699}
+        - {x: -150, y: 26.316895}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 95.628174}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78bf359a865b4e7f0800000000000000
+      internalID: -584142590529242233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_4
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 900
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 95.58569}
+        - {x: -150, y: -150}
+        - {x: 33.823853, y: -150}
+        - {x: 1.4362793, y: -14.422485}
+        - {x: 3.7097168, y: 94.81799}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e2dc287e0312f4e0800000000000000
+      internalID: -1949474735831330078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 25.814209, y: 99.411255}
+        - {x: -79, y: 50}
+        - {x: -79, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 99.411255}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1eecf89b9a2bd010800000000000000
+      internalID: 1214611372281490971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 600
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 101.38336, y: 150}
+        - {x: -88.70355, y: 105.93323}
+        - {x: -150, y: 99.33099}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f04cd7c86f91a9070800000000000000
+      internalID: 8113826225371071503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_7
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a9bfa6355d1d9360800000000000000
+      internalID: 7177925632925350308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_8
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 600
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe2a35d5aab05d390800000000000000
+      internalID: -7794310753756667153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_9
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 600
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10cda823abe1f3e10800000000000000
+      internalID: 2179494529731320833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_10
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 600
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: -150}
+        - {x: 22, y: -150}
+        - {x: 1.8660889, y: -111.528015}
+        - {x: 27.816772, y: 84.802795}
+        - {x: 25.24646, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ae36b76f261fe040800000000000000
+      internalID: 4678982930720505508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -76, y: 150}
+        - {x: -76, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83aa3f84634310f30800000000000000
+      internalID: 4539967307122977336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_12
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e34680463c19c08e0800000000000000
+      internalID: -1725844288806820802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_13
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 300
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f9fb93bdefa357c0800000000000000
+      internalID: -4083727001639454216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_14
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 300
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a3298734a7338140800000000000000
+      internalID: 4720678012860310434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_15
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 300
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b80b6067f718e20800000000000000
+      internalID: 3351099742635461490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_16
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 300
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 17.013184, y: -58.77472}
+        - {x: 20.523071, y: 8.459747}
+        - {x: 24.271362, y: 150}
+        - {x: -150, y: 150}
+        - {x: -150, y: -150}
+        - {x: 29.75232, y: -150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d041b9b26555ea480800000000000000
+      internalID: -8886071186168278003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -76, y: 150}
+        - {x: -76, y: 30}
+        - {x: -63, y: -91}
+        - {x: 26, y: -139}
+        - {x: 150, y: -139}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 115ab623b25bab400800000000000000
+      internalID: 340783918954030353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_18
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: -139}
+        - {x: 150, y: -139}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3682d4501e9c55270800000000000000
+      internalID: 8238713061637957731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_19
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: -139}
+        - {x: 150, y: -139}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b95a1f7a43b4dc790800000000000000
+      internalID: -7508262314228734565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_20
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: -139}
+        - {x: 150, y: -139}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe9f2216755f1e70800000000000000
+      internalID: 9088076538656562937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_21
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 122.26636, y: 95.930115}
+        - {x: 122, y: -93}
+        - {x: 141, y: -111}
+        - {x: 150, y: -111}
+        - {x: 150, y: 99}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b16f028fdca720390800000000000000
+      internalID: -7853579775130929637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background_incline_22
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -42.04248, y: 122.4079}
+        - {x: -150, y: 99}
+        - {x: -150, y: -113}
+        - {x: 140.31873, y: -111.92711}
+        - {x: 131.53674, y: -2.7751465}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 855ad27931318dc40800000000000000
+      internalID: 5537196716713682264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
