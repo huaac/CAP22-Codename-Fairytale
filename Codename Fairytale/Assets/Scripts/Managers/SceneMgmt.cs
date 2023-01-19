@@ -11,7 +11,8 @@ public class SceneMgmt : MonoBehaviour
     //Loads Chapter Select
     public void ChapterSelect() 
     {
-        SceneManager.LoadScene(1);
+        flipPage();
+        //SceneManager.LoadScene(1);
     }
     
     //Loads the first level
@@ -83,5 +84,19 @@ public class SceneMgmt : MonoBehaviour
     private void ResetRestartCount()
     {
         restartCount = 0;
+    }
+
+    private void flipPage()
+    {
+        Debug.Log("hello");
+        this.transform.GetChild(2).transform.gameObject.SetActive(true);
+        this.GetComponent<UnityEngine.Video.VideoPlayer>().Play();
+        StartCoroutine("timeforPageFlip");
+    }
+
+    private IEnumerator timeforPageFlip()
+    {
+        yield return new WaitForSeconds(0.6f);
+        SceneManager.LoadScene(1);
     }
 }
