@@ -467,7 +467,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80309102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: 0, z: -10}
+  m_LocalPosition: {x: 0.9, y: -0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -498,9 +498,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  yOffset: 2.5
-  minValues: {x: -382.7, y: 2.6, z: 0}
-  maxValues: {x: 26.7, y: -3.8, z: -10}
+  yOffset: 1.3
+  xOffset: 3
+  minValues: {x: -378.8, y: -1.7, z: -10}
+  maxValues: {x: 0.45, y: 42.6, z: -10}
   _followObject: 0
   _targetToFollow: {fileID: 2112859067}
 --- !u!1 &85150915

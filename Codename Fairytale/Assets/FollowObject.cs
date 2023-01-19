@@ -9,6 +9,7 @@ public class FollowObject : MonoBehaviour
     public float speed = 2.0f;
     //helps reposition y axis
     public float yOffset;
+    public float xOffset;
 
     public Vector3 minValues, maxValues;
 
@@ -36,7 +37,7 @@ public class FollowObject : MonoBehaviour
     private void Follow()
     {
         //verify if target out of bounds
-        Vector3 _position = new Vector3(_targetToFollow.position.x, _targetToFollow.position.y + yOffset, -10f);
+        Vector3 _position = new Vector3(_targetToFollow.position.x + xOffset, _targetToFollow.position.y + yOffset, -10f);
         Vector3 boundPosition = new Vector3
         (
             Mathf.Clamp(_position.x, minValues.x, maxValues.x),
