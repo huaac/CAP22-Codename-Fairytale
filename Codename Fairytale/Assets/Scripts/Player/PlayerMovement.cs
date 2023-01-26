@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     // particle systems/vfx
     [Header("VFX")]
     [SerializeField] private ParticleSystem dustPS;
+    [SerializeField] private ParticleSystem dustLandPS;
     [SerializeField] private TrailRenderer bookTR;
 
     // player state bool's
@@ -232,7 +233,11 @@ public class PlayerMovement : MonoBehaviour
 
                 isSteppingOnEnemy = false;
             }
-
+        }
+        // else if I landed on ground, play dust PS
+        else if (jumpableGround==(jumpableGround | 1 << collision.gameObject.layer) && !dustLandPS.isPlaying)
+        {
+            dustLandPS.Play();
         }
     }
 
