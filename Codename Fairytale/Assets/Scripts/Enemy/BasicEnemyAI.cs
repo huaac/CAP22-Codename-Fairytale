@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class BasicEnemyAI : MonoBehaviour, IEnemy
 {
@@ -72,7 +71,7 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
         if (!isIdle)
         {
             //is true if object reaches the end of platform
-            mustTurn = !Physics2D.OverlapCircle(groundCheck.position, 1f, groundLayer);
+            mustTurn = !Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
         }
     }
 
@@ -98,7 +97,7 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
 
     public virtual float CheckGroundLayer(float givenSpeed)
     {
-        //calls Flip if the object has reached the end or hits a wall or hits another enemy
+        //calls Flip if the object has reached the end or hits a wall
         if (mustTurn || bodyCollider.IsTouchingLayers(groundLayer) || bodyCollider.IsTouchingLayers(enemyLayer))
         {
             givenSpeed = Flip(givenSpeed);
