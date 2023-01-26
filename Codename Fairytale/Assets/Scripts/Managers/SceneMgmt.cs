@@ -11,14 +11,15 @@ public class SceneMgmt : MonoBehaviour
     //Loads Chapter Select
     public void ChapterSelect() 
     {
-        flipPage();
+        flipPage(1);
         //SceneManager.LoadScene(1);
     }
     
     //Loads the first level
     public void StartGame()
     {
-        SceneManager.LoadScene(2);
+        flipPage(2);
+        //SceneManager.LoadScene(2);
     }
 
     // Resets current level
@@ -73,7 +74,8 @@ public class SceneMgmt : MonoBehaviour
     //Switches to the Title Screen/Menu Screen
     public void GoToMenu()
     {
-        SceneManager.LoadScene(0);
+        flipPage(0);
+        //SceneManager.LoadScene(0);
         Time.timeScale = 1f;
     }
 
@@ -86,17 +88,17 @@ public class SceneMgmt : MonoBehaviour
         restartCount = 0;
     }
 
-    private void flipPage()
+    private void flipPage(int sceneNum)
     {
         Debug.Log("hello");
-        this.transform.GetChild(2).transform.gameObject.SetActive(true);
-        this.GetComponent<UnityEngine.Video.VideoPlayer>().Play();
-        StartCoroutine("timeforPageFlip");
+        this.transform.GetChild(0).GetComponent<Animator>().enabled = true;
+        this.transform.GetChild(1).gameObject.SetActive(false);
+        StartCoroutine(timeforPageFlip(sceneNum));
     }
 
-    private IEnumerator timeforPageFlip()
+    private IEnumerator timeforPageFlip(int sceneNum)
     {
         yield return new WaitForSeconds(0.6f);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneNum);
     }
 }
