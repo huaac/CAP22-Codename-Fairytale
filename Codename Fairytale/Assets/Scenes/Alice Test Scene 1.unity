@@ -18051,6 +18051,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DustPS
       objectReference: {fileID: 0}
+    - target: {fileID: 5239691544664864684, guid: 343734c6574d64be3a61b63c68693827, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5239691544664864691, guid: 343734c6574d64be3a61b63c68693827, type: 3}
       propertyPath: m_RootOrder
       value: 12

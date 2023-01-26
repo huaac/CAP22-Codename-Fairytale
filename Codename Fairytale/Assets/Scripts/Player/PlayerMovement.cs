@@ -243,13 +243,13 @@ public class PlayerMovement : MonoBehaviour
         if (m_rb.velocity != Vector2.zero)
         {
             m_anim.SetInteger("currentState", 1); // change to running anim
-            if (m_rb.velocity.y != 0 && dustPS.gameObject.activeSelf)
+            if (m_rb.velocity.y != 0 && dustPS.isPlaying)
             {
-                dustPS.gameObject.SetActive(false);
+                dustPS.Stop();
             }
-            else if (m_rb.velocity.y == 0 && !dustPS.gameObject.activeSelf)
+            else if (m_rb.velocity.y == 0 && !dustPS.isPlaying)
             {
-                dustPS.gameObject.SetActive(true);
+                dustPS.Play();
             }
         }
         else{
