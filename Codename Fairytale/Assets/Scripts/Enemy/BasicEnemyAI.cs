@@ -71,7 +71,7 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
         if (!isIdle)
         {
             //is true if object reaches the end of platform
-            mustTurn = !Physics2D.OverlapCircle(groundCheck.position, 0.7f, groundLayer);
+            mustTurn = !Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
         }
     }
 
