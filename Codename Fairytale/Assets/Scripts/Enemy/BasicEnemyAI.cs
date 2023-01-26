@@ -107,6 +107,7 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //check that they didnt collide with on the head
         if (collision.gameObject.TryGetComponent(out PlayerHealth player))
         {
             if (!player.WasJustDamaged && !IsStunned)

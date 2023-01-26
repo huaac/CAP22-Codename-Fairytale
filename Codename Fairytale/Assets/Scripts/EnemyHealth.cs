@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
-        m_anim.SetInteger("currentState", -1);
+        if (m_anim != null) m_anim.SetInteger("currentState", -1);
         Stun();
         
 
