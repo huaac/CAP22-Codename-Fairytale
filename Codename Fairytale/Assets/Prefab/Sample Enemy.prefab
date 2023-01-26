@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2938083971043162956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.42, y: -2.46, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 2938083972151156141}
   m_Father: {fileID: 0}
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1540748079
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 0.07075471, b: 0.07075471, a: 1}
@@ -100,6 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1fce3d3b99f04b27b74026816551621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 20
+  stunTime: 5
+  healthBar: {fileID: 0}
+  maxHealth: 100
+  m_anim: {fileID: 0}
 --- !u!114 &2938083971043162967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,8 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051819adcaa1445438c781954389ae54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolSpeed: 100
+  patrolSpeed: 150
   isPatroling: 0
+  isIdle: 0
   rb: {fileID: 2938083971043162966}
   groundCheck: {fileID: 2938083972151156141}
   groundLayer:
@@ -123,6 +129,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   bodyCollider: {fileID: 2938083971043162961}
+  attack: 20
 --- !u!50 &2938083971043162966
 Rigidbody2D:
   serializedVersion: 4
@@ -220,7 +227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2938083972151156140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.72, y: -0.42, z: 0}
+  m_LocalPosition: {x: 0.84, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2938083971043162962}
