@@ -1188,6 +1188,7 @@ SpriteRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1948171982713279333, guid: 206fe908596a1b44291fd7873a902e7b, type: 3}
   m_PrefabInstance: {fileID: 2807473604517508391}
+<<<<<<< HEAD
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &316982783
 GameObject:
@@ -6081,6 +6082,9 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+=======
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> parent of 3f107a2 (added patrol enemies to the scene and played with ground check)
 --- !u!1 &382697866
 GameObject:
   m_ObjectHideFlags: 0
@@ -7351,8 +7355,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e2cc7ba93b560c4187e98e66ae78666, type: 3}
+<<<<<<< HEAD
   m_Name:
   m_EditorClassIdentifier:
+=======
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> parent of 3f107a2 (added patrol enemies to the scene and played with ground check)
   numCharges: 3
   waitTime: 0.5
   targetLocation: {x: 0, y: 0, z: 0}
@@ -18357,8 +18366,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6d070996cf7dfd4db35efec229a47e3, type: 3}
+<<<<<<< HEAD
   m_Name:
   m_EditorClassIdentifier:
+=======
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> parent of 3f107a2 (added patrol enemies to the scene and played with ground check)
   playerID: 0
 --- !u!114 &1010605276
 MonoBehaviour:
@@ -18370,8 +18384,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 549aa1635b9020f4c9f831f41b76437f, type: 3}
+<<<<<<< HEAD
   m_Name:
   m_EditorClassIdentifier:
+=======
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> parent of 3f107a2 (added patrol enemies to the scene and played with ground check)
   dashEnabled: 0
   bounceOffEnemyEnabled: 1
   m_moveSpeed: 5
@@ -18389,7 +18408,10 @@ MonoBehaviour:
   dashTime: 0.2
   dashCoolDown: 1
   dustPS: {fileID: 0}
+<<<<<<< HEAD
   dustLandPS: {fileID: 0}
+=======
+>>>>>>> parent of 3f107a2 (added patrol enemies to the scene and played with ground check)
   bookTR: {fileID: 0}
 --- !u!61 &1010605277
 BoxCollider2D:
@@ -18680,8 +18702,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 246cd00366d254f16bde8b2ef3c49f81, type: 3}
+<<<<<<< HEAD
   m_Name:
   m_EditorClassIdentifier:
+=======
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> parent of 3f107a2 (added patrol enemies to the scene and played with ground check)
 --- !u!61 &1070038175
 BoxCollider2D:
   m_ObjectHideFlags: 0
