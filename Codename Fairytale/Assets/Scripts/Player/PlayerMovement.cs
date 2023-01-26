@@ -45,6 +45,11 @@ public class PlayerMovement : MonoBehaviour
     private bool isDashing = false;
     private bool isBouncingOff = false;
 
+    // particle systems/vfx
+    [Header("VFX")]
+    [SerializeField] private ParticleSystem dustPS;
+    [SerializeField] private TrailRenderer bookTR;
+
     // player state bool's
     private bool isSteppingOnEnemy = false;
     public bool IsStepping { get { return isSteppingOnEnemy; } }
@@ -186,6 +191,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isAttacking = true;
         m_anim.SetInteger("currentState", 3);
+        bookTR.gameObject.SetActive(true);
 
         yield return new WaitForSeconds(0.5f);
 
@@ -207,6 +213,7 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitForSeconds(0.4f);
 
+        bookTR.gameObject.SetActive(false);
         isAttacking = false;
     }
 
@@ -236,6 +243,14 @@ public class PlayerMovement : MonoBehaviour
         if (m_rb.velocity != Vector2.zero)
         {
             m_anim.SetInteger("currentState", 1); // change to running anim
+            if (m_rb.velocity.y != 0 && dustPS.gameObject.activeSelf)
+            {
+                dustPS.gameObject.SetActive(false);
+            }
+            else if (m_rb.velocity.y == 0 && !dustPS.gameObject.activeSelf)
+            {
+                dustPS.gameObject.SetActive(true);
+            }
         }
         else{
             m_anim.SetInteger("currentState", 0); // change to idle anim
