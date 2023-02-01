@@ -1,0 +1,521 @@
+fileFormatVersion: 2
+guid: 7422808e26248264387844761f204ec9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8487635849857448203
+    second: floortilemap 1_0
+  - first:
+      213: -7872917928005691770
+    second: floortilemap 1_1
+  - first:
+      213: -2927164117315601106
+    second: floortilemap 1_2
+  - first:
+      213: 821200774965672590
+    second: floortilemap 1_3
+  - first:
+      213: 3079351807759231791
+    second: floortilemap 1_4
+  - first:
+      213: 7303617563154749961
+    second: floortilemap 1_5
+  - first:
+      213: 1336370955238564992
+    second: floortilemap 1_6
+  - first:
+      213: 6126643152993408313
+    second: floortilemap 1_7
+  - first:
+      213: 1389203052262536684
+    second: floortilemap 1_8
+  - first:
+      213: -8371095734772901769
+    second: floortilemap 1_9
+  - first:
+      213: -1797497108805630420
+    second: floortilemap 1_10
+  - first:
+      213: 2086315096656793636
+    second: floortilemap 1_11
+  - first:
+      213: -3616261305933108827
+    second: floortilemap 1_12
+  - first:
+      213: 3460161640133777681
+    second: floortilemap 1_13
+  - first:
+      213: -709436047477228607
+    second: floortilemap 1_14
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: floortilemap 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: -150}
+        - {x: -148, y: -150}
+        - {x: 150, y: 148}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b09bf9506d32ac570800000000000000
+      internalID: 8487635849857448203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floortilemap 1_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 61, y: -150}
+        - {x: 150, y: -120}
+        - {x: 150, y: -150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6869a636bd6cdb290800000000000000
+      internalID: -7872917928005691770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floortilemap 1_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: -120}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: -23}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d322c7ebf9067d0800000000000000
+      internalID: -2927164117315601106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floortilemap 1_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: -23}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 80}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8aba1101cd756b00800000000000000
+      internalID: 821200774965672590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floortilemap 1_4
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: 148}
+        - {x: 148, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b22ff672e0cba20800000000000000
+      internalID: 3079351807759231791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floortilemap 1_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 78}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 78}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90a942b3a79ab5560800000000000000
+      internalID: 7303617563154749961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floortilemap 1_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 61, y: 150}
+        - {x: -150, y: 78}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 084e42bad4ebb8210800000000000000
+      internalID: 1336370955238564992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floortilemap 1_7
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93550cfbc75360550800000000000000
+      internalID: 6126643152993408313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floortilemap 1_8
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 80}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: -18}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce53ff2d0d0774310800000000000000
+      internalID: 1389203052262536684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floortilemap 1_9
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: -18}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: -115}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 778d21cf7c4e3db80800000000000000
+      internalID: -8371095734772901769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floortilemap 1_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2649d037e10e07e0800000000000000
+      internalID: -1797497108805630420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floortilemap 1_11
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: -23}
+        - {x: -150, y: -23}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42053c1d68414fc10800000000000000
+      internalID: 2086315096656793636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floortilemap 1_12
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a9edd4808570ddc0800000000000000
+      internalID: -3616261305933108827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floortilemap 1_13
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -101, y: 150}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 84}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1195b91dda6f40030800000000000000
+      internalID: 3460161640133777681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floortilemap 1_14
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -150, y: 150}
+        - {x: -150, y: -150}
+        - {x: 150, y: -150}
+        - {x: 150, y: 150}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cb334f6ca39726f0800000000000000
+      internalID: -709436047477228607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
