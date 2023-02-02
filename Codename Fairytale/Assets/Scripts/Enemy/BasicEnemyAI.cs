@@ -20,7 +20,7 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
     [HideInInspector]
     public bool isIdle;
 
-    private bool mustTurn;
+    protected bool mustTurn;
 
     //objects body to help move it with velocity
     [SerializeField]
@@ -28,17 +28,17 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
 
     //detection to see if object has reached the end of patrol area
     [SerializeField]
-    private Transform groundCheck;
+    protected Transform groundCheck;
 
     //layer that is labeled ground and enemy
     [SerializeField]
-    private LayerMask groundLayer;
+    protected LayerMask groundLayer;
     [SerializeField]
-    private LayerMask enemyLayer;
+    protected LayerMask enemyLayer;
 
     //helps to turn when hitting a wall by checking if there was a collision
     [SerializeField]
-    private Collider2D bodyCollider;
+    protected Collider2D bodyCollider;
 
     [SerializeField] private int attack;
     
@@ -58,7 +58,7 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
 
         if (isPatroling && !isIdle)
         {
-            patrolSpeed = Patrol(patrolSpeed);
+            Patrol();
         }
     }
 
@@ -76,33 +76,37 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
     }
 
     //gets the object to patrol
-    public virtual float Patrol(float speed)
+    public virtual void Patrol()
     {
         //checking if enemy has reached the end the road
-        speed = CheckGroundLayer(speed);
+        CheckGroundLayer();
         //moves the object
-        rb.velocity = new Vector2(speed * Time.fixedDeltaTime, rb.velocity.y);
-        return speed;
+        rb.velocity = new Vector2(patrolSpeed * Time.fixedDeltaTime, rb.velocity.y);
     }
 
     //if it turns the sprite will also turn in the given direction
-    private float Flip(float speedF)
+    public virtual void Flip()
     {
         isIdle = true;
         transform.localScale = new Vector2(transform.localScale.x *-1, transform.localScale.y);
-        speedF *= -1;
-        isIdle = false;
-        return speedF;
+        if (isPatroling)
+        {
+            ChangeSpeed();
+            isIdle = false;
+        }
+        
     }
 
-    public virtual float CheckGroundLayer(float givenSpeed)
+    public virtual void CheckGroundLayer()
     {
         //calls Flip if the object has reached the end or hits a wall
-        if (mustTurn || bodyCollider.IsTouchingLayers(groundLayer) || bodyCollider.IsTouchingLayers(enemyLayer))
+        if (mustTurn || bodyCollider.IsTouchingLayers(groundLayer) || bodyCollider.IsTouchingLayers(enemyLayer) )
         {
-            givenSpeed = Flip(givenSpeed);
+            if (isPatroling)
+            {
+                Flip();
+            }
         }
-        return givenSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -115,6 +119,11 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
                 player.TakeDamage(attack);
             }
         }
+    }
+
+    public virtual void ChangeSpeed()
+    {
+        patrolSpeed *= -1; 
     }
 
 }
