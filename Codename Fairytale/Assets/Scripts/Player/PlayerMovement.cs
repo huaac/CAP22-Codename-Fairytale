@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
     void Update() 
     {
         // disable movement input while: dashing, just bounced off enemy
-        //if (isDashing) return;
+        if (isDashing) return;
         if (isBouncingOff) return;
 
         // horizontal movement
