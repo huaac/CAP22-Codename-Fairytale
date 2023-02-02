@@ -17144,7 +17144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  yOffset: 4.5
+  yOffset: 6.5
   xOffset: 3
   minValues: {x: -378.8, y: -1.7, z: -10}
   maxValues: {x: 0.45, y: 42.6, z: -10}
@@ -31614,6 +31614,10 @@ PrefabInstance:
       propertyPath: dustLandPS
       value: 
       objectReference: {fileID: 329872446}
+    - target: {fileID: 5095652367923553088, guid: 243de14264479f44eb07dffd9652ed54, type: 3}
+      propertyPath: m_moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5095652367923553090, guid: 243de14264479f44eb07dffd9652ed54, type: 3}
       propertyPath: healthBar
       value: 
