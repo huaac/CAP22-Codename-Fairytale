@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Level Select.unity
     guid: d55cc938504518d42a8ed9b43f62958f
   - enabled: 1
-    path: Assets/Scenes/Alice Test Scene 1.unity
-    guid: b2134997d9167664fab906f89da25598
+    path: Assets/Scenes/Level 1.unity
+    guid: a3f7c69a1591cc1499257cadc6cffe64
   m_configObjects: {}
