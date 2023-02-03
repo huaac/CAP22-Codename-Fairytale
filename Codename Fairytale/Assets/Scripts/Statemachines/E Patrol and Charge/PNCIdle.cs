@@ -1,0 +1,66 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PNCIdle : BaseState
+{
+    private PNCSM _pncSM;
+    private bool _readyStart;
+
+    public PNCIdle(PNCSM stateMachine) : base("Idle", stateMachine)
+    {
+        _pncSM = (PNCSM)stateMachine;
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+        Debug.Log("entered");
+
+        //starting the state with the enemy not moving
+        _pncSM.rb.velocity = Vector2.zero;
+
+        //fixing rotation
+        Vector3 eulerRotation = _pncSM.transform.rotation.eulerAngles;
+        _pncSM.transform.rotation = Quaternion.Euler(eulerRotation.x, eulerRotation.y, 0);
+
+        // after a wait time the state will change to patrol/charge
+        _pncSM.StartCoroutine(StartChangingState());
+        _pncSM.GetComponent<ChargeEnemyAI>().isIdle = true;
+        _pncSM.GetComponent<ChargeEnemyAI>().isPatroling = false;
+        _pncSM.GetComponent<ChargeEnemyAI>().isChargeing = false;
+        _readyStart = true;
+    }
+
+    public override void UpdateLogic()
+    {
+        base.UpdateLogic();
+    }
+
+    public override void UpdatePhysics()
+    {
+        base.UpdatePhysics();
+    }
+
+    public IEnumerator StartChangingState()
+    {
+        yield return new WaitForSeconds(_pncSM.waitTime);
+        _pncSM.GetComponent<ChargeEnemyAI>().isIdle = false;
+        if (_pncSM.currentState == 1) //are going from patrol to charge
+        {
+            Debug.Log("going to change state");
+
+            _pncSM.currentState = 2; // charge state
+            //_pncSM.StartCoroutine(ChangingState(_pncSM.chargeState));
+        }
+        else if (_pncSM.currentState == 2) //charge to patrol
+        {
+            _pncSM.GetComponent<ChargeEnemyAI>().isPatroling = true;
+            _pncSM.currentState = 1;
+            stateMachine.ChangeState(_pncSM.patrolState);
+
+        }
+        
+        
+    }
+}

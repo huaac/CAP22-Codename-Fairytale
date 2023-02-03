@@ -45,6 +45,7 @@ public class ChargeEnemyAI : BasicEnemyAI
         else if (!isChargeing && !isIdle)
         {
             isPatroling = true;
+            _FT.activatePursuit = false;
         }
         if (target == null)
         {
@@ -53,7 +54,7 @@ public class ChargeEnemyAI : BasicEnemyAI
 
     }
 
-    public virtual void ChargeEnemy()
+    public void ChargeEnemy()
     {
         //generalSpeed will be updated constantly so always need to update chargeSpeed to charge in correct direction
         chargeSpeed = _FT.generalSpeed;
@@ -77,7 +78,6 @@ public class ChargeEnemyAI : BasicEnemyAI
                 Flip();
             }
         }
-        Debug.Log("works2");
     }
 
     public override void Flip()
@@ -88,14 +88,12 @@ public class ChargeEnemyAI : BasicEnemyAI
             ChangeSpeed();
             isIdle = false;
         }
-        Debug.Log("works");
     }
 
-    public virtual void ChangeSpeed()
+    public override void ChangeSpeed()
     {
         base.ChangeSpeed();
         chargeSpeed *= -1;
-        Debug.Log("works1");
     }
 
 

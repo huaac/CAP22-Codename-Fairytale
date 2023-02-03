@@ -57,6 +57,10 @@ public class FacingTarget : MonoBehaviour
                     generalSpeed = -1 * Mathf.Abs(generalSpeed);
                 }
             }
+            else if (!activatePursuit)
+            {
+                isFacingTarget = false;
+            }
             isFacingTarget = true;
         }
         

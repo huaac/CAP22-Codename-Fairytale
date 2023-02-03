@@ -200,6 +200,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2032421104650353988, guid: b2f44cc3149d9894d9724a5fb7a6b977, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2938083971043162956, guid: b2f44cc3149d9894d9724a5fb7a6b977, type: 3}
       propertyPath: m_Name
       value: TestBoss
@@ -425,9 +429,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2032421102851061339, guid: b2f44cc3149d9894d9724a5fb7a6b977, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032421102851061339, guid: b2f44cc3149d9894d9724a5fb7a6b977, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2938083971043162956, guid: b2f44cc3149d9894d9724a5fb7a6b977, type: 3}
       propertyPath: m_Name
       value: Sample Enemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938083971043162957, guid: b2f44cc3149d9894d9724a5fb7a6b977, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938083971043162957, guid: b2f44cc3149d9894d9724a5fb7a6b977, type: 3}
+      propertyPath: m_Color.g
+      value: 0.087349415
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938083971043162957, guid: b2f44cc3149d9894d9724a5fb7a6b977, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2938083971043162960, guid: b2f44cc3149d9894d9724a5fb7a6b977, type: 3}
       propertyPath: m_Enabled
@@ -517,7 +541,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   bodyCollider: {fileID: 565871777}
-  attack: 0
+  attack: 20
   isChargeing: 0
   chargeSpeed: 200
   target: {fileID: 1139288473}
@@ -549,6 +573,24 @@ MonoBehaviour:
   generalSpeed: 10
   isFacingTarget: 0
   activatePursuit: 0
+--- !u!114 &565871780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565871775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f9aec87fd5ce1241b3bb09a1e2cd6c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  target: {fileID: 0}
+  rb: {fileID: 0}
+  distToPlayer: 0
+  waitTime: 0.5
+  radiusLength: 1
 --- !u!1 &632197898
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,6 +829,9 @@ MonoBehaviour:
   dashPower: 20
   dashTime: 0.2
   dashCoolDown: 1
+  dustPS: {fileID: 0}
+  dustLandPS: {fileID: 0}
+  bookTR: {fileID: 0}
 --- !u!61 &1139288478
 BoxCollider2D:
   m_ObjectHideFlags: 0

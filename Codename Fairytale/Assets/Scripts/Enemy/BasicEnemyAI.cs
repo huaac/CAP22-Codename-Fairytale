@@ -123,7 +123,7 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
 
     public virtual void ChangeSpeed()
     {
-        patrolSpeed *= -1; 
+        patrolSpeed *= -1;
     }
 
 }
