@@ -15,6 +15,9 @@ public class PNCSM : StateMachine, IEnemy
     //patrol state the enemy has movement around given area
     public PNCPatrol patrolState;
 
+    [HideInInspector]
+    public PNCCharge chargeState;
+
     //used to see what was the state before helping with going from idle to another state
     // 1 = patrol, 2 = charge
     [HideInInspector]
@@ -42,10 +45,10 @@ public class PNCSM : StateMachine, IEnemy
     {
         idleState = new PNCIdle(this);
         patrolState = new PNCPatrol(this);
-        target = GetComponent<ChargeEnemyAI>().target;
+        chargeState = new PNCCharge(this);
         rb = GetComponent<ChargeEnemyAI>().rb;
         currentState = 1; //initiating at patrol state
-
+        target = GetComponent<ChargeEnemyAI>().target;
         // m_anim.SetInteger("currentState", 0); //enemy idle
         //m_anim = GetComponent<Animator>();
 

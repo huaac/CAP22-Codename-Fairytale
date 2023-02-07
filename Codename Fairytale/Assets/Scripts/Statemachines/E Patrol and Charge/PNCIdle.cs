@@ -7,6 +7,7 @@ public class PNCIdle : BaseState
     private PNCSM _pncSM;
     private bool _readyStart;
 
+
     public PNCIdle(PNCSM stateMachine) : base("Idle", stateMachine)
     {
         _pncSM = (PNCSM)stateMachine;
@@ -15,7 +16,7 @@ public class PNCIdle : BaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("entered");
+        Debug.Log("i");
 
         //starting the state with the enemy not moving
         _pncSM.rb.velocity = Vector2.zero;
@@ -25,7 +26,6 @@ public class PNCIdle : BaseState
         _pncSM.transform.rotation = Quaternion.Euler(eulerRotation.x, eulerRotation.y, 0);
 
         // after a wait time the state will change to patrol/charge
-        _pncSM.StartCoroutine(StartChangingState());
         _pncSM.GetComponent<ChargeEnemyAI>().isIdle = true;
         _pncSM.GetComponent<ChargeEnemyAI>().isPatroling = false;
         _pncSM.GetComponent<ChargeEnemyAI>().isChargeing = false;
@@ -35,6 +35,19 @@ public class PNCIdle : BaseState
     public override void UpdateLogic()
     {
         base.UpdateLogic();
+        if (_pncSM.target != null)
+        {
+            Debug.Log(_pncSM.IsStunned);
+            if (!_pncSM.IsStunned && _readyStart)
+            {
+                _readyStart = false;
+                _pncSM.StartCoroutine(StartChangingState());
+            }
+            else if (_pncSM.IsStunned)
+            {
+                Debug.Log("stunned idle");
+            }
+        }
     }
 
     public override void UpdatePhysics()
@@ -48,17 +61,15 @@ public class PNCIdle : BaseState
         _pncSM.GetComponent<ChargeEnemyAI>().isIdle = false;
         if (_pncSM.currentState == 1) //are going from patrol to charge
         {
-            Debug.Log("going to change state");
-
+            _pncSM.GetComponent<ChargeEnemyAI>().isChargeing = true;
             _pncSM.currentState = 2; // charge state
-            //_pncSM.StartCoroutine(ChangingState(_pncSM.chargeState));
+            stateMachine.ChangeState(_pncSM.chargeState);
         }
         else if (_pncSM.currentState == 2) //charge to patrol
         {
             _pncSM.GetComponent<ChargeEnemyAI>().isPatroling = true;
             _pncSM.currentState = 1;
             stateMachine.ChangeState(_pncSM.patrolState);
-
         }
         
         
