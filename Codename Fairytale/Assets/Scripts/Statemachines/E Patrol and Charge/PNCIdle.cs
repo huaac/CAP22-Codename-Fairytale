@@ -37,7 +37,6 @@ public class PNCIdle : BaseState
         base.UpdateLogic();
         if (_pncSM.target != null)
         {
-            Debug.Log(_pncSM.IsStunned);
             if (!_pncSM.IsStunned && _readyStart)
             {
                 _readyStart = false;
