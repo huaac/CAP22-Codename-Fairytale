@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1849494917659097785}
   - component: {fileID: 358069123}
   - component: {fileID: 358069125}
+  - component: {fileID: 1976923375}
   m_Layer: 3
   m_Name: wood
   m_TagString: Untagged
@@ -156,3 +157,17 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: -20
     m_UpperAngle: 20
+--- !u!114 &1976923375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849494917659097788}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4865a2225ed9846aa8994d2d80e70f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inertia: 20
+  maxRotation: 20
