@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
         float originalGravity = m_rb.gravityScale;
         m_rb.gravityScale = 0f;
 
-        m_rb.velocity = new Vector2(transform.localScale.x * dashPower, 0f);
+        m_rb.velocity = new Vector2(transform.localScale.x / Mathf.Abs(transform.localScale.x) * dashPower, 0f);
         yield return new WaitForSeconds(dashTime);
 
         // stop dash
@@ -248,11 +248,11 @@ public class PlayerMovement : MonoBehaviour
         if (m_rb.velocity != Vector2.zero)
         {
             m_anim.SetInteger("currentState", 1); // change to running anim
-            if (m_rb.velocity.y != 0 && dustPS.isPlaying)
+            if (!IsGrounded() && dustPS.isPlaying)
             {
                 dustPS.Stop();
             }
-            else if (m_rb.velocity.y == 0 && !dustPS.isPlaying)
+            else if (IsGrounded() && !dustPS.isPlaying)
             {
                 dustPS.Play();
             }
