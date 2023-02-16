@@ -114,10 +114,17 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
         //check that they didnt collide with on the head
         if (collision.gameObject.TryGetComponent(out PlayerHealth player))
         {
-            if (!player.WasJustDamaged && !IsStunned)
+            Vector3 dir = (collision.gameObject.transform.position - gameObject.transform.position).normalized;
+            //checks that object enemy collided with didn't land on top of enemy
+            if (dir.y < 0)
             {
-                player.TakeDamage(attack);
+                //damages player if enemy is not stunned and player has not already taken damage
+                if (!player.WasJustDamaged && !IsStunned)
+                {
+                    player.TakeDamage(attack);
+                }
             }
+            
         }
     }
 

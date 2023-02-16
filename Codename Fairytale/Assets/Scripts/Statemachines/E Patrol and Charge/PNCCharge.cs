@@ -28,7 +28,7 @@ public class PNCCharge : BaseState
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        if (_pncSM.IsStunned)
+        if (_pncSM.chargeEnemyAI.IsStunned)
         {
             Debug.Log("stunned charge");
             stateMachine.ChangeState(_pncSM.idleState);
@@ -36,7 +36,7 @@ public class PNCCharge : BaseState
 
         if (_pncSM.target != null)
         {
-            Debug.Log(_pncSM.IsStunned);
+            Debug.Log(_pncSM.chargeEnemyAI.IsStunned);
             //get the distance  from enemy to player
             Vector2 toOther = _pncSM.transform.position - _pncSM.target.transform.position;
             _pncSM.distToPlayer = toOther.sqrMagnitude;

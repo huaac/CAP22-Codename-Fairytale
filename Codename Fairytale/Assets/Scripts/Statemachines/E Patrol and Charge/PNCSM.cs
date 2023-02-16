@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 //Patrol and Charge enemy
-public class PNCSM : StateMachine, IEnemy
+public class PNCSM : StateMachine
 {
     //states variables
 
@@ -32,14 +32,15 @@ public class PNCSM : StateMachine, IEnemy
 
     [HideInInspector]
     public float distToPlayer;
+
+    [HideInInspector]
+    public ChargeEnemyAI chargeEnemyAI;
     
     [Header("General Use")]
     //wait time to move to next state
     public float waitTime;
     //radius of boss to help check player position
     public float radiusLength;
-
-    public bool IsStunned { get; set; }
 
    private void Awake() 
     {
@@ -49,6 +50,7 @@ public class PNCSM : StateMachine, IEnemy
         rb = GetComponent<ChargeEnemyAI>().rb;
         currentState = 1; //initiating at patrol state
         target = GetComponent<ChargeEnemyAI>().target;
+        chargeEnemyAI = GetComponent<ChargeEnemyAI>();
         // m_anim.SetInteger("currentState", 0); //enemy idle
         //m_anim = GetComponent<Animator>();
 
