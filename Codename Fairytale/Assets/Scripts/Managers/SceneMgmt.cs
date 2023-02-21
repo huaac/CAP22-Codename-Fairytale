@@ -7,6 +7,7 @@ public class SceneMgmt : MonoBehaviour
 {
     [SerializeField] private float levelRestartDelay;
     [SerializeField] private int restartCount;
+    private GameObject musicSource;
 
     //Loads Chapter Select
     public void ChapterSelect() 
@@ -19,6 +20,8 @@ public class SceneMgmt : MonoBehaviour
     public void StartGame()
     {
         flipPage(2);
+        musicSource = GameObject.FindWithTag("Music");
+        musicSource.GetComponent<constantmusic>().gameLoad();
         //SceneManager.LoadScene(2);
     }
 

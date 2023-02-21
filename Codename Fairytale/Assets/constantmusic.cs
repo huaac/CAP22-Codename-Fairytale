@@ -5,13 +5,34 @@ using UnityEngine;
 public class constantmusic : MonoBehaviour
 {
 
-    private AudioSource currentSong;
+    [SerializeField] private AudioClip menuSong;
+    [SerializeField] private AudioClip bgSong;
+    [SerializeField] private AudioClip battleSong;
+
+    private AudioSource currentSource;
     // Start is called before the first frame update
+
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        currentSong = this.GetComponent<AudioSource>();
     }
 
+    void Start()
+    {
+        currentSource = this.GetComponent<AudioSource>();
+        currentSource.clip = menuSong;
+    }
+
+    public void gameLoad()
+    {
+        currentSource.clip = bgSong;
+        currentSource.Play();
+    }
+
+    public void battleTime()
+    {
+        currentSource.clip = battleSong;
+        currentSource.Play();
+    }
 
 }

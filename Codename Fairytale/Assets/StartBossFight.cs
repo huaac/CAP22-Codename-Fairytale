@@ -8,12 +8,15 @@ public class StartBossFight : MonoBehaviour
     private bool hasStarted = false;
     [SerializeField] private GameObject barriers;
     public UnityEvent onBossFightStarted;
+    private GameObject musicSource;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             onBossFightStarted?.Invoke();
+            musicSource = GameObject.FindWithTag("Music");
+            musicSource.GetComponent<constantmusic>().battleTime();
             hasStarted = true;
             barriers.SetActive(true);
             DestroySelf();

@@ -1554,7 +1554,7 @@ GameObject:
   - component: {fileID: 1591693080}
   m_Layer: 0
   m_Name: MusicSource
-  m_TagString: Untagged
+  m_TagString: Music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1681,6 +1681,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4922382557f6143a366928978a3818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuSong: {fileID: 8300000, guid: d8cd28864d5c60e40a33867cacee1d09, type: 3}
+  bgSong: {fileID: 8300000, guid: 75baaf7e1e4ce9043998e6dec988aea7, type: 3}
+  battleSong: {fileID: 8300000, guid: 1f3c421e9fcaaa8479e2b76b930a0472, type: 3}
 --- !u!1 &2097224775
 GameObject:
   m_ObjectHideFlags: 0
