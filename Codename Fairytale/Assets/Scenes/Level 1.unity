@@ -6934,7 +6934,7 @@ MonoBehaviour:
   yOffset: 5
   xOffset: 3
   minValues: {x: -380.1, y: -106, z: -10}
-  maxValues: {x: 234, y: 43, z: -10}
+  maxValues: {x: 234, y: 1000, z: -10}
   _followObject: 0
   _targetToFollow: {fileID: 2112859067}
 --- !u!4 &81854415 stripped
