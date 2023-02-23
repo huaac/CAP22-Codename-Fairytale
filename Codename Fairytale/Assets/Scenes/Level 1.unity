@@ -400,6 +400,9 @@ GameObject:
   - component: {fileID: 17529874}
   - component: {fileID: 17529873}
   - component: {fileID: 17529875}
+  - component: {fileID: 17529878}
+  - component: {fileID: 17529877}
+  - component: {fileID: 17529876}
   m_Layer: 3
   m_Name: Tilemap Floor
   m_TagString: Untagged
@@ -5287,7 +5290,7 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001

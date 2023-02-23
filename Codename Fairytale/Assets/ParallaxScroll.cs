@@ -34,7 +34,7 @@ public class ParallaxScroll : MonoBehaviour
         prevCam = cam.position;
 
         // infinite scrolling
-        if (cam.position.x - transform.position.x >= length)
+        if (Mathf.Abs(cam.position.x - transform.position.x) >= length)
         {
             transform.position = new Vector3(cam.position.x, transform.position.y, transform.position.z);
         }
