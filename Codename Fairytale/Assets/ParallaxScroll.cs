@@ -10,7 +10,8 @@ using UnityEngine;
 public class ParallaxScroll : MonoBehaviour
 {
     [Tooltip("0 = no scroll, sprite stays still\n1 = scolls as fast as foreground")]
-    [SerializeField][Range(0, 1)] private float parallax;
+    [SerializeField][Range(0, 1)] private float Xparallax = 0.2f;
+    [SerializeField][Range(0, 1)] private float Yparallax = 0.3f;
 
     private Transform cam;
     private Vector3 prevCam;
@@ -28,8 +29,8 @@ public class ParallaxScroll : MonoBehaviour
     private void LateUpdate()
     {
         // parallax
-        Vector3 distance = (prevCam - cam.position) * parallax;
-        transform.position += distance;
+        Vector3 distance = (prevCam - cam.position) * Xparallax;
+        transform.position += new Vector3(distance.x * Xparallax, distance.y * Yparallax, distance.z); ;
 
         prevCam = cam.position;
 

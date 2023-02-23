@@ -17920,7 +17920,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5908034fe67944409ae60a306a6bd944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallax: 0.2
+  Xparallax: 0.2
+  Yparallax: 0.3
 --- !u!212 &1035408057
 SpriteRenderer:
   m_ObjectHideFlags: 0
