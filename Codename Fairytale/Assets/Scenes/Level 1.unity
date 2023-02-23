@@ -6933,7 +6933,7 @@ MonoBehaviour:
   speed: 3
   yOffset: 5
   xOffset: 3
-  minValues: {x: -380.1, y: -106, z: -10}
+  minValues: {x: -422.1, y: -106, z: -10}
   maxValues: {x: 234, y: 1000, z: -10}
   _followObject: 0
   _targetToFollow: {fileID: 2112859067}
