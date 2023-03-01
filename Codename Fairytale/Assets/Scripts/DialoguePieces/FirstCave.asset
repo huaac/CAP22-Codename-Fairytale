@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9ae5d0be150644adcea73be244b25, type: 3}
+  m_Name: FirstCave
+  m_EditorClassIdentifier: 
+  paragraphs:
+  - Player :; Goats.. Disembodied voices.. Pages. This is not happening..
+  - "Little Goat :; BAAAAHHH BAHH.. bahh\u2026baah.. "
+  - Little Goat :; Someone please help..
+  - 'Player :; .... '
+  - Player :; Why do I have to understand it..
+  - "Player :; Stop crying out! I\u2019m coming to help!"
+  - Narrator :; Who are you? How can you hear the goat?
+  - Player :; Uh- who are you?
+  - Narrator :; Let me correct myself. Tell me who you are. Now.
+  - Player :; No?
+  - "Narrator :; You\u2019re not- I see what is going on. You and this excuse of
+    pages are going to fail."

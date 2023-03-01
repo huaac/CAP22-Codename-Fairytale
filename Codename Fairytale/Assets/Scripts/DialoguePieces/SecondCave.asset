@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9ae5d0be150644adcea73be244b25, type: 3}
+  m_Name: SecondCave
+  m_EditorClassIdentifier: 
+  paragraphs:
+  - Narrator :; You are going to meet a fate worse than that twerp you are trying
+    to save.
+  - "Player :; Is it to become a disembodied voice who can\u2019t do anything?"
+  - Narrator :; This book has set you up to fail. I am the ultimate power within
+    these pages, surpassing the book itself. You are nothing but a smudge on a page.
+  - Player :; Than why don't you kick me out? Send me back to the real world?
+  - "Narrator :; \u2026 "

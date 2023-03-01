@@ -9,7 +9,6 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> piecesOfDialogue;
 
     //Connects to the physical dialoguebox
-    public Text speakerName;
     public Text dialogueText;
 
     public GameObject dialogueBox;
@@ -28,7 +27,6 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         dialogueBox.SetActive(true);
-        speakerName.text = dialogue.name;
 
         piecesOfDialogue.Clear();
 
@@ -43,7 +41,7 @@ public class DialogueManager : MonoBehaviour
     //ReadSentence first checks to see if the dialogue Queue is empty. If its empty, it ends the dialogue
     //Otherwise it will dequeu the next sentence/paragraph in the queue and put it in a string
     //The string then will be sent to the dialogue text of the physical dialoguebox
-    //This will be the function called most often to advance dialogue
+    //This will be the function calledmost often to advance dialogue
     public void ReadSentence()
     {
         if(piecesOfDialogue.Count == 0)
@@ -62,12 +60,21 @@ public class DialogueManager : MonoBehaviour
     //Not necessary but cool
     IEnumerator WriteSentence(string currentExcerpt)
     {
+        string[] currentExcerpts = currentExcerpt.Split(';');
         dialogueText.text = "";
-        foreach(char letter in currentExcerpt.ToCharArray())
+        dialogueText.text += currentExcerpts[0];
+        foreach(char letter in currentExcerpts[1].ToCharArray())
         {
             dialogueText.text += letter;
             yield return new WaitForSecondsRealtime(typewriterSpeed);
         }
+        StartCoroutine(NextSentence());
+    }
+
+    IEnumerator NextSentence()
+    {
+        yield return new WaitForSecondsRealtime(0.3f);
+        ReadSentence();
     }
     
     //Ends the current dialogue instance
@@ -77,3 +84,4 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.SetActive(false);
     }
 }
+

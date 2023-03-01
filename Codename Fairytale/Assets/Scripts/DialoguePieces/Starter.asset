@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9ae5d0be150644adcea73be244b25, type: 3}
+  m_Name: Starter
+  m_EditorClassIdentifier: 
+  paragraphs:
+  - Player :; Huh? Where am I..?
+  - Player :; All I remember is opening a -... this book.
+  - Little Goat :; Ooo- A cave?! I wonder whats down here.
+  - Narrator :; No.. NO.. NO THIS IS NOT HOW THE STORY-
+  - Narrator :; ahem. Little goat.. You.. i prefer the number two anyways.
+  - Little Goat :; Baahhhh Help! Someone help!
+  - "Narrator :; Despite all of the little Goat\u2019s screams, there would be no
+    one around to hear. The little goat trapped ceased to exist within these pages."
+  - "Narrator :; That\u2019ll teach that fool.."
