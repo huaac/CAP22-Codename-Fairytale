@@ -46,10 +46,11 @@ public class PlayerMovement : MonoBehaviour
     private bool isBouncingOff = false;
 
     // particle systems/vfx
-    [Header("VFX")]
+    [Header("VFX References")]
     [SerializeField] private ParticleSystem dustPS;
     [SerializeField] private ParticleSystem dustLandPS;
     [SerializeField] private TrailRenderer bookTR;
+    [SerializeField] private ParticleSystem bookAttackPS;
 
     // player state bool's
     private bool isSteppingOnEnemy = false;
@@ -204,6 +205,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (hit.gameObject.TryGetComponent(out EnemyHealth enemy))
             {
+                bookAttackPS.Play();
                 enemy.TakeDamage(attack);
             }
         }

@@ -14593,6 +14593,7 @@ MonoBehaviour:
   dustPS: {fileID: 0}
   dustLandPS: {fileID: 0}
   bookTR: {fileID: 0}
+  bookAttackPS: {fileID: 0}
 --- !u!61 &1010605277
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29849,7 +29850,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -37384,6 +37385,10 @@ PrefabInstance:
       propertyPath: m_moveSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5095652367923553088, guid: 243de14264479f44eb07dffd9652ed54, type: 3}
+      propertyPath: bookAttackPS
+      value: 
+      objectReference: {fileID: 1735100439}
     - target: {fileID: 5095652367923553090, guid: 243de14264479f44eb07dffd9652ed54, type: 3}
       propertyPath: healthBar
       value: 
@@ -38550,6 +38555,7 @@ MonoBehaviour:
   health: 100
   stunTime: 1.5
   healthBar: {fileID: 1771359192}
+  cantStunYet: 0
   maxHealth: 100
   m_anim: {fileID: 0}
 --- !u!68 &2807473604517508398
