@@ -20,10 +20,17 @@ public class FollowObject : MonoBehaviour
     [SerializeField]
     private Transform _targetToFollow;
 
+    private CreateBarrier _createBarrier;
+
 
     private void Awake() 
     {
         _followObject = true;
+    }
+
+    private void Start() 
+    {
+        _createBarrier = GetComponent<CreateBarrier>();
     }
     
     private void FixedUpdate () 
@@ -46,9 +53,9 @@ public class FollowObject : MonoBehaviour
         );
 
         this.transform.position = Vector3.Slerp(this.transform.position, boundPosition, speed*Time.deltaTime);
-        if (this.transform.position.x >= maxValues.x)
+        if (this.transform.position.x >= maxValues.x-.1)
         {
-            _followObject = false;
+            StopFollowing();
         }
         
     }
@@ -56,5 +63,7 @@ public class FollowObject : MonoBehaviour
     public void StopFollowing()
     {
         _followObject = false;
+        _createBarrier.SetUpBoundarier();
+
     }
 }
