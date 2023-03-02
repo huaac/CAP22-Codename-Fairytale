@@ -30,7 +30,6 @@ public class PNCPatrol : BaseState
         base.UpdateLogic();
         if (_pncSM.chargeEnemyAI.IsStunned)
         {
-            Debug.Log("stunned patrol");
             stateMachine.ChangeState(_pncSM.idleState);
         }
         

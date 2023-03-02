@@ -42,10 +42,6 @@ public class PNCIdle : BaseState
                 _readyStart = false;
                 _pncSM.StartCoroutine(StartChangingState());
             }
-            else if (_pncSM.chargeEnemyAI.IsStunned)
-            {
-                Debug.Log("stunned idle");
-            }
         }
     }
 

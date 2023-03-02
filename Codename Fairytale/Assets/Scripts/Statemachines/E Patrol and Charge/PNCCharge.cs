@@ -30,7 +30,6 @@ public class PNCCharge : BaseState
         base.UpdateLogic();
         if (_pncSM.chargeEnemyAI.IsStunned)
         {
-            Debug.Log("stunned charge");
             stateMachine.ChangeState(_pncSM.idleState);
         }
 
