@@ -8,6 +8,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [SerializeField] private int health = 100;
     [SerializeField] private float stunTime = 5f;
     [SerializeField] private Slider healthBar;
+    public bool cantStunYet;
+    private SpriteRenderer quad; // quad to change its opacity
 
     [SerializeField] private int maxHealth = 100;
     private int currentHealth;
@@ -20,6 +22,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private void Awake()
     {
         enemyMovement = GetComponent<IEnemy>();
+        quad = this.GetComponent<SpriteRenderer>();
 
         currentHealth = maxHealth;
 
@@ -48,7 +51,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void Stun()
     {
-        StartCoroutine(StunCoroutine());
+        if (!enemyMovement.IsStunned && !cantStunYet) StartCoroutine(StunCoroutine());
     }
 
     private IEnumerator StunCoroutine()
@@ -58,6 +61,22 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(stunTime);
 
         enemyMovement.IsStunned = false;
+        StartCoroutine(StunCoolDown());
+    }
+
+    private IEnumerator StunCoolDown()
+    {
+        
+        cantStunYet = true;
+
+        Color oldColor =  quad.color; // old color 
+        quad.color = new Color(oldColor.r, oldColor.g, oldColor.b, 0.5f);
+
+        yield return new WaitForSeconds(stunTime);
+        cantStunYet = false;
+        
+        quad.color = new Color(oldColor.r, oldColor.g, oldColor.b, 1f);
+
     }
 
     public void Die()
