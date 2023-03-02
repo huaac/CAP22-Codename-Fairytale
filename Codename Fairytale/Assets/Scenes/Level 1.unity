@@ -20287,7 +20287,7 @@ GameObject:
   - component: {fileID: 1397538815}
   - component: {fileID: 1397538817}
   - component: {fileID: 1397538816}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bridge Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36995,6 +36995,10 @@ PrefabInstance:
     - target: {fileID: 5095652367923553088, guid: 243de14264479f44eb07dffd9652ed54, type: 3}
       propertyPath: attackRange
       value: 1.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095652367923553088, guid: 243de14264479f44eb07dffd9652ed54, type: 3}
+      propertyPath: dashEnabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5095652367923553088, guid: 243de14264479f44eb07dffd9652ed54, type: 3}
       propertyPath: m_moveSpeed
