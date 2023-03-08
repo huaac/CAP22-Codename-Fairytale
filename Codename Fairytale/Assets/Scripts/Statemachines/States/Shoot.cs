@@ -38,7 +38,7 @@ public class Shoot : BaseState
             if (!_alreadyShot)
             {
                 Vector3 targetlocation = _bsm.target.transform.position;
-                targetlocation = new Vector3(targetlocation.x, 6, targetlocation.z);
+                targetlocation = new Vector3(targetlocation.x, targetlocation.y + 20, targetlocation.z);
                 if (_bsm.rock != null)
                 {
                     GameObject spawnedRock = UnityEngine.Object.Instantiate(_bsm.rock, targetlocation, Quaternion.identity);
