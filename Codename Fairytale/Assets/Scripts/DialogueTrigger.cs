@@ -19,7 +19,7 @@ public class DialogueTrigger : MonoBehaviour
         if(collided.gameObject.layer == 7)
         {
             TriggerDialogue();
-            //Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
