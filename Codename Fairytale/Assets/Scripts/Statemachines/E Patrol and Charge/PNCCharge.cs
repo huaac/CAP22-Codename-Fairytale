@@ -23,6 +23,8 @@ public class PNCCharge : BaseState
         _pncSM.GetComponent<ChargeEnemyAI>().isChargeing = true;
         _pncSM.currentState = 2;
         _readyStart = true;
+        
+        //_pncSM.DoAnimations(2); //charge state animation
     }
 
     public override void UpdateLogic()

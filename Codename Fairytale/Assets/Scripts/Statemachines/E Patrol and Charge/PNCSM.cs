@@ -41,6 +41,7 @@ public class PNCSM : StateMachine
     public float waitTime;
     //radius of boss to help check player position
     public float radiusLength;
+    //public Animator m_anim;
 
    private void Awake() 
     {
@@ -52,7 +53,6 @@ public class PNCSM : StateMachine
         target = GetComponent<ChargeEnemyAI>().target;
         chargeEnemyAI = GetComponent<ChargeEnemyAI>();
         // m_anim.SetInteger("currentState", 0); //enemy idle
-        //m_anim = GetComponent<Animator>();
 
     }
 
