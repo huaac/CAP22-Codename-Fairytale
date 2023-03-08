@@ -23,6 +23,14 @@ public class StartBossFight : MonoBehaviour
         }
     }
 
+    private void UIstuff()
+    {
+    }
+
+    private void Dialogue()
+    {
+    }
+
     private void DestroySelf()
     {
         Destroy(this.gameObject);
