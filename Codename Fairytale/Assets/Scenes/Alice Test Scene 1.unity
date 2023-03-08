@@ -341,16 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58cb8a4ed22be9d4babfbe463553dac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue:
-    name: TESTER
-    paragraphs:
-    - "Hello, this is a test\t"
-    - '
-
-      dsad
-
-
-      just checking'
+  dialogue: {fileID: 0}
 --- !u!61 &7461005
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -658,6 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3c47cc7cacf0d40a1cffc304874dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: 0
 --- !u!114 &80309107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7751,6 +7743,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6238468403549375501, guid: ae58952a087a4584e803c0cf461fb447, type: 3}
   m_PrefabInstance: {fileID: 632036572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &659614772 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 561242941223784373, guid: 5a07e98ad85f5c640be216a08e951cb8, type: 3}
+  m_PrefabInstance: {fileID: 1895529502}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &670955940
 PrefabInstance:
@@ -19915,6 +19912,7 @@ MonoBehaviour:
   dustPS: {fileID: 0}
   dustLandPS: {fileID: 0}
   bookTR: {fileID: 0}
+  bookAttackPS: {fileID: 0}
 --- !u!61 &1010605277
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22198,7 +22196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13cdcbaf8e0068e49b65ef00b6fed141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speakerName: {fileID: 1123927383}
   dialogueText: {fileID: 137099847}
   dialogueBox: {fileID: 1714679452}
   typewriterSpeed: 0.15
@@ -26244,9 +26241,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 908013791}
     - target: {fileID: 2120607469882923831, guid: 5a07e98ad85f5c640be216a08e951cb8, type: 3}
-      propertyPath: radiusLength
-      value: 6
-      objectReference: {fileID: 0}
+      propertyPath: m_anim
+      value: 
+      objectReference: {fileID: 659614772}
     - target: {fileID: 3867398612400247813, guid: 5a07e98ad85f5c640be216a08e951cb8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -26294,10 +26291,6 @@ PrefabInstance:
     - target: {fileID: 3867398612400247835, guid: 5a07e98ad85f5c640be216a08e951cb8, type: 3}
       propertyPath: m_Name
       value: PNC Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3867398612400247835, guid: 5a07e98ad85f5c640be216a08e951cb8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a07e98ad85f5c640be216a08e951cb8, type: 3}
@@ -28293,6 +28286,7 @@ MonoBehaviour:
   health: 100
   stunTime: 1.5
   healthBar: {fileID: 1771359192}
+  cantStunYet: 0
   maxHealth: 100
   m_anim: {fileID: 0}
 --- !u!68 &2807473604517508398
