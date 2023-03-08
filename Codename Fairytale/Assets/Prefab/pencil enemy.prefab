@@ -214,8 +214,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1540748079
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 5093675403301037539, guid: 1e7ab41b52cdd54409c4e5625c1a3483, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 6024260967043288446}
   m_Bounds:
-    m_Center: {x: 0.05895567, y: 0.004954815, z: 0}
+    m_Center: {x: 0.058959723, y: 0.0049545765, z: 0}
     m_Extent: {x: 1.5403141, y: 1.3585535, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 4608481741985742360}
   - component: {fileID: 3355971253255868382}
   - component: {fileID: 4547663760406040765}
+  - component: {fileID: 7244002976091734091}
   m_Layer: 0
   m_Name: pencil
   m_TagString: Untagged
@@ -317,8 +318,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1540748079
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 3817206132083622190, guid: 1e7ab41b52cdd54409c4e5625c1a3483, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -348,7 +349,23 @@ MonoBehaviour:
   - {fileID: 5452895633738611477}
   - {fileID: 3600680803006673918}
   m_Bounds:
-    m_Center: {x: 0.06987381, y: 0.00617671, z: 0}
-    m_Extent: {x: 1.2966075, y: 3.6143775, z: 0}
+    m_Center: {x: 0.069869995, y: 0.006177187, z: 0}
+    m_Extent: {x: 1.2966077, y: 3.6143775, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
+--- !u!70 &7244002976091734091
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9210665874766668220}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.04257202, y: 0.06295252}
+  m_Size: {x: 2.3676147, y: 4.6972637}
+  m_Direction: 0
