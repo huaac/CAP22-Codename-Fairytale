@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     // delegates
     public Action<float, float> OnPlayerStartFlashing;
-    public Action OnPlayerDied;
+    public UnityEvent OnPlayerDied;
 
     //set the max health for the slider, sets current health to max health
     void Start()
@@ -43,7 +43,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
         // dispatch player flashing event
         // all of player's limb sprites will be listening to this
-        OnPlayerStartFlashing(flashLength, flashInterval);
+        OnPlayerStartFlashing?.Invoke(flashLength, flashInterval);
         yield return new WaitForSeconds(flashLength * flashInterval * 2);
 
         Physics2D.IgnoreLayerCollision(6, 7, false);
@@ -52,8 +52,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        OnPlayerDied();
+        OnPlayerDied?.Invoke();
         Destroy(this.gameObject);
-        SceneManager.LoadScene(3); //load ending scene
     }
 }

@@ -12,7 +12,7 @@ public class HealthBarMovement : MonoBehaviour
     private void Awake()
     {
         player = target.gameObject.GetComponent<PlayerHealth>();
-        player.OnPlayerDied += DisableSelf;
+        //player.OnPlayerDied += DisableSelf;
     }
 
     private void FixedUpdate()
@@ -24,9 +24,9 @@ public class HealthBarMovement : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-
+    /*
     private void OnDestroy()
     {
         player.OnPlayerDied -= DisableSelf;
-    }
+    }*/
 }
