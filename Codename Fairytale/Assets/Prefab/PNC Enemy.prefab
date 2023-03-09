@@ -248,6 +248,7 @@ MonoBehaviour:
   chargeEnemyAI: {fileID: 0}
   waitTime: 0.5
   radiusLength: 6
+  m_anim: {fileID: 561242941223784373}
 --- !u!1 &3867398613708174075
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +403,11 @@ PrefabInstance:
 --- !u!4 &1155141094932250629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 617106971601736777, guid: bd5c72edff9c15b4d9d4f877d7f246ef, type: 3}
+  m_PrefabInstance: {fileID: 1772031427154121804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &561242941223784373 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2260360931228736505, guid: bd5c72edff9c15b4d9d4f877d7f246ef, type: 3}
   m_PrefabInstance: {fileID: 1772031427154121804}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2120607469476877683

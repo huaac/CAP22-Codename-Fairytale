@@ -15,7 +15,7 @@ public class PNCPatrol : BaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("p");
+        //Debug.Log("p");
 
         // after a wait time the state will change to patrol/charge
         _pncSM.GetComponent<ChargeEnemyAI>().isIdle = false;

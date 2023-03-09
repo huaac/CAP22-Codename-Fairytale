@@ -16,7 +16,7 @@ public class PNCIdle : BaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("i");
+        //Debug.Log("i");
 
         //starting the state with the enemy not moving
         _pncSM.rb.velocity = Vector2.zero;

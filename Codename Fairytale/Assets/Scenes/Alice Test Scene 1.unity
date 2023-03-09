@@ -7744,11 +7744,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6238468403549375501, guid: ae58952a087a4584e803c0cf461fb447, type: 3}
   m_PrefabInstance: {fileID: 632036572}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &659614772 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 561242941223784373, guid: 5a07e98ad85f5c640be216a08e951cb8, type: 3}
-  m_PrefabInstance: {fileID: 1895529502}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &670955940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19366,6 +19361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelRestartDelay: 0
   restartCount: 0
+  menuObject: {fileID: 0}
 --- !u!1 &908013791 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8326694495589373535, guid: 243de14264479f44eb07dffd9652ed54, type: 3}
@@ -26240,10 +26236,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 908013791}
-    - target: {fileID: 2120607469882923831, guid: 5a07e98ad85f5c640be216a08e951cb8, type: 3}
-      propertyPath: m_anim
-      value: 
-      objectReference: {fileID: 659614772}
     - target: {fileID: 3867398612400247813, guid: 5a07e98ad85f5c640be216a08e951cb8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -27036,6 +27028,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  GoatBoss: {fileID: 0}
 --- !u!50 &2102292038
 Rigidbody2D:
   serializedVersion: 4
