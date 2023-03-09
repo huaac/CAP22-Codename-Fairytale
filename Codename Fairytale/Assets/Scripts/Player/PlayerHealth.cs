@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
@@ -53,5 +54,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         OnPlayerDied();
         Destroy(this.gameObject);
+        SceneManager.LoadScene(3); //load ending scene
     }
 }

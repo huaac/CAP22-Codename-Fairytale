@@ -12,5 +12,11 @@ public class PaperUICount : MonoBehaviour
     {
         paperCount++;
         countText.text = paperCount.ToString();
+        PlayerPrefs.SetInt("paperCount", paperCount);
+    }
+
+    public void SetText() 
+    {
+        countText.text = PlayerPrefs.GetInt("paperCount").ToString();
     }
 }
