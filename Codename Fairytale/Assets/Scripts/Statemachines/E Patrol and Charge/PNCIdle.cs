@@ -31,7 +31,7 @@ public class PNCIdle : BaseState
         _pncSM.GetComponent<ChargeEnemyAI>().isChargeing = false;
         _readyStart = true;
         
-        //_pncSM.DoAnimations(1); // idle state animation
+        _pncSM.DoAnimations(1); // idle state animation
     }
 
     public override void UpdateLogic()

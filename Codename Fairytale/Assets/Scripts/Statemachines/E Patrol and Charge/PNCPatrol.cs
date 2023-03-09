@@ -24,7 +24,7 @@ public class PNCPatrol : BaseState
         _pncSM.currentState = 1;
         _readyStart = true;
 
-        //_pncSM.DoAnimations(0); //patrol state animation
+        _pncSM.DoAnimations(0); //patrol state animation
     }
 
     public override void UpdateLogic()

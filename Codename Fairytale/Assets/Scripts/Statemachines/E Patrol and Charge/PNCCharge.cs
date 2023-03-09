@@ -24,7 +24,7 @@ public class PNCCharge : BaseState
         _pncSM.currentState = 2;
         _readyStart = true;
         
-        //_pncSM.DoAnimations(2); //charge state animation
+        _pncSM.DoAnimations(2); //charge state animation
     }
 
     public override void UpdateLogic()
@@ -37,7 +37,6 @@ public class PNCCharge : BaseState
 
         if (_pncSM.target != null)
         {
-            Debug.Log(_pncSM.chargeEnemyAI.IsStunned);
             //get the distance  from enemy to player
             Vector2 toOther = _pncSM.transform.position - _pncSM.target.transform.position;
             _pncSM.distToPlayer = toOther.sqrMagnitude;
