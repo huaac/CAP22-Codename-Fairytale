@@ -8,6 +8,7 @@ public class SceneMgmt : MonoBehaviour
     [SerializeField] private float levelRestartDelay;
     [SerializeField] private int restartCount;
     private GameObject musicSource;
+    [SerializeField] private GameObject menuObject;
 
     //Loads Chapter Select
     public void ChapterSelect() 
@@ -61,6 +62,15 @@ public class SceneMgmt : MonoBehaviour
         Debug.Log("QUIT!");
         PlayerPrefs.SetInt("levelsUnlocked", 1);
         Application.Quit();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Pause();
+            menuObject.SetActive(true);
+        }
     }
 
     // enable and disable menu screen. freeze game while in menu.
