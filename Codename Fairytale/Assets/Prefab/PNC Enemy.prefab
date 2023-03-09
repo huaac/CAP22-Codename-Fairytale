@@ -247,7 +247,7 @@ MonoBehaviour:
   distToPlayer: 0
   chargeEnemyAI: {fileID: 0}
   waitTime: 0.5
-  radiusLength: 6
+  radiusLength: 9
   m_anim: {fileID: 561242941223784373}
 --- !u!1 &3867398613708174075
 GameObject:
