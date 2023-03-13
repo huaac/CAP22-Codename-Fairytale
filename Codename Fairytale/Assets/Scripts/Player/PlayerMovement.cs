@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashPower = 20f;
     [SerializeField] private float dashTime = 0.2f;
     [SerializeField] private float dashCoolDown = 1f;
-    private bool canDash = true;
+    private bool canDash = false;
     private bool isDashing = false;
     private bool isBouncingOff = false;
 
@@ -169,6 +169,10 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.BoxCast(m_collider.bounds.center, m_collider.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
     }
 
+    public void EnableDash()
+    {
+        canDash = true;
+    }
     private IEnumerator Dash()
     {
         // do dash

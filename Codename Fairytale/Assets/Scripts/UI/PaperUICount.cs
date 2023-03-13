@@ -9,23 +9,23 @@ public class PaperUICount : MonoBehaviour
     [SerializeField] private GameObject papersGO;
 
     private int paperCount = 0;
-    private List<Collectible> papers = new List<Collectible>();
+    private List<Paper> papers = new List<Paper>();
 
     private void Awake()
     {
         foreach (Transform child in papersGO.transform)
         {
-            Collectible paper = child.GetChild(0).GetComponent<Collectible>();
-            paper.OnPaperCollected += IncrementCount;
+            Paper paper = child.GetChild(0).GetComponent<Paper>();
+            paper.OnCollected += IncrementCount;
             papers.Add(paper);
         }
     }
 
     private void OnDisable()
     {
-        foreach (Collectible paper in papers)
+        foreach (Paper paper in papers)
         {
-            paper.OnPaperCollected -= IncrementCount;
+            paper.OnCollected -= IncrementCount;
         }
     }
 
