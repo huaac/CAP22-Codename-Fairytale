@@ -133,4 +133,9 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
         patrolSpeed *= -1;
     }
 
+    public virtual void DestroyObject()
+    {
+        Destroy(gameObject);
+    }
+
 }

@@ -19,7 +19,7 @@ public class PNCSM : StateMachine
     public PNCCharge chargeState;
 
     //used to see what was the state before helping with going from idle to another state
-    // 1 = patrol, 2 = charge
+    // 0 = patrol, 2 = charge
     [HideInInspector]
     public int currentState;
 
