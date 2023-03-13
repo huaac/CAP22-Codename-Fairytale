@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8280965122512923227}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.11, y: -3.86, z: 0}
+  m_LocalPosition: {x: 3.11, y: -3.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8280965123419753637}
@@ -230,6 +230,7 @@ MonoBehaviour:
   isIdle: 0
   rb: {fileID: 8280965123419753633}
   groundCheck: {fileID: 8280965122512923226}
+  groundCRadius: 1.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -239,7 +240,7 @@ MonoBehaviour:
   bodyCollider: {fileID: 8280965123419753638}
   attack: 20
   isChargeing: 1
-  chargeSpeed: -300
+  chargeSpeed: -320
   pursuitTarget: 0
   target: {fileID: 0}
 --- !u!114 &6498076516415996816
@@ -275,8 +276,8 @@ MonoBehaviour:
   target: {fileID: 0}
   distToPlayer: 0
   chargeEnemyAI: {fileID: 0}
-  lifeSpan: 10
-  radiusLength: 70
+  lifeSpan: 6
+  radiusLength: 25
   m_anim: {fileID: 5078706010710073741}
 --- !u!1001 &6498076517083663827
 PrefabInstance:

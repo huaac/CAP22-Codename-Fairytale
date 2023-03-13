@@ -102,10 +102,9 @@ public class ChargeEnemyAI : BasicEnemyAI
         chargeSpeed *= -1;
     }
 
-    public override void DestroyObject()
+    public void DestroyObject()
     {
-        base.DestroyObject();
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 
 

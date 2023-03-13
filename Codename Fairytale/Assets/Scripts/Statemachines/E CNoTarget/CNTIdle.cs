@@ -24,6 +24,7 @@ public class CNTIdle : BaseState
 
     public override void UpdateLogic()
     {
+        _cnotSM.GetComponent<ChargeEnemyAI>().isIdle = true;
         base.UpdateLogic();
         if (_cnotSM.target != null)
         {

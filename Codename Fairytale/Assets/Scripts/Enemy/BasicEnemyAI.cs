@@ -29,6 +29,8 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
     //detection to see if object has reached the end of patrol area
     [SerializeField]
     protected Transform groundCheck;
+    [SerializeField]
+    protected float groundCRadius;
 
     //layer that is labeled ground and enemy
     [SerializeField]
@@ -71,7 +73,7 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
         if (!isIdle)
         {
             //is true if object reaches the end of platform
-            mustTurn = !Physics2D.OverlapCircle(groundCheck.position, 0.7f, groundLayer);
+            mustTurn = !Physics2D.OverlapCircle(groundCheck.position, groundCRadius, groundLayer);
         }
     }
 
@@ -131,11 +133,6 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
     public virtual void ChangeSpeed()
     {
         patrolSpeed *= -1;
-    }
-
-    public virtual void DestroyObject()
-    {
-        Destroy(gameObject);
     }
 
 }

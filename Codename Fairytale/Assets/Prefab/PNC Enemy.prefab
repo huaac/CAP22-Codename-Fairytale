@@ -200,6 +200,7 @@ MonoBehaviour:
   isIdle: 0
   rb: {fileID: 3867398612400247809}
   groundCheck: {fileID: 3867398613708174074}
+  groundCRadius: 0.7
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -369,7 +370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4353486647681423307, guid: bd5c72edff9c15b4d9d4f877d7f246ef, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.0049544573
+      value: 0.004961133
       objectReference: {fileID: 0}
     - target: {fileID: 4353486647681423307, guid: bd5c72edff9c15b4d9d4f877d7f246ef, type: 3}
       propertyPath: m_Bounds.m_Extent.x
@@ -385,7 +386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4547663760406040765, guid: bd5c72edff9c15b4d9d4f877d7f246ef, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.0061769485
+      value: 0.00617218
       objectReference: {fileID: 0}
     - target: {fileID: 4547663760406040765, guid: bd5c72edff9c15b4d9d4f877d7f246ef, type: 3}
       propertyPath: m_Bounds.m_Extent.x

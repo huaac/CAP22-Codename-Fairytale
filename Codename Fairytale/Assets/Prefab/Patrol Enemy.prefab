@@ -125,6 +125,7 @@ MonoBehaviour:
   isIdle: 0
   rb: {fileID: 2938083971043162966}
   groundCheck: {fileID: 2938083972151156141}
+  groundCRadius: 0.7
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
