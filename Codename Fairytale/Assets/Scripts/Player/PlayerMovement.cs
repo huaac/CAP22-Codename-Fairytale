@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         // player pressed down
         if (Input.GetAxisRaw("Vertical") < 0)
         {
-            OnPlayerPressedDown();
+            OnPlayerPressedDown?.Invoke();
         }
 
         // dash
