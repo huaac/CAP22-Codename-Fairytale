@@ -96,13 +96,13 @@ public class SceneMgmt : MonoBehaviour
     //Switches to Game Over (from death) Scene
     public void GameOver() 
     {
-        flipPage(4);
+        SceneManager.LoadScene(4);
     }
 
     //Switches to Ending (game completed) Scene
     public void EndingScene() 
     {
-        flipPage(3);
+        SceneManager.LoadScene(3);
     }
 
     private void IncrementRestartCount()
