@@ -51672,7 +51672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5095652367923553090, guid: 243de14264479f44eb07dffd9652ed54, type: 3}
       propertyPath: OnPlayerDied.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResetScene
+      value: GameOver
       objectReference: {fileID: 0}
     - target: {fileID: 5095652367923553090, guid: 243de14264479f44eb07dffd9652ed54, type: 3}
       propertyPath: OnPlayerDied.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -52982,6 +52982,21 @@ MonoBehaviour:
   cantStunYet: 0
   maxHealth: 100
   m_anim: {fileID: 0}
+  OnEnemyDied:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 857259798}
+        m_TargetAssemblyTypeName: SceneMgmt, Assembly-CSharp
+        m_MethodName: EndingScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!68 &2807473604517508398
 EdgeCollider2D:
   m_ObjectHideFlags: 0

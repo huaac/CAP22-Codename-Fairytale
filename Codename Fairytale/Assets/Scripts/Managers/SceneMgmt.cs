@@ -93,9 +93,16 @@ public class SceneMgmt : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    //Switches to Game Over (from death) Scene
     public void GameOver() 
     {
         flipPage(4);
+    }
+
+    //Switches to Ending (game completed) Scene
+    public void EndingScene() 
+    {
+        flipPage(3);
     }
 
     private void IncrementRestartCount()

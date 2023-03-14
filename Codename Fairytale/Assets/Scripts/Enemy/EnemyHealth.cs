@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
@@ -18,6 +19,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     [HideInInspector]
     public Animator m_anim;
+
+    public UnityEvent OnEnemyDied;
 
     private void Awake()
     {
@@ -81,6 +84,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     public void Die()
     {
+        OnEnemyDied?.Invoke();
         Destroy(this.gameObject);
     }
 }
