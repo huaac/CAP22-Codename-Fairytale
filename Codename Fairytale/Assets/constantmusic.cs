@@ -8,6 +8,7 @@ public class constantmusic : MonoBehaviour
     [SerializeField] private AudioClip menuSong;
     [SerializeField] private AudioClip bgSong;
     [SerializeField] private AudioClip battleSong;
+    [SerializeField] private AudioClip gameOverSong;
 
     private AudioSource currentSource;
     // Start is called before the first frame update
@@ -35,4 +36,9 @@ public class constantmusic : MonoBehaviour
         currentSource.Play();
     }
 
+    public void PlayGameOverMusic()
+    {
+        currentSource.clip = gameOverSong;
+        currentSource.Play();
+    }
 }

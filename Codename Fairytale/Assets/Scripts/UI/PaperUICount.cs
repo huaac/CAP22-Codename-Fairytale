@@ -13,6 +13,8 @@ public class PaperUICount : MonoBehaviour
 
     private void Awake()
     {
+        if (!papersGO) return;  // null check
+
         foreach (Transform child in papersGO.transform)
         {
             Paper paper = child.GetChild(0).GetComponent<Paper>();

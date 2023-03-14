@@ -96,6 +96,9 @@ public class SceneMgmt : MonoBehaviour
     //Switches to Game Over (from death) Scene
     public void GameOver() 
     {
+        musicSource = GameObject.FindWithTag("Music");
+        musicSource.GetComponent<constantmusic>().PlayGameOverMusic();
+
         SceneManager.LoadScene(4);
     }
 
