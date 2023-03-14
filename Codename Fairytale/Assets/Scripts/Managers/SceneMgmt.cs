@@ -61,6 +61,7 @@ public class SceneMgmt : MonoBehaviour
         ResetRestartCount();
         Debug.Log("QUIT!");
         PlayerPrefs.SetInt("levelsUnlocked", 1);
+        PlayerPrefs.SetInt("paperCount", 0);
         Application.Quit();
     }
 
@@ -90,6 +91,11 @@ public class SceneMgmt : MonoBehaviour
         flipPage(0);
         //SceneManager.LoadScene(0);
         Time.timeScale = 1f;
+    }
+
+    public void GameOver() 
+    {
+        flipPage(4);
     }
 
     private void IncrementRestartCount()
