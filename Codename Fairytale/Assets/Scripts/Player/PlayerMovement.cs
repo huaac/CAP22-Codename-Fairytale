@@ -212,6 +212,10 @@ public class PlayerMovement : MonoBehaviour
                 bookAttackPS.Play();
                 enemy.TakeDamage(attack);
             }
+            else if (hit.gameObject.TryGetComponent(out ShatterEffect shatter))
+            {
+                shatter.shattered();
+            }
         }
 
         yield return null;

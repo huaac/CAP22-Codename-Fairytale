@@ -30749,7 +30749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1155409704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41740,7 +41740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.19859703, y: 0.11352114}
   m_AnchorMax: {x: 0.8035971, y: 0.201}
-  m_AnchoredPosition: {x: 7.3110046, y: 9.080017}
+  m_AnchoredPosition: {x: 7.311035, y: 9.080017}
   m_SizeDelta: {x: 113.81601, y: -10.1609955}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1559139688
@@ -51617,6 +51617,10 @@ PrefabInstance:
     - target: {fileID: 5095652367636232324, guid: 243de14264479f44eb07dffd9652ed54, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095652367923553088, guid: 243de14264479f44eb07dffd9652ed54, type: 3}
+      propertyPath: attack
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5095652367923553088, guid: 243de14264479f44eb07dffd9652ed54, type: 3}
       propertyPath: bookTR
