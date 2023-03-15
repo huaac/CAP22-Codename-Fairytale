@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -61,6 +62,9 @@ public class PlayerMovement : MonoBehaviour
 
     // delegates
     public Action OnPlayerPressedDown;
+    [Header("Events")]
+    [SerializeField] private UnityEvent onDash;
+    [SerializeField] private UnityEvent onDashCoolOver;
 
     private void Awake()
     {
@@ -176,6 +180,7 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator Dash()
     {
         // do dash
+        onDash?.Invoke();
         canDash = false;
         isDashing = true;
         float originalGravity = m_rb.gravityScale;
@@ -190,6 +195,7 @@ public class PlayerMovement : MonoBehaviour
 
         // cooldown after dash
         yield return new WaitForSeconds(dashCoolDown);
+        onDashCoolOver?.Invoke();
         canDash = true;
     }
 
