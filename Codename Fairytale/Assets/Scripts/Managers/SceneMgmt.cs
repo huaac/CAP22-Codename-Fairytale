@@ -10,6 +10,7 @@ public class SceneMgmt : MonoBehaviour
     private GameObject musicSource;
     [SerializeField] private GameObject menuObject;
 
+
     //Loads Chapter Select
     public void ChapterSelect() 
     {
@@ -88,6 +89,8 @@ public class SceneMgmt : MonoBehaviour
     //Switches to the Title Screen/Menu Screen
     public void GoToMenu()
     {
+        musicSource = GameObject.FindWithTag("Music");
+        musicSource.GetComponent<constantmusic>().DestroyMusic();
         flipPage(0);
         //SceneManager.LoadScene(0);
         Time.timeScale = 1f;
@@ -105,6 +108,8 @@ public class SceneMgmt : MonoBehaviour
     //Switches to Ending (game completed) Scene
     public void EndingScene() 
     {
+        musicSource = GameObject.FindWithTag("Music");
+        musicSource.GetComponent<constantmusic>().DestroyMusic();
         SceneManager.LoadScene(3);
     }
 

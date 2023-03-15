@@ -41,4 +41,9 @@ public class constantmusic : MonoBehaviour
         currentSource.clip = gameOverSong;
         currentSource.Play();
     }
+
+    public void DestroyMusic()
+    {
+        Destroy(this.gameObject);
+    }
 }
