@@ -140,6 +140,9 @@ MonoBehaviour:
   cantStunYet: 0
   maxHealth: 20
   m_anim: {fileID: 0}
+  OnEnemyDied:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &8280965123419753633
 Rigidbody2D:
   serializedVersion: 4
@@ -240,7 +243,7 @@ MonoBehaviour:
   bodyCollider: {fileID: 8280965123419753638}
   attack: 20
   isChargeing: 1
-  chargeSpeed: -320
+  chargeSpeed: -350
   pursuitTarget: 0
   target: {fileID: 0}
 --- !u!114 &6498076516415996816
@@ -276,7 +279,7 @@ MonoBehaviour:
   target: {fileID: 0}
   distToPlayer: 0
   chargeEnemyAI: {fileID: 0}
-  lifeSpan: 6
+  lifeSpan: 5
   radiusLength: 25
   m_anim: {fileID: 5078706010710073741}
 --- !u!1001 &6498076517083663827
@@ -441,11 +444,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5799925286045260870, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.66
+      value: 0.79
       objectReference: {fileID: 0}
     - target: {fileID: 5799925286045260870, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.65
+      value: -5.32
       objectReference: {fileID: 0}
     - target: {fileID: 5799925286045260870, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -485,23 +488,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6772593874030888005, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.00084865093
+      value: -0.0008457899
       objectReference: {fileID: 0}
     - target: {fileID: 6772593874030888005, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 4.077693
+      value: 4.0777006
       objectReference: {fileID: 0}
     - target: {fileID: 6772593874030888005, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 1.1178453
+      value: 1.1178443
       objectReference: {fileID: 0}
     - target: {fileID: 7050417857143408397, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 0.0000076293945
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7050417857143408397, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.0011450052
+      value: 0.0011430979
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050417857143408397, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
+      propertyPath: m_Bounds.m_Extent.x
+      value: 0.59000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
