@@ -10,6 +10,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [SerializeField] private float stunTime = 5f;
     [SerializeField] private Slider healthBar;
     public bool cantStunYet;
+    [SerializeField] private GameObject stunEffect;
     //private SpriteRenderer quad; // quad to change its opacity
 
     [SerializeField] private int maxHealth = 100;
@@ -61,6 +62,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     {
         enemyMovement.IsStunned = true;
 
+        if (stunEffect != null)
+        {
+            stunEffect.SetActive(true);
+        }
         yield return new WaitForSeconds(stunTime);
 
         enemyMovement.IsStunned = false;
@@ -76,6 +81,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         //quad.color = new Color(oldColor.r, oldColor.g, oldColor.b, 0.5f);
 
         yield return new WaitForSeconds(stunTime);
+        if (stunEffect != null)
+        {
+            stunEffect.SetActive(false);
+        }
         cantStunYet = false;
         
         //quad.color = new Color(oldColor.r, oldColor.g, oldColor.b, 1f);
