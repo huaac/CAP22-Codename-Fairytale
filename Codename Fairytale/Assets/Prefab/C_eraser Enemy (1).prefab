@@ -63,7 +63,7 @@ Transform:
   m_GameObject: {fileID: 8280965123419753659}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 300.2, y: 36.46, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1.3}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1.3}
   m_Children:
   - {fileID: 8280965122512923226}
   - {fileID: 5051158686486907571}
@@ -138,6 +138,7 @@ MonoBehaviour:
   stunTime: 5
   healthBar: {fileID: 5051158686618567184}
   cantStunYet: 0
+  stunEffect: {fileID: 0}
   maxHealth: 20
   m_anim: {fileID: 0}
   OnEnemyDied:
@@ -242,6 +243,7 @@ MonoBehaviour:
     m_Bits: 64
   bodyCollider: {fileID: 8280965123419753638}
   attack: 20
+  isEraser: 1
   isChargeing: 1
   chargeSpeed: -350
   pursuitTarget: 0
@@ -262,7 +264,7 @@ MonoBehaviour:
   facingR: 0
   flipIt: 0
   generalSpeed: 10
-  isFacingTarget: 0
+  isFacingTarget: 1
   activatePursuit: 0
 --- !u!114 &2218313329643558888
 MonoBehaviour:
@@ -448,7 +450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5799925286045260870, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.32
+      value: -4.16
       objectReference: {fileID: 0}
     - target: {fileID: 5799925286045260870, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -484,19 +486,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6772593874030888005, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 0.0002603531
+      value: 0.00027513504
       objectReference: {fileID: 0}
     - target: {fileID: 6772593874030888005, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.0008457899
+      value: -0.00084626675
       objectReference: {fileID: 0}
     - target: {fileID: 6772593874030888005, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 4.0777006
+      value: 4.077685
       objectReference: {fileID: 0}
     - target: {fileID: 6772593874030888005, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 1.1178443
+      value: 1.1178453
       objectReference: {fileID: 0}
     - target: {fileID: 7050417857143408397, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -504,11 +506,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7050417857143408397, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.0011430979
+      value: 0.0011450052
       objectReference: {fileID: 0}
     - target: {fileID: 7050417857143408397, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 0.59000003
+      value: 0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050417857143408397, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
+      propertyPath: m_Bounds.m_Extent.y
+      value: 0.728855
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}

@@ -43,6 +43,7 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
     protected Collider2D bodyCollider;
 
     [SerializeField] private int attack;
+    [SerializeField] private bool isEraser;
     
 
     // Start is called before the first frame update
@@ -118,7 +119,7 @@ public class BasicEnemyAI : MonoBehaviour, IEnemy
         {
             Vector3 dir = (collision.gameObject.transform.position - gameObject.transform.position).normalized;
             //checks that object enemy collided with didn't land on top of enemy
-            if (dir.y < 0)
+            if (dir.y < 0 || isEraser)
             {
                 //damages player if enemy is not stunned and player has not already taken damage
                 if (!player.WasJustDamaged && !IsStunned)
