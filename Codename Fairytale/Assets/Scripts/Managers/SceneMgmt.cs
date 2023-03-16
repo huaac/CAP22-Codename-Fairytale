@@ -9,7 +9,7 @@ public class SceneMgmt : MonoBehaviour
     [SerializeField] private int restartCount;
     private GameObject musicSource;
     [SerializeField] private GameObject menuObject;
-
+    [SerializeField] private GameObject bossfightStart;
 
     //Loads Chapter Select
     public void ChapterSelect() 
@@ -72,6 +72,10 @@ public class SceneMgmt : MonoBehaviour
         {
             Pause();
             menuObject.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            bossfightStart.GetComponent<StartBossFight>().UIstuff();
         }
     }
 

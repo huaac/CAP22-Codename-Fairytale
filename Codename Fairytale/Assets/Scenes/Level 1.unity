@@ -25221,6 +25221,7 @@ MonoBehaviour:
   levelRestartDelay: 0
   restartCount: 0
   menuObject: {fileID: 0}
+  bossfightStart: {fileID: 2102292036}
 --- !u!1 &890303441
 GameObject:
   m_ObjectHideFlags: 0

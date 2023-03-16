@@ -26,15 +26,20 @@ public class StartBossFight : MonoBehaviour
         UIstuff();
     }
 
-    private void UIstuff()
+
+
+    public void UIstuff()
     {
-        GoatBoss.SetActive(true);
-        onBossFightStarted?.Invoke();
-        musicSource = GameObject.FindWithTag("Music");
-        musicSource.GetComponent<constantmusic>().battleTime();
-        hasStarted = true;
-        barriers.SetActive(true);
-        DestroySelf();
+        if (!hasStarted)
+        {
+            GoatBoss.SetActive(true);
+            onBossFightStarted?.Invoke();
+            musicSource = GameObject.FindWithTag("Music");
+            musicSource.GetComponent<constantmusic>().battleTime();
+            hasStarted = true;
+            barriers.SetActive(true);
+            DestroySelf();
+        }
     }
 
     private void DestroySelf()
