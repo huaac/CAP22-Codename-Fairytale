@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3867398612400247812}
   - component: {fileID: 3867398612400247809}
   - component: {fileID: 3867398612400247814}
-  - component: {fileID: 3867398612400247815}
+  - component: {fileID: 3168087160920610938}
   - component: {fileID: 2120607469882923827}
   - component: {fileID: 2120607469882923824}
   - component: {fileID: 2120607469882923831}
@@ -162,8 +162,8 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3780472, y: 2.2705321}
   m_EdgeRadius: 0
---- !u!61 &3867398612400247815
-BoxCollider2D:
+--- !u!70 &3168087160920610938
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -175,19 +175,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.56}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.33}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.042331174, y: -0.59251827}
+  m_Size: {x: 1.1114198, y: 0.3496113}
+  m_Direction: 1
 --- !u!114 &2120607469882923827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +204,7 @@ MonoBehaviour:
     m_Bits: 64
   bodyCollider: {fileID: 3867398612400247814}
   attack: 20
+  isEraser: 0
   isChargeing: 0
   chargeSpeed: 200
   pursuitTarget: 1
@@ -5165,6 +5156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pencil enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3274372973752885339, guid: bd5c72edff9c15b4d9d4f877d7f246ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3355971253255868382, guid: bd5c72edff9c15b4d9d4f877d7f246ef, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -5175,11 +5170,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4353486647681423307, guid: bd5c72edff9c15b4d9d4f877d7f246ef, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 0.058959723
+      value: 0.05899024
       objectReference: {fileID: 0}
     - target: {fileID: 4353486647681423307, guid: bd5c72edff9c15b4d9d4f877d7f246ef, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.0049573183
+      value: 0.004961133
       objectReference: {fileID: 0}
     - target: {fileID: 4353486647681423307, guid: bd5c72edff9c15b4d9d4f877d7f246ef, type: 3}
       propertyPath: m_Bounds.m_Extent.x
@@ -5191,15 +5186,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4547663760406040765, guid: bd5c72edff9c15b4d9d4f877d7f246ef, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 0.06993091
+      value: 0.069885135
       objectReference: {fileID: 0}
     - target: {fileID: 4547663760406040765, guid: bd5c72edff9c15b4d9d4f877d7f246ef, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.0061798096
+      value: 0.00617218
       objectReference: {fileID: 0}
     - target: {fileID: 4547663760406040765, guid: bd5c72edff9c15b4d9d4f877d7f246ef, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 1.2966079
+      value: 1.2966231
       objectReference: {fileID: 0}
     - target: {fileID: 4547663760406040765, guid: bd5c72edff9c15b4d9d4f877d7f246ef, type: 3}
       propertyPath: m_Bounds.m_Extent.y

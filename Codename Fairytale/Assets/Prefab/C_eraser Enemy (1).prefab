@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8280965123419753636}
   - component: {fileID: 8280965123419753633}
   - component: {fileID: 8280965123419753638}
-  - component: {fileID: 8280965123419753639}
+  - component: {fileID: 4076263256385865439}
   - component: {fileID: 6498076516415996819}
   - component: {fileID: 6498076516415996816}
   - component: {fileID: 2218313329643558888}
@@ -191,8 +191,8 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.42, y: 4.51}
   m_EdgeRadius: 0
---- !u!61 &8280965123419753639
-BoxCollider2D:
+--- !u!70 &4076263256385865439
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -204,19 +204,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -2.4}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.56, y: 0.73}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.00001559209, y: -2.462587}
+  m_Size: {x: 4.5700026, y: 0.7688404}
+  m_Direction: 1
 --- !u!114 &6498076516415996819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,27 +476,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6772593874030888005, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 0.00027513504
+      value: 0.00028276443
       objectReference: {fileID: 0}
     - target: {fileID: 6772593874030888005, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.00084626675
+      value: -0.00084745884
       objectReference: {fileID: 0}
     - target: {fileID: 6772593874030888005, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 4.077685
+      value: 4.077708
       objectReference: {fileID: 0}
     - target: {fileID: 6772593874030888005, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 1.1178453
+      value: 1.1178472
       objectReference: {fileID: 0}
     - target: {fileID: 7050417857143408397, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 0
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 7050417857143408397, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.0011450052
+      value: 0.0011411905
       objectReference: {fileID: 0}
     - target: {fileID: 7050417857143408397, guid: ada9db2d55f786f4eb82e49c5e7cea9f, type: 3}
       propertyPath: m_Bounds.m_Extent.x

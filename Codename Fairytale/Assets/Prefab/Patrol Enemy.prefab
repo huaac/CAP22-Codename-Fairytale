@@ -4818,7 +4818,7 @@ GameObject:
   - component: {fileID: 2938083971043162967}
   - component: {fileID: 2938083971043162966}
   - component: {fileID: 2938083971043162961}
-  - component: {fileID: 2938083971043162960}
+  - component: {fileID: 1880484082}
   m_Layer: 6
   m_Name: Patrol Enemy
   m_TagString: Untagged
@@ -4943,6 +4943,7 @@ MonoBehaviour:
     m_Bits: 64
   bodyCollider: {fileID: 2938083971043162961}
   attack: 20
+  isEraser: 0
 --- !u!50 &2938083971043162966
 Rigidbody2D:
   serializedVersion: 4
@@ -4990,8 +4991,8 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.208295, y: 1.1144329}
   m_EdgeRadius: 0
---- !u!61 &2938083971043162960
-BoxCollider2D:
+--- !u!70 &1880484082
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5003,19 +5004,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.44224548}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.21813059}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.000000053677482, y: -0.4502794}
+  m_Size: {x: 1.0000001, y: 0.26862514}
+  m_Direction: 1
 --- !u!1 &2938083972151156140
 GameObject:
   m_ObjectHideFlags: 0
