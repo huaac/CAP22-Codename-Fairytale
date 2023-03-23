@@ -2406,8 +2406,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -185, y: -19.713787}
-  m_SizeDelta: {x: 320.5347, y: 238.8239}
+  m_AnchoredPosition: {x: -185, y: -48.162106}
+  m_SizeDelta: {x: 320.5347, y: 295.7205}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2094293638
 MonoBehaviour:
@@ -2460,7 +2460,10 @@ MonoBehaviour:
 
 
     Mindy
-    Jun - Programming'
+    Jun - Programming
+
+
+    Stephen Trinh - Mentor'
 --- !u!222 &2094293639
 CanvasRenderer:
   m_ObjectHideFlags: 0
